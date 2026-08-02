@@ -1,0 +1,8 @@
+node_modules
+*.log
+
+# Environment variables (never commit real secrets)
+.env
+.env.local
+
+.DS_Store
