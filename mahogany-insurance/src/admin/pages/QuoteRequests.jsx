@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Trash2, Phone, Mail } from "lucide-react";
+import { Trash2, Phone, Mail, Download } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { getQuotes, updateQuoteStatus, deleteQuote } from "../lib/api";
 
@@ -9,11 +9,32 @@ const statusStyles = {
   closed: "bg-navy/5 text-navy/60 border-navy/15",
 };
 
+const FILTERS = ["all", "new", "contacted", "closed"];
+
+function exportCsv(rows) {
+  const esc = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const header = ["ID", "Name", "Phone", "Email", "Insurance Type", "Details", "Status", "Created"];
+  const lines = [header.map(esc).join(",")];
+  for (const q of rows) {
+    lines.push(
+      [q.id, q.name, q.phone, q.email, q.insurance_type, q.details, q.status, q.created_at].map(esc).join(",")
+    );
+  }
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `quote-requests-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 export default function QuoteRequests() {
   const { token } = useAuth();
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [filter, setFilter] = useState("all");
 
   function load() {
     setLoading(true);
@@ -24,6 +45,14 @@ export default function QuoteRequests() {
   }
 
   useEffect(load, [token]);
+
+  const counts = {
+    all: quotes.length,
+    new: quotes.filter((q) => q.status === "new").length,
+    contacted: quotes.filter((q) => q.status === "contacted").length,
+    closed: quotes.filter((q) => q.status === "closed").length,
+  };
+  const visible = filter === "all" ? quotes : quotes.filter((q) => q.status === filter);
 
   async function handleStatusChange(id, status) {
     const updated = await updateQuoteStatus(token, id, status);
@@ -38,17 +67,49 @@ export default function QuoteRequests() {
 
   return (
     <div className="p-8">
-      <p className="text-xs font-semibold uppercase tracking-widest text-brass-dark mb-1">Manage</p>
-      <h1 className="font-display text-3xl text-navy mb-8">Quote Requests</h1>
+      <div className="flex items-start justify-between gap-4 mb-8">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-brass-dark mb-1">Manage</p>
+          <h1 className="font-display text-3xl text-navy">Quote Requests</h1>
+        </div>
+        <button
+          onClick={() => exportCsv(visible)}
+          disabled={visible.length === 0}
+          className="inline-flex items-center gap-1.5 border border-navy/20 text-navy text-sm font-semibold px-4 py-2 rounded-sm hover:bg-navy/5 disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-ring"
+        >
+          <Download size={15} /> Export CSV
+        </button>
+      </div>
 
       {error && <p className="text-sm text-red-700 mb-6">{error}</p>}
+
+      <div className="grid sm:grid-cols-4 gap-4 mb-8">
+        {FILTERS.map((f) => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`text-left bg-white border rounded-sm p-5 transition-colors focus-ring ${
+              filter === f ? "border-navy" : "border-navy/10 hover:border-navy/30"
+            }`}
+          >
+            <span className="text-3xl font-display text-navy block">{counts[f] ?? "—"}</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-ink/50">
+              {f === "all" ? "Total" : f}
+            </span>
+          </button>
+        ))}
+      </div>
+
       {loading && <p className="text-sm text-ink/60">Loading...</p>}
       {!loading && quotes.length === 0 && (
         <p className="text-sm text-ink/60">No quote requests yet — they'll show up here as soon as someone submits the form.</p>
       )}
+      {!loading && quotes.length > 0 && visible.length === 0 && (
+        <p className="text-sm text-ink/60">No {filter} requests in this view.</p>
+      )}
 
       <div className="space-y-4 max-w-4xl">
-        {quotes.map((q) => (
+        {visible.map((q) => (
           <div key={q.id} className="bg-white border border-navy/10 rounded-sm p-5">
             <div className="flex items-start justify-between gap-4 mb-3">
               <div>

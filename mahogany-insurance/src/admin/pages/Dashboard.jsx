@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MailQuestion, Clock, CheckCircle2, ArrowRight, FileText } from "lucide-react";
+import { MailQuestion, Clock, CheckCircle2, ArrowRight, FileText, Users } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { getQuotes } from "../lib/api";
 
@@ -46,7 +46,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-3 gap-5">
         <Link
           to="/admin/quotes"
           className="flex items-center justify-between bg-navy text-white rounded-sm p-6 hover:bg-navy-dark transition-colors"
@@ -63,7 +63,17 @@ export default function Dashboard() {
         >
           <div>
             <p className="font-display text-lg text-navy mb-1 flex items-center gap-2"><FileText size={18} className="text-brass" /> Site Content</p>
-            <p className="text-sm text-ink/60">Edit text across the public website</p>
+            <p className="text-sm text-ink/60">Edit contact details and FAQs</p>
+          </div>
+          <ArrowRight size={20} className="text-navy" />
+        </Link>
+        <Link
+          to="/admin/users"
+          className="flex items-center justify-between bg-white border border-navy/10 rounded-sm p-6 hover:border-green/50 transition-colors"
+        >
+          <div>
+            <p className="font-display text-lg text-navy mb-1 flex items-center gap-2"><Users size={18} className="text-brass" /> Admin Users</p>
+            <p className="text-sm text-ink/60">Manage who can sign in</p>
           </div>
           <ArrowRight size={20} className="text-navy" />
         </Link>

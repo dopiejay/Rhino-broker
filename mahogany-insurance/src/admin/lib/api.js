@@ -63,3 +63,25 @@ export async function deleteQuote(token, id) {
   });
   return handle(res);
 }
+
+export async function getAdmins(token) {
+  const res = await fetch(`${API_URL}/api/admins`, { headers: authHeaders(token) });
+  return handle(res);
+}
+
+export async function createAdmin(token, username, password) {
+  const res = await fetch(`${API_URL}/api/admins`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...authHeaders(token) },
+    body: JSON.stringify({ username, password }),
+  });
+  return handle(res);
+}
+
+export async function deleteAdmin(token, id) {
+  const res = await fetch(`${API_URL}/api/admins/${id}`, {
+    method: "DELETE",
+    headers: authHeaders(token),
+  });
+  return handle(res);
+}

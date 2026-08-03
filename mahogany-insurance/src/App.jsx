@@ -7,6 +7,7 @@ import AdminLogin from "./admin/pages/Login";
 import AdminDashboard from "./admin/pages/Dashboard";
 import AdminQuoteRequests from "./admin/pages/QuoteRequests";
 import AdminContentEditor from "./admin/pages/ContentEditor";
+import AdminUsers from "./admin/pages/AdminUsers";
 import PublicLayout from "./layouts/PublicLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -37,6 +38,7 @@ export default function App() {
               <Route index element={<AdminDashboard />} />
               <Route path="quotes" element={<AdminQuoteRequests />} />
               <Route path="content" element={<AdminContentEditor />} />
+              <Route path="users" element={<AdminUsers />} />
             </Route>
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
