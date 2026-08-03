@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "");
 
 async function handle(res) {
   if (!res.ok) {
@@ -26,15 +26,6 @@ export async function getContent() {
 
 export async function submitQuote(payload) {
   const res = await fetch(`${API_URL}/api/quotes`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  return handle(res);
-}
-
-export async function sendMessage(payload) {
-  const res = await fetch(`${API_URL}/api/messages`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

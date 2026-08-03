@@ -11,7 +11,6 @@ import {
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { sendMessage } from "../lib/api";
 import { useSiteContent } from "../site/SiteContentContext";
 
 const inputCls =
@@ -20,8 +19,6 @@ const inputCls =
 export default function Contact() {
   const { site } = useSiteContent();
   const [sent, setSent] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
   function handleChange(e) {
@@ -30,18 +27,10 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setSubmitting(true);
-    setError("");
-    sendMessage({
-      name: form.name,
-      email: form.email,
-      phone: form.phone || "",
-      subject: form.subject,
-      message: form.message,
-    })
-      .then(() => setSent(true))
-      .catch((err) => setError(err.message))
-      .finally(() => setSubmitting(false));
+    const subject = `[Website] ${form.subject}`;
+    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || "—"}\n\n${form.message}`;
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSent(true);
   }
 
   const cards = [
@@ -152,10 +141,10 @@ export default function Contact() {
                 <span className="w-20 h-20 rounded-full bg-emerald-soft text-emerald flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
-                <h2 className="font-display text-3xl text-navy mb-3">Message sent.</h2>
+                <h2 className="font-display text-3xl text-navy mb-3">Draft ready.</h2>
                 <p className="text-charcoal/60 text-lg leading-relaxed max-w-md mx-auto">
-                  Thanks for reaching out{form.name ? `, ${form.name.split(" ")[0]}` : ""}. We'll
-                  get back to you shortly. Need us sooner?
+                  We've opened your email app with the message filled in — just hit send
+                  {form.name ? `, ${form.name.split(" ")[0]}` : ""}. Need us sooner?
                 </p>
                 <a
                   href={site.phoneHref}
@@ -198,16 +187,10 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
                   >
-                    {submitting ? "Sending..." : "Send Message"} <Send size={16} />
+                    Send Message <Send size={16} />
                   </button>
-                  {error && (
-                    <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-                      {error} Please try again, or call us directly.
-                    </p>
-                  )}
                 </div>
               </form>
             )}

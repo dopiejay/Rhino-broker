@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { SiteContentProvider } from "./site/SiteContentProvider";
-import Navbar from "./components/Navbar";
-import TopBar from "./components/TopBar";
-import Footer from "./components/Footer";
-import FloatingActions from "./components/FloatingActions";
+import { AuthProvider } from "./admin/context/AuthContext";
+import AdminLayout from "./admin/components/Layout";
+import AdminLogin from "./admin/pages/Login";
+import AdminDashboard from "./admin/pages/Dashboard";
+import AdminQuoteRequests from "./admin/pages/QuoteRequests";
+import AdminContentEditor from "./admin/pages/ContentEditor";
+import PublicLayout from "./layouts/PublicLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Team from "./pages/Team";
@@ -25,13 +28,17 @@ function ScrollToTop() {
 export default function App() {
   return (
     <SiteContentProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <div className="min-h-screen flex flex-col">
-          <TopBar />
-          <Navbar />
-          <main className="flex-1">
-            <Routes>
+      <AuthProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="quotes" element={<AdminQuoteRequests />} />
+              <Route path="content" element={<AdminContentEditor />} />
+            </Route>
+            <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/team" element={<Team />} />
@@ -40,12 +47,10 @@ export default function App() {
               <Route path="/claims" element={<Claims />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-          <Footer />
-          <FloatingActions />
-        </div>
-      </BrowserRouter>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </SiteContentProvider>
   );
 }

@@ -29,6 +29,21 @@ export default {
           dark: "#F2EDE1",
         },
         charcoal: "#171B26",
+        green: {
+          DEFAULT: "#4F8F52",
+          dark: "#3B6B3D",
+          light: "#7CB37E",
+        },
+        brass: {
+          DEFAULT: "#B8874A",
+          light: "#D4AC72",
+          dark: "#8F6633",
+        },
+        parchment: {
+          DEFAULT: "#FBFAF8",
+          dark: "#F1EEE7",
+        },
+        ink: "#171E26",
       },
       fontFamily: {
         display: ["Fraunces", "Georgia", "serif"],

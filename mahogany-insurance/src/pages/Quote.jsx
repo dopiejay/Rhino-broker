@@ -17,8 +17,6 @@ import { QUOTE_TYPES } from "../data/site";
 import { submitQuote } from "../lib/api";
 import { useSiteContent } from "../site/SiteContentContext";
 
-const CONTACT_METHODS = ["Phone", "Email", "WhatsApp"];
-
 export default function Quote() {
   const { site } = useSiteContent();
   const [submitted, setSubmitted] = useState(false);
@@ -29,7 +27,6 @@ export default function Quote() {
     phone: "",
     email: "",
     type: "",
-    method: "Phone",
     details: "",
   });
   const [fileName, setFileName] = useState("");
@@ -49,11 +46,9 @@ export default function Quote() {
     setError("");
     submitQuote({
       name: form.name,
-      company: form.company || "",
       phone: form.phone,
       email: form.email || "",
       insurance_type: form.type,
-      preferred_contact: form.method,
       details: form.details,
     })
       .then(() => setSubmitted(true))
@@ -159,7 +154,7 @@ export default function Quote() {
                 </h2>
                 <p className="text-charcoal/60 text-lg leading-relaxed max-w-md mx-auto mb-8">
                   We've received your {form.type ? `${form.type.toLowerCase()} ` : ""}request and
-                  will get back to you {form.method === "Email" ? "by email" : `on ${form.phone || "your number"}`} shortly
+                  will get back to you{form.phone ? ` on ${form.phone}` : ""} shortly
                   with quote options.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -187,21 +182,12 @@ export default function Quote() {
                 </p>
 
                 <div className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-navy mb-2">Full name *</label>
-                      <input
-                        id="name" name="name" type="text" required value={form.name} onChange={handleChange}
-                        className={inputCls} placeholder="Your full name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-semibold text-navy mb-2">Company (optional)</label>
-                      <input
-                        id="company" name="company" type="text" value={form.company || ""} onChange={handleChange}
-                        className={inputCls} placeholder="If you're enquiring for a business"
-                      />
-                    </div>
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold text-navy mb-2">Full name *</label>
+                    <input
+                      id="name" name="name" type="text" required value={form.name} onChange={handleChange}
+                      className={inputCls} placeholder="Your full name"
+                    />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -228,28 +214,6 @@ export default function Quote() {
                       {QUOTE_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
                     </select>
                   </div>
-
-                  <fieldset>
-                    <legend className="text-sm font-semibold text-navy mb-3">How should we contact you?</legend>
-                    <div className="flex flex-wrap gap-3">
-                      {CONTACT_METHODS.map((m) => (
-                        <label key={m} className="cursor-pointer">
-                          <input
-                            type="radio"
-                            name="method"
-                            value={m}
-                            checked={form.method === m}
-                            onChange={handleChange}
-                            className="peer sr-only"
-                          />
-                          <span className="inline-flex items-center gap-2 border border-navy/15 rounded-full px-5 py-2.5 text-sm font-medium text-charcoal/70 peer-checked:bg-navy peer-checked:text-white peer-checked:border-navy transition-colors focus-ring">
-                            {m === "Phone" ? <Phone size={14} /> : m === "Email" ? <Mail size={14} /> : <MessageCircle size={14} />}
-                            {m}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
 
                   <div>
                     <label htmlFor="details" className="block text-sm font-semibold text-navy mb-2">Tell us more *</label>

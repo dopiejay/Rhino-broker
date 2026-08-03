@@ -17,8 +17,8 @@ Blantyre with no existing website.
   forms / emergency contact strip
 - **Resources** — insurance tips and an FAQ accordion, aimed at SEO and
   building trust before someone even calls
-- **Request a Quote** — a working front-end form (name, phone, email,
-  insurance type, details) with a success state
+- **Request a Quote** — a working form (name, phone, email, insurance type,
+  details) that submits to the backend and shows a success state
 - **Contact** — office address, phone, email, WhatsApp link, embedded map
 
 Brand palette: white/cream as the dominant background, dark navy as the
@@ -67,11 +67,11 @@ GitHub repo and import it into Vercel (framework preset: Vite), or run
    directly — verify these are current before publishing.
 2. **WhatsApp number** on the Contact page currently reuses the phone
    number as a guess — confirm they actually have WhatsApp on that line.
-3. **Quote form has no backend yet.** Right now submitting it just
-   shows a success message in the browser — it doesn't actually send
-   anywhere. Before going live, wire it to an email service (e.g.
-   Resend, EmailJS) or a small backend endpoint so submissions reach
-   their inbox. Happy to build that next if you want.
+3. **Contact form opens an email draft.** Submitting "Send us a message"
+   opens a pre-filled email to the office address (it doesn't post to the
+   backend). If you'd rather have messages land in a database inbox, the
+   backend previously had a `/api/messages` inbox + admin Messages page —
+   happy to restore that.
 4. **No real photography or team info used.** I deliberately didn't
    invent staff names, photos, or a founding story — only used facts
    that are publicly verifiable (licensing, the MEC contract). If you
@@ -86,9 +86,13 @@ GitHub repo and import it into Vercel (framework preset: Vite), or run
 src/
   components/   Navbar, Footer, GrainDivider (signature element), HeroSlider
   pages/        Home, About, Services, Claims, Resources, Quote, Contact
-  App.jsx       Routing
+  layouts/      PublicLayout (site chrome for the public routes)
+  admin/        The admin dashboard (login, dashboard, quotes, content editor)
+  site/         SiteContentProvider — merges backend content over built-in defaults
+  App.jsx       Routing — public pages plus /admin/* for the dashboard
   index.css     Base styles, fonts, focus states
-tailwind.config.js   Brand color tokens (navy, green, brass, parchment, ink)
+tailwind.config.js   Brand color tokens (navy, emerald, gold, cream, charcoal,
+                     green, brass, parchment, ink)
 ```
 
 ## Ideas held back for a "Phase 2" pitch (not built yet)
@@ -96,6 +100,7 @@ tailwind.config.js   Brand color tokens (navy, green, brass, parchment, ink)
 Worth mentioning to Mahogany as a roadmap if the initial site lands
 well, rather than building them into this demo: a client portal for
 tracking policies/claims, secure document uploads, renewal reminders,
-an admin dashboard for managing quote requests, and a quote calculator.
+and a quote calculator. (An admin dashboard already exists at
+`/admin` for managing quote requests and editing site content.)
 Keeping these as a follow-up conversation avoids overbuilding the demo
 before they've even said yes.
