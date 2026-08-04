@@ -6,15 +6,15 @@ const router = Router();
 
 // Public: submit a quote request from the site's Quote form
 router.post("/", async (req, res) => {
-  const { name, company, phone, email, insurance_type, preferred_contact, details } = req.body || {};
+  const { name, phone, email, insurance_type, details } = req.body || {};
   if (!name || !phone) {
     return res.status(400).json({ error: "Name and phone are required" });
   }
 
   const { rows } = await pool.query(
-    `INSERT INTO quote_requests (name, company, phone, email, insurance_type, preferred_contact, details)
-     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-    [name, company || null, phone, email || null, insurance_type || null, preferred_contact || null, details || null]
+    `INSERT INTO quote_requests (name, phone, email, insurance_type, details)
+     VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+    [name, phone, email || null, insurance_type || null, details || null]
   );
 
   res.status(201).json(rows[0]);

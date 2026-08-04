@@ -4,7 +4,7 @@ import { Search, ChevronDown, ArrowRight, BookOpen, Newspaper, LifeBuoy } from "
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { TIPS, NEWS, IMAGES } from "../data/site";
+import { IMAGES } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 const GUIDES = [
@@ -29,7 +29,7 @@ const GUIDES = [
 ];
 
 export default function Resources() {
-  const { site, faqs } = useSiteContent();
+  const { site, faqs, news, tips } = useSiteContent();
   const [openFaq, setOpenFaq] = useState(0);
   const [query, setQuery] = useState("");
 
@@ -89,7 +89,7 @@ export default function Resources() {
             className="mb-12"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TIPS.map((t, idx) => (
+            {tips.map((t, idx) => (
               <Reveal key={t.title} delay={(idx % 3) * 90} className="bg-white/[0.04] border border-white/10 rounded-2xl p-7 hover:bg-white/[0.07] transition-colors">
                 <span className="font-display text-3xl font-light text-gold mb-4 block">{String(idx + 1).padStart(2, "0")}</span>
                 <h3 className="font-display text-xl mb-2">{t.title}</h3>
@@ -110,7 +110,7 @@ export default function Resources() {
             className="mb-12"
           />
           <div className="grid md:grid-cols-3 gap-6">
-            {NEWS.map((n, idx) => (
+            {news.map((n, idx) => (
               <Reveal key={n.title} delay={idx * 100} className="group bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
                 <div className="flex items-center gap-2.5 mb-5">
                   <Newspaper size={17} className="text-gold-dark" />

@@ -63,7 +63,7 @@ export default function Dashboard() {
         >
           <div>
             <p className="font-display text-lg text-navy mb-1 flex items-center gap-2"><FileText size={18} className="text-brass" /> Site Content</p>
-            <p className="text-sm text-ink/60">Edit contact details and FAQs</p>
+            <p className="text-sm text-ink/60">Edit contact details, FAQs, news & tips</p>
           </div>
           <ArrowRight size={20} className="text-navy" />
         </Link>

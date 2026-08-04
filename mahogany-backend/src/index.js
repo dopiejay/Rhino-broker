@@ -5,7 +5,7 @@ import { initSchema } from "./db.js";
 import authRoutes from "./routes/auth.js";
 import contentRoutes from "./routes/content.js";
 import quoteRoutes from "./routes/quotes.js";
-import messageRoutes from "./routes/messages.js";
+import adminRoutes from "./routes/admins.js";
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/quotes", quoteRoutes);
-app.use("/api/messages", messageRoutes);
+app.use("/api/admins", adminRoutes);
 
 // Fallback error handler so unexpected errors return JSON, not an HTML stack trace
 app.use((err, req, res, next) => {

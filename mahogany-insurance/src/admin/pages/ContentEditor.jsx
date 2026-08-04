@@ -64,6 +64,8 @@ export default function ContentEditor() {
 
   const contactInfo = content.contact_info || {};
   const faqs = content.faqs || { items: [] };
+  const news = content.news || { items: [] };
+  const tips = content.tips || { items: [] };
 
   const st = (key) => status[key] || {};
 
@@ -100,7 +102,7 @@ export default function ContentEditor() {
 
       <SectionCard
         title="FAQ Questions"
-        description="Shown on the Resources page. Other site text is managed in code, not here."
+        description="Shown on the Resources page. Add, edit or remove entries, then Save."
         onSave={() => save("faqs")}
         {...st("faqs")}
       >
@@ -112,6 +114,49 @@ export default function ContentEditor() {
           fields={[
             { key: "q", label: "Question", type: "textarea", wide: true },
             { key: "a", label: "Answer", type: "textarea", wide: true },
+          ]}
+        />
+      </SectionCard>
+
+      <SectionCard
+        title="News & Updates"
+        description="Featured on the home page and Resources page. Use the same category names for a consistent look."
+        onSave={() => save("news")}
+        {...st("news")}
+      >
+        <RepeatableList
+          items={news.items || []}
+          onChange={(items) => setBlock("news", { items })}
+          itemLabel="News Item"
+          emptyItem={{ category: "Company Update", title: "", date: "", body: "" }}
+          fields={[
+            { key: "title", label: "Title", type: "text", wide: true },
+            { key: "body", label: "Body", type: "textarea", wide: true },
+            {
+              key: "category",
+              label: "Category",
+              type: "select",
+              options: ["Company Update", "Insurance Tip", "News", "Client Story", "Industry Update"],
+            },
+            { key: "date", label: "Date (e.g. Aug 2026)" },
+          ]}
+        />
+      </SectionCard>
+
+      <SectionCard
+        title="Insurance Tips"
+        description="Shown on the Resources page. Short, practical tips presented as numbered cards."
+        onSave={() => save("tips")}
+        {...st("tips")}
+      >
+        <RepeatableList
+          items={tips.items || []}
+          onChange={(items) => setBlock("tips", { items })}
+          itemLabel="Tip"
+          emptyItem={{ title: "", body: "" }}
+          fields={[
+            { key: "title", label: "Title", type: "text", wide: true },
+            { key: "body", label: "Body", type: "textarea", wide: true },
           ]}
         />
       </SectionCard>

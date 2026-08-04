@@ -26,6 +26,8 @@ import {
   SERVICE_CATEGORIES,
   CLAIM_STEPS,
   FAQS,
+  NEWS,
+  TIPS,
 } from "../data/site";
 
 const ICON_MAP = {
@@ -161,6 +163,24 @@ function mergeFaqs(live, fallback) {
   }));
 }
 
+function mergeNews(live, fallback) {
+  if (!Array.isArray(live) || live.length === 0) return fallback;
+  return live.map((n, i) => ({
+    category: n.category || fallback[i]?.category || "News",
+    title: n.title || fallback[i]?.title || "",
+    date: n.date || fallback[i]?.date || "",
+    body: n.body || fallback[i]?.body || "",
+  }));
+}
+
+function mergeTips(live, fallback) {
+  if (!Array.isArray(live) || live.length === 0) return fallback;
+  return live.map((t, i) => ({
+    title: t.title || fallback[i]?.title || "",
+    body: t.body || fallback[i]?.body || "",
+  }));
+}
+
 export function SiteContentProvider({ children }) {
   const [content, setContent] = useState(null);
 
@@ -186,6 +206,8 @@ export function SiteContentProvider({ children }) {
       serviceCategories: mergeServiceCategories(blocks.services_categories?.items, SERVICE_CATEGORIES),
       claimSteps: mergeClaimSteps(blocks.claims_steps?.items, CLAIM_STEPS),
       faqs: mergeFaqs(blocks.faqs?.items, FAQS),
+      news: mergeNews(blocks.news?.items, NEWS),
+      tips: mergeTips(blocks.tips?.items, TIPS),
     };
   }, [content]);
 

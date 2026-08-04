@@ -98,6 +98,13 @@ const defaultContent = {
       { icon: "CheckCircle", title: "You Get Settled", desc: "We stay involved until your claim is settled fairly and on time." },
     ],
   },
+  contact_info: {
+    address: "Umoyo House, 2nd Floor, North Wing, Blantyre",
+    phone: "+265 888 590 727",
+    email: "fthenda@milbrol.com",
+    hours: "Monday – Friday, 8:00 – 17:00",
+    whatsapp: "265888590727",
+  },
   faqs: {
     items: [
       { q: "What does an insurance broker actually do?", a: "A broker acts on your behalf, not the insurer's. We compare policies across multiple insurance companies, help you understand the cover and exclusions, arrange the policy and support you through renewals and claims." },
@@ -108,12 +115,22 @@ const defaultContent = {
       { q: "Do you offer cover outside Blantyre?", a: "Yes. We serve clients across Malawi. Most documentation and communication can be handled remotely, and group and corporate schemes are arranged nationwide." },
     ],
   },
-  contact_info: {
-    address: "Umoyo House, 2nd Floor, North Wing",
-    phone: "+265 888 590 727",
-    email: "fthenda@milbrol.com",
-    hours: "Monday – Friday, 8:00 – 17:00",
-    whatsapp: "265888590727",
+  news: {
+    items: [
+      { category: "Company Update", title: "Mahogany renews public-sector brokerage mandate", date: "Feb 2026", body: "We continue to service the motor and business all-risk requirements of the Malawi Electoral Commission as a licensed intermediary." },
+      { category: "Insurance Tip", title: "Five things to check before renewing your motor policy", date: "Jan 2026", body: "Market value vs agreed value, passenger liability limits, excesses, courtesy cover and how long your claim history stays with you." },
+      { category: "Company Update", title: "Why group medical cover matters for growing employers", date: "Dec 2025", body: "A healthier workforce is a more productive one. We compare group medical and group life schemes across Malawi's insurers for your team." },
+    ],
+  },
+  tips: {
+    items: [
+      { title: "Review your cover annually", body: "Circumstances change — a new vehicle, an asset, or business growth can mean your existing cover no longer fits. An annual review catches gaps early." },
+      { title: "Keep documentation organised", body: "Receipts, valuations and photos of insured items make claims faster to process if you ever need to make one." },
+      { title: "Understand your exclusions", body: "Every policy has exclusions. Knowing what isn't covered is just as important as knowing what is." },
+      { title: "Disclose honestly", body: "Accurate information at inception protects you later. Non-disclosure is one of the most common reasons claims are declined." },
+      { title: "Report incidents immediately", body: "Timely reporting protects your cover and speeds up settlement. Keep your broker's number saved for when you need it." },
+      { title: "Insure for replacement, not market value", body: "For buildings and stock, under-insurance can mean you're paid only a fraction of your loss. We help you get sums insured right." },
+    ],
   },
 };
 

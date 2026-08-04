@@ -16,13 +16,12 @@ import {
   WHY_US,
   INDUSTRIES,
   PROCESS,
-  NEWS,
   IMAGES,
 } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function Home() {
-  const { site, serviceCategories } = useSiteContent();
+  const { site, serviceCategories, news } = useSiteContent();
   return (
     <div>
       <HeroSlider />
@@ -292,7 +291,7 @@ export default function Home() {
             </Reveal>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {NEWS.map((n, idx) => (
+            {news.map((n, idx) => (
               <Reveal key={n.title} delay={idx * 100} className="group bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-dark bg-gold-soft rounded-full px-3 py-1.5">
