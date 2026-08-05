@@ -87,7 +87,6 @@ function mergeHeroSlides(live, fallback) {
       title,
       accent: title[1] || fb?.accent || "",
       subtitle: s.subtitle || fb?.subtitle || "",
-      body: s.body || fb?.body || "",
       cta: {
         to: s.ctaTo || fb?.cta?.to || "/quote",
         label: s.ctaLabel || fb?.cta?.label || "Request a Free Quote",

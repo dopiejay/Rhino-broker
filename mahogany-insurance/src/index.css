@@ -74,7 +74,7 @@ h1, h2, h3, h4 {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #F2EDE1;
+  background: #f8f9fa;
 }
 ::-webkit-scrollbar-thumb {
   background: #0B1F3A;

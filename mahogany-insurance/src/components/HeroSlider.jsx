@@ -93,12 +93,8 @@ export default function HeroSlider() {
             <em className="text-gold italic font-light">{slide.title[1]}</em>
           </h1>
 
-          <p className="text-white text-xl md:text-2xl font-medium leading-snug max-w-xl mt-6 animate-fadeup">
+          <p className="text-white text-lg md:text-xl leading-snug max-w-xl mt-6 animate-fadeup">
             {slide.subtitle}
-          </p>
-
-          <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-xl mt-4 animate-fadeup">
-            {slide.body}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-9 animate-fadeup">

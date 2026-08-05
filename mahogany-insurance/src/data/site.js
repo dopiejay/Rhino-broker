@@ -60,9 +60,7 @@ export const HERO_SLIDES = [
     eyebrow: "Licensed Insurance Broker · Blantyre, Malawi",
     title: ["Protecting What", "Matters Most"],
     accent: "Matters Most",
-    subtitle:
-      "Trusted insurance brokerage solutions for individuals, families, and businesses across Malawi.",
-    body: "Whether you're protecting your family, your vehicle, or your business, Mahogany Insurance Brokers connects you with reliable insurance solutions tailored to your needs.",
+    subtitle: "Insurance, arranged with care.",
     cta: { to: "/quote", label: "Request a Quote" },
     cta2: { to: "/services", label: "Explore Our Services" },
     image: "", // TODO: Add slide 1 background image (e.g. a professional Malawian family smiling outdoors)
@@ -72,8 +70,7 @@ export const HERO_SLIDES = [
     eyebrow: "Business Insurance",
     title: ["Protect Your Business", "with Confidence"],
     accent: "with Confidence",
-    subtitle: "Helping businesses manage risk with comprehensive insurance solutions.",
-    body: "From property and engineering insurance to public liability and goods in transit, we help businesses stay protected and prepared.",
+    subtitle: "Protect your business from the unexpected.",
     cta: { to: "/services", label: "Business Solutions" },
     cta2: { to: "/contact", label: "Contact Our Team" },
     image: "", // TODO: Add slide 2 background image (e.g. modern office buildings or a boardroom)
@@ -83,8 +80,7 @@ export const HERO_SLIDES = [
     eyebrow: "Motor Insurance",
     title: ["Drive with", "Peace of Mind"],
     accent: "Peace of Mind",
-    subtitle: "Reliable motor insurance for private and commercial vehicles.",
-    body: "We help you find the right motor insurance cover so you can stay focused on the road while we help manage the risks.",
+    subtitle: "Private and commercial cover you can rely on.",
     cta: { to: "/quote", label: "Get a Motor Quote" },
     cta2: { to: "/services", label: "Learn More" },
     image: "", // TODO: Add slide 3 background image (e.g. a modern vehicle on a highway)
@@ -94,8 +90,7 @@ export const HERO_SLIDES = [
     eyebrow: "Claims Assistance",
     title: ["Here When You", "Need Us Most"],
     accent: "Need Us Most",
-    subtitle: "Supporting you through every step of the claims process.",
-    body: "When the unexpected happens, our team is committed to helping you navigate the claims process efficiently and with confidence.",
+    subtitle: "We handle the paperwork and follow up on your behalf.",
     cta: { to: "/claims", label: "Claims Assistance" },
     cta2: { to: "/contact", label: "Contact Us" },
     image: "", // TODO: Add slide 4 background image (e.g. an advisor assisting a client with claim documents)
@@ -105,8 +100,7 @@ export const HERO_SLIDES = [
     eyebrow: "Get Started",
     title: ["Let's Find the Right", "Cover for You"],
     accent: "Cover for You",
-    subtitle: "Professional advice. Trusted insurance partners. Personalized solutions.",
-    body: "Speak with our experienced team today and receive guidance on choosing insurance that matches your needs and budget.",
+    subtitle: "Personalized cover that fits your needs and budget.",
     cta: { to: "/quote", label: "Request a Free Quote" },
     cta2: { to: SITE.phoneHref, label: "Call Us Today" },
     image: "", // TODO: Add slide 5 background image (e.g. a consultant meeting a client in a modern office)
