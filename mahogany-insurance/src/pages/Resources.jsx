@@ -11,7 +11,7 @@ const GUIDES = [
   {
     title: "A first-timer's guide to insurance in Malawi",
     body: "What third-party, comprehensive and agreed value actually mean — and how to choose without the jargon.",
-    image: IMAGES.documents,
+    image: IMAGES.firstTime,
     tag: "Guide",
   },
   {
@@ -23,7 +23,7 @@ const GUIDES = [
   {
     title: "Choosing the right group medical scheme",
     body: "Inpatient vs outpatient, dependants, networks and cost. A practical checklist for employers.",
-    image: IMAGES.office,
+    image: IMAGES.group,
     tag: "Guide",
   },
 ];
