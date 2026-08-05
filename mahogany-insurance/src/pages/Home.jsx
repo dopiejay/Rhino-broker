@@ -158,58 +158,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Claims band 
-      <section className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-2 gap-14 items-center">
-        <div>
-          <SectionHeading
-            eyebrow="Claims Assistance"
-            title="When it goes wrong,"
-            accent="we don't disappear."
-            description="A broker's job isn't done at the sale. If you need to claim, we notify your insurer, handle the paperwork and chase it until you're settled."
-          />
-          <div className="mt-9 space-y-5">
-            {[
-              { icon: FileCheck2, text: "We lodge and track your claim with the insurer" },
-              { icon: PhoneCall, text: "One call to report — we handle the rest" },
-              { icon: ShieldCheck, text: "We stay involved until your claim is settled fairly" },
-            ].map((it, idx) => (
-              <Reveal key={it.text} delay={idx * 90} className="flex items-center gap-4">
-                <span className="w-11 h-11 rounded-full bg-emerald-soft text-emerald flex items-center justify-center shrink-0">
-                  <it.icon size={20} />
-                </span>
-                <p className="text-navy font-medium">{it.text}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={250}>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <NavLink
-                to="/claims"
-                className="inline-flex items-center gap-2 bg-navy text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy-light transition-colors focus-ring"
-              >
-                See How Claims Work <ArrowRight size={16} />
-              </NavLink>
-              <a
-                href={site.phoneHref}
-                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
-              >
-                <PhoneCall size={16} /> {site.phone}
-              </a>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={120} className="relative">
-          <div className="rounded-2xl overflow-hidden shadow-lift">
-            <img src={IMAGES.claims} alt="An advisor supporting a client with a claim" className="w-full aspect-[4/3] object-cover" loading="lazy" />
-          </div>
-          <div className="absolute -bottom-6 -left-4 md:-left-8 bg-gold text-navy-deep rounded-2xl p-6 shadow-lift max-w-[240px]">
-            <div className="font-display text-3xl font-light">4 steps</div>
-            <p className="text-sm mt-1 text-navy-deep/70 leading-snug">from reporting an incident to settlement</p>
-          </div>
-        </Reveal>
-      </section>
-      */}
-
       {/* Process */}
       <section className="bg-gradient-to-br from-emerald via-emerald-dark to-emerald-deep text-white py-20 md:py-28 grain relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
@@ -243,36 +191,6 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-
-      {/* Stats + Testimonials 
-      <section className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <SectionHeading
-                eyebrow="By the Numbers"
-                title="Trust you can"
-                accent="measure."
-                description="Figures like these only come from staying with clients over the long term — not from chasing the next sale."
-              />
-              <div className="mt-12 bg-navy-deep text-white rounded-3xl p-10 md:p-12 grain relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-                <StatsBand />
-              </div>
-            </div>
-            <div>
-              <SectionHeading
-                eyebrow="Client Voices"
-                title="What clients"
-                accent="say about us."
-                className="mb-8"
-              />
-              <TestimonialCarousel />
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
 
       {/* News */}
       <section className="py-20 md:py-28 bg-cream-dark/60">
