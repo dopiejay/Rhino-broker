@@ -117,7 +117,7 @@ export default function Claims() {
 
           <div className="space-y-5">
             <Reveal className="relative rounded-2xl overflow-hidden shadow-lift">
-              <img src={IMAGES.documents} alt="Organised claim documents on a desk" className="w-full aspect-[16/10] object-cover" loading="lazy" />
+              <img src={IMAGES.chase} alt="An insurance advisor following up on a claim" className="w-full aspect-[16/10] object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 to-transparent" aria-hidden="true" />
               <div className="absolute bottom-0 p-7">
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-xs font-semibold text-white">

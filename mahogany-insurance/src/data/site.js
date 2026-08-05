@@ -36,6 +36,8 @@ import S2Business from "../assets/business.jpg";
 import S3Employees from "../assets/employee.jpg";
 import guideFirstTime from "../assets/firstTime.jpg";
 import guideGroup from "../assets/group.jpg";
+import claimChase from "../assets/chase.jpg";
+import aboutBroker from "../assets/broker.jpg";
 
 export const SITE = {
   name: "Mahogany Insurance Brokers",
@@ -561,6 +563,8 @@ export const IMAGES = {
   personStanding,
   firstTime: guideFirstTime,
   group: guideGroup,
+  chase: claimChase,
+  broker: aboutBroker,
   office:
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
   meeting:

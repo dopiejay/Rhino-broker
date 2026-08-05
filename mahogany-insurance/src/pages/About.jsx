@@ -4,8 +4,7 @@ import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
 import StatsBand from "../components/StatsBand";
-import { CREDENTIALS, IMAGES } from "../data/site";
-import { useSiteContent } from "../site/SiteContentContext";
+import { IMAGES } from "../data/site";import { useSiteContent } from "../site/SiteContentContext";
 
 export default function About() {
   const { site, values, journey, aboutIntro } = useSiteContent();
@@ -139,6 +138,31 @@ export default function About() {
       {/* Journey */}
       <section className="py-20 md:py-28 bg-cream-dark/60">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16">
+          <div className="flex flex-col">
+            <SectionHeading
+              eyebrow="Licences & Trust"
+              title="Credentials that"
+              accent="back every promise."
+            />
+            <Reveal className="relative mt-10 flex-1 rounded-2xl overflow-hidden shadow-lift">
+              <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full min-h-[420px] object-cover" loading="lazy" />
+            </Reveal>
+            <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
+              <NavLink
+                to="/team"
+                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+              >
+                Meet the Team <ArrowRight size={16} />
+              </NavLink>
+              <NavLink
+                to="/services"
+                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
+              >
+                Explore What We Cover
+              </NavLink>
+            </Reveal>
+          </div>
+
           <div>
             <SectionHeading
               eyebrow="Our Journey"
@@ -159,41 +183,6 @@ export default function About() {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-col">
-            <SectionHeading
-              eyebrow="Licences & Trust"
-              title="Credentials that"
-              accent="back every promise."
-            />
-            <div className="mt-10 space-y-4">
-              {CREDENTIALS.map((c, idx) => (
-                <Reveal key={c.title} delay={idx * 90} className="flex gap-5 bg-white border border-navy/8 rounded-2xl p-6 hover:shadow-card transition-all">
-                  <span className="w-12 h-12 rounded-xl bg-emerald-soft text-emerald flex items-center justify-center shrink-0">
-                    <c.icon size={22} />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg text-navy mb-1">{c.title}</h3>
-                    <p className="text-sm text-charcoal/60 leading-relaxed">{c.body}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
-              <NavLink
-                to="/team"
-                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-              >
-                Meet the Team <ArrowRight size={16} />
-              </NavLink>
-              <NavLink
-                to="/services"
-                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
-              >
-                Explore What We Cover
-              </NavLink>
-            </Reveal>
           </div>
         </div>
       </section>

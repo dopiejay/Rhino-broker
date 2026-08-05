@@ -198,7 +198,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
             <SectionHeading
               eyebrow="Latest Updates"
-              title="News, tips &"
+              title="News, tips and"
               accent="company updates."
             />
             <Reveal delay={150}>
