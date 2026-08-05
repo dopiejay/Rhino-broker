@@ -25,11 +25,11 @@ import {
 } from "lucide-react";
 
 import teamPlaceholder from "../assets/img-placeholder.jpg";
-import teamPlaceholder from "../assets/family.jpg";
-import teamPlaceholder from "../assets/people-meeting.jpg";
-import teamPlaceholder from "../assets/car.jpg";
-import teamPlaceholder from "../assets/advisor.jpg";
-import teamPlaceholder from "../assets/handshake.jpg";
+import heroFamily from "../assets/family.jpg";
+import heroBusiness from "../assets/people-meeting.jpg";
+import heroMotor from "../assets/car.jpg";
+import heroClaims from "../assets/advisor.jpg";
+import heroGetStarted from "../assets/handshake.jpg";
 
 export const SITE = {
   name: "Mahogany Insurance Brokers",
@@ -63,53 +63,53 @@ export const NAV_LINKS = [
 export const HERO_SLIDES = [
   {
     eyebrow: "Licensed Insurance Broker · Blantyre, Malawi",
-    title: ["Protect what", "matters most."],
-    accent: "matters most.",
-    body: "Professional insurance brokerage that compares across Malawi's trusted insurers to find the cover that genuinely fits your life and business.",
-    cta: { to: "/quote", label: "Request a Free Quote" },
-    cta2: { to: "/services", label: "Explore Cover" },
-    image: family,
-    alt: "A family walking together in warm light",
+    title: ["Protecting What", "Matters Most"],
+    accent: "Matters Most",
+    subtitle: "Insurance, arranged with care.",
+    cta: { to: "/quote", label: "Request a Quote" },
+    cta2: { to: "/services", label: "Explore Our Services" },
+    image: heroFamily,
+    alt: "A professional Malawian family smiling outdoors",
   },
   {
     eyebrow: "Business Insurance",
-    title: ["Business cover that", "keeps pace with you."],
-    accent: "keeps pace with you.",
-    body: "Fire, liability, engineering and marine cover, arranged around the way your business actually operates — not off the shelf.",
+    title: ["Protect Your Business", "with Confidence"],
+    accent: "with Confidence",
+    subtitle: "Protect your business from the unexpected.",
     cta: { to: "/services", label: "Business Solutions" },
-    cta2: { to: "/about", label: "Who We Are" },
-    image: people-meeting,
-    alt: "A bright modern corporate office interior",
+    cta2: { to: "/contact", label: "Contact Our Team" },
+    image: heroBusiness,
+    alt: "Modern office buildings and professionals in a boardroom",
   },
   {
     eyebrow: "Motor Insurance",
-    title: ["Drive with the", "right cover behind you."],
-    accent: "right cover behind you.",
-    body: "Private and commercial vehicle cover, compared across insurers so you get the right protection at the right premium.",
+    title: ["Drive with", "Peace of Mind"],
+    accent: "Peace of Mind",
+    subtitle: "Private and commercial cover you can rely on.",
     cta: { to: "/quote", label: "Get a Motor Quote" },
-    cta2: { to: "/services", label: "See Motor Options" },
-    image: car,
-    alt: "A modern car on an open road at dusk",
+    cta2: { to: "/services", label: "Learn More" },
+    image: heroMotor,
+    alt: "A modern vehicle on a highway",
   },
   {
-    eyebrow: "Claims Support",
-    title: ["We're with you", "when it matters most."],
-    accent: "when it matters most.",
-    body: "When it's time to claim, we handle the paperwork and follow up with the insurer on your behalf — until you're settled.",
-    cta: { to: "/claims", label: "See How Claims Work" },
-    cta2: { to: "/quote", label: "Talk to Us" },
-    image: advisor,
-    alt: "An advisor meeting a client in an office",
+    eyebrow: "Claims Assistance",
+    title: ["Here When You", "Need Us Most"],
+    accent: "Need Us Most",
+    subtitle: "We handle the paperwork and follow up on your behalf.",
+    cta: { to: "/claims", label: "Claims Assistance" },
+    cta2: { to: "/contact", label: "Contact Us" },
+    image: heroClaims,
+    alt: "An insurance advisor assisting a client with claim documents",
   },
   {
     eyebrow: "Get Started",
-    title: ["The right cover,", "at the right price."],
-    accent: "the right price.",
-    body: "Tell us a little about what you're protecting and we'll come back with options from across the market — no obligation.",
-    cta: { to: "/quote", label: "Request Your Free Quote" },
-    cta2: { to: "/contact", label: "Contact Us" },
-    image: handshake,
-    alt: "A confident business handshake",
+    title: ["Let's Find the Right", "Cover for You"],
+    accent: "Cover for You",
+    subtitle: "Personalized cover that fits your needs and budget.",
+    cta: { to: "/quote", label: "Request a Free Quote" },
+    cta2: { to: SITE.phoneHref, label: "Call Us Today" },
+    image: heroGetStarted,
+    alt: "A friendly consultant meeting with a client in a modern office",
   },
 ];
 
