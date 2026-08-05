@@ -180,25 +180,6 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-white border-t border-navy/5 py-20 md:py-24">
-        <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
-          <BookOpen size={26} className="text-gold-dark mx-auto mb-5" />
-          <h2 className="font-display text-3xl md:text-5xl text-navy leading-tight mb-5">
-            Still not sure what you <em className="text-gold italic">need?</em>
-          </h2>
-          <p className="text-charcoal/60 text-lg max-w-xl mx-auto leading-relaxed mb-9">
-            That's exactly what we're here for. Tell us about what you're protecting and
-            we'll recommend the right cover — plain language, no obligation.
-          </p>
-          <NavLink
-            to="/quote"
-            className="inline-flex items-center gap-2 bg-navy text-white font-semibold px-8 py-4 rounded-full hover:bg-navy-light transition-colors focus-ring"
-          >
-            Talk to an Advisor <ArrowRight size={17} />
-          </NavLink>
-        </div>
-      </section>
     </div>
   );
 }
