@@ -31,7 +31,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div className="relative">
             <Reveal className="relative z-10 rounded-2xl overflow-hidden shadow-lift">
-              <img src={IMAGES.office} alt="The Mahogany advisory team at work" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+              <img src={IMAGES.personStanding} alt="A Mahogany Insurance professional" className="w-full aspect-[4/5] object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" aria-hidden="true" />
             </Reveal>
             <Reveal

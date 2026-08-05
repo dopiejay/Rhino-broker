@@ -30,10 +30,10 @@ import heroBusiness from "../assets/people-meeting.jpg";
 import heroMotor from "../assets/car.jpg";
 import heroClaims from "../assets/advisor.jpg";
 import heroGetStarted from "../assets/handshake.jpg";
-import heroOfficer from "../assets/person-standing";
-import S1House from "../assets/house";
-import S3Employee from "../assets/employee";
-import S2Business from "../assets/business";
+import personStanding from "../assets/person-standing.jpg";
+import S1House from "../assets/house.jpg";
+import S2Business from "../assets/business.jpg";
+import S3Employees from "../assets/employee.jpg";
 
 export const SITE = {
   name: "Mahogany Insurance Brokers",
@@ -556,6 +556,7 @@ export const QUOTE_TYPES = [
 ];
 
 export const IMAGES = {
+  personStanding,
   office:
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
   meeting:
