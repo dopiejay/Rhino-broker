@@ -197,23 +197,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <section className="bg-navy-deep text-white py-20 md:py-24 grain relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <SectionHeading
-              align="center"
-              tone="dark"
-              eyebrow="By the Numbers"
-              title="A track record worth"
-              accent="insuring against."
-            />
-          </div>
-          <StatsBand />
-        </div>
-      </section>
-    </div>
+      </div>
   );
 }
