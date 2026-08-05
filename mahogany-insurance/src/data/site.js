@@ -30,6 +30,10 @@ import heroBusiness from "../assets/people-meeting.jpg";
 import heroMotor from "../assets/car.jpg";
 import heroClaims from "../assets/advisor.jpg";
 import heroGetStarted from "../assets/handshake.jpg";
+import heroOfficer from "../assets/person-standing";
+import S1House from "../assets/house";
+import S3Employee from "../assets/employee";
+import S2Business from "../assets/business";
 
 export const SITE = {
   name: "Mahogany Insurance Brokers",
@@ -232,8 +236,7 @@ export const SERVICE_CATEGORIES = [
     tagline: "Cover for you, your family and the things you own.",
     intro:
       "Life's big purchases — a car, a home, a journey — deserve proper protection. We find personal cover that fits your budget without cutting corners.",
-    image:
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1600&q=80",
+    image: S1House,
     items: [
       {
         icon: Car,
@@ -271,8 +274,7 @@ export const SERVICE_CATEGORIES = [
     tagline: "Cover for the risks that come with running a business.",
     intro:
       "Your business is exposed to more than you think — fire, theft, third-party claims, machinery breakdown. We put together a programme that fits how you actually operate.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    image: S2Business,
     items: [
       {
         icon: Flame,
@@ -317,8 +319,7 @@ export const SERVICE_CATEGORIES = [
     tagline: "Cover that helps you look after your team.",
     intro:
       "Your people are your most valuable asset. We compare group medical and group life schemes across insurers so you can offer real protection at a sensible cost.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+    image: S3Employees,
     items: [
       {
         icon: Users,
