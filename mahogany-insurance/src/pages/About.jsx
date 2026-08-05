@@ -143,20 +143,7 @@ export default function About() {
             <Reveal className="relative mt-10 flex-1 rounded-2xl overflow-hidden shadow-lift">
               <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full min-h-[420px] object-cover" loading="lazy" />
             </Reveal>
-            <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
-              <NavLink
-                to="/team"
-                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-              >
-                Meet the Team <ArrowRight size={16} />
-              </NavLink>
-              <NavLink
-                to="/services"
-                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
-              >
-                Explore What We Cover
-              </NavLink>
-            </Reveal>
+           
           </div>
 
           <div>
@@ -179,6 +166,20 @@ export default function About() {
                 ))}
               </div>
             </div>
+             <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
+              <NavLink
+                to="/team"
+                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+              >
+                Meet the Team <ArrowRight size={16} />
+              </NavLink>
+              <NavLink
+                to="/services"
+                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
+              >
+                Explore What We Cover
+              </NavLink>
+            </Reveal>
           </div>
         </div>
       </section>
