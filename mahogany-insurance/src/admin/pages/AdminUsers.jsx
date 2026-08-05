@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { getAdmins, createAdmin, deleteAdmin } from "../lib/api";
 
 export default function AdminUsers() {
-  const { token, username } = useAuth();
+  const { username } = useAuth();
   const [admins, setAdmins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -13,20 +13,20 @@ export default function AdminUsers() {
 
   function load() {
     setLoading(true);
-    getAdmins(token)
+    getAdmins()
       .then(setAdmins)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }
 
-  useEffect(load, [token]);
+  useEffect(load, []);
 
   async function handleCreate(e) {
     e.preventDefault();
     setSaving(true);
     setError("");
     try {
-      await createAdmin(token, form.username, form.password);
+      await createAdmin(form.username, form.password);
       setForm({ username: "", password: "" });
       load();
     } catch (err) {
@@ -40,7 +40,7 @@ export default function AdminUsers() {
     if (!confirm("Delete this admin account? They'll no longer be able to sign in.")) return;
     setError("");
     try {
-      await deleteAdmin(token, id);
+      await deleteAdmin(id);
       setAdmins((a) => a.filter((x) => x.id !== id));
     } catch (err) {
       setError(err.message);

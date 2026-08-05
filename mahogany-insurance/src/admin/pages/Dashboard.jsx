@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MailQuestion, Clock, CheckCircle2, ArrowRight, FileText, Users } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
 import { getQuotes } from "../lib/api";
 
 export default function Dashboard() {
-  const { token } = useAuth();
   const [quotes, setQuotes] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    getQuotes(token).then(setQuotes).catch((err) => setError(err.message));
-  }, [token]);
+    getQuotes().then(setQuotes).catch((err) => setError(err.message));
+  }, []);
 
   const counts = quotes
     ? {

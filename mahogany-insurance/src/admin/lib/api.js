@@ -1,7 +1,19 @@
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "");
 
-function authHeaders(token) {
-  return token ? { Authorization: `Bearer ${token}` } : {};
+const TOKEN_KEY = "mahogany_admin_token";
+const REFRESH_KEY = "mahogany_admin_refresh_token";
+
+let onNewToken = null;
+let onSessionExpired = null;
+let refreshInFlight = null;
+
+export function registerAuthListeners({ onNewToken: n, onSessionExpired: e }) {
+  onNewToken = n;
+  onSessionExpired = e;
+}
+
+function getStoredToken() {
+  return localStorage.getItem(TOKEN_KEY);
 }
 
 async function handle(res) {
@@ -19,69 +31,101 @@ async function handle(res) {
   return res.json();
 }
 
+function rawFetch(path, options, auth) {
+  const headers = {
+    ...(options.body ? { "Content-Type": "application/json" } : {}),
+    ...options.headers,
+  };
+  if (auth) {
+    const token = getStoredToken();
+    if (token) headers.Authorization = `Bearer ${token}`;
+  }
+  return fetch(`${API_URL}${path}`, { ...options, headers });
+}
+
+async function refreshSession() {
+  if (refreshInFlight) return refreshInFlight;
+  refreshInFlight = (async () => {
+    const refreshToken = localStorage.getItem(REFRESH_KEY);
+    if (!refreshToken) return false;
+    try {
+      const res = await fetch(`${API_URL}/api/auth/refresh`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ refreshToken }),
+      });
+      if (!res.ok) return false;
+      const data = await res.json();
+      onNewToken?.(data.token, data.refreshToken);
+      return true;
+    } catch {
+      return false;
+    } finally {
+      refreshInFlight = null;
+    }
+  })();
+  return refreshInFlight;
+}
+
+async function request(path, options = {}, auth = true) {
+  const res = await rawFetch(path, options, auth);
+  if (res.status === 401 && auth) {
+    const refreshed = await refreshSession();
+    if (refreshed) {
+      const retryRes = await rawFetch(path, options, true);
+      return handle(retryRes);
+    }
+    onSessionExpired?.();
+  }
+  return handle(res);
+}
+
 export async function login(username, password) {
-  const res = await fetch(`${API_URL}/api/auth/login`, {
+  const res = await rawFetch("/api/auth/login", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
-  });
+  }, false);
   return handle(res);
 }
 
 export async function getContent() {
-  const res = await fetch(`${API_URL}/api/content`);
+  const res = await rawFetch("/api/content", {}, false);
   return handle(res);
 }
 
-export async function updateContent(token, key, data) {
-  const res = await fetch(`${API_URL}/api/content/${key}`, {
+export async function updateContent(key, data) {
+  return request(`/api/content/${key}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json", ...authHeaders(token) },
     body: JSON.stringify(data),
   });
-  return handle(res);
 }
 
-export async function getQuotes(token) {
-  const res = await fetch(`${API_URL}/api/quotes`, { headers: authHeaders(token) });
-  return handle(res);
+export async function getQuotes() {
+  return request("/api/quotes");
 }
 
-export async function updateQuoteStatus(token, id, status) {
-  const res = await fetch(`${API_URL}/api/quotes/${id}`, {
+export async function updateQuoteStatus(id, status) {
+  return request(`/api/quotes/${id}`, {
     method: "PATCH",
-    headers: { "Content-Type": "application/json", ...authHeaders(token) },
     body: JSON.stringify({ status }),
   });
-  return handle(res);
 }
 
-export async function deleteQuote(token, id) {
-  const res = await fetch(`${API_URL}/api/quotes/${id}`, {
-    method: "DELETE",
-    headers: authHeaders(token),
-  });
-  return handle(res);
+export async function deleteQuote(id) {
+  return request(`/api/quotes/${id}`, { method: "DELETE" });
 }
 
-export async function getAdmins(token) {
-  const res = await fetch(`${API_URL}/api/admins`, { headers: authHeaders(token) });
-  return handle(res);
+export async function getAdmins() {
+  return request("/api/admins");
 }
 
-export async function createAdmin(token, username, password) {
-  const res = await fetch(`${API_URL}/api/admins`, {
+export async function createAdmin(username, password) {
+  return request("/api/admins", {
     method: "POST",
-    headers: { "Content-Type": "application/json", ...authHeaders(token) },
     body: JSON.stringify({ username, password }),
   });
-  return handle(res);
 }
 
-export async function deleteAdmin(token, id) {
-  const res = await fetch(`${API_URL}/api/admins/${id}`, {
-    method: "DELETE",
-    headers: authHeaders(token),
-  });
-  return handle(res);
+export async function deleteAdmin(id) {
+  return request(`/api/admins/${id}`, { method: "DELETE" });
 }

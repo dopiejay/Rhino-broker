@@ -122,35 +122,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-navy-deep text-white py-20 md:py-24 grain relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-        <div className="max-w-4xl mx-auto px-5 md:px-8 text-center">
-          <SectionHeading
-            align="center"
-            tone="dark"
-            eyebrow="Not sure where to start?"
-            title="Tell us what you're protecting and we'll"
-            accent="build the shortlist for you."
-            className="mb-9"
-          />
-          <div className="flex flex-wrap justify-center gap-4">
-            <NavLink
-              to="/quote"
-              className="inline-flex items-center gap-2 bg-emerald text-white font-semibold px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-            >
-              Request a Free Quote <ArrowRight size={17} />
-            </NavLink>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
-            >
-              Call {site.phone}
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

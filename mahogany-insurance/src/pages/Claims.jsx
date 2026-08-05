@@ -188,36 +188,6 @@ export default function Claims() {
           </Reveal>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-navy-deep text-white py-20 md:py-24 grain relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-        <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
-          <SectionHeading
-            align="center"
-            tone="dark"
-            eyebrow="We've Got You"
-            title="Have questions about an"
-            accent="existing policy or claim?"
-            description="Call us directly and we'll walk you through what to do next — no phone trees, no waiting."
-            className="mb-9"
-          />
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 bg-emerald text-white font-semibold px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-            >
-              <PhoneCall size={17} /> Call {site.phone}
-            </a>
-            <NavLink
-              to="/contact"
-              className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
-            >
-              Other Ways to Reach Us <ArrowRight size={17} />
-            </NavLink>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -311,43 +311,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Final CTA */}
-      <section className="relative overflow-hidden bg-navy-deep text-white py-20 md:py-28 grain">
-        <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full border border-gold/15" aria-hidden="true" />
-        <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border border-gold/10" aria-hidden="true" />
-        <div className="relative max-w-4xl mx-auto px-5 md:px-8 text-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2.5 mb-7">
-              <Handshake size={18} className="text-gold" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold">Get Started Today</span>
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl font-light leading-[1.05] tracking-tight">
-              The right cover is <em className="text-gold italic">one conversation</em> away.
-            </h2>
-            <p className="text-white/70 text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-              Tell us what you're protecting and we'll come back with options compared
-              across Malawi's insurers — no obligation, no pressure.
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <NavLink
-                to="/quote"
-                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-              >
-                Request Your Free Quote <ArrowRight size={17} />
-              </NavLink>
-              <a
-                href={`tel:${site.phone}`}
-                className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
-              >
-                <PhoneCall size={17} /> {site.phone}
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      
     </div>
   );
 }

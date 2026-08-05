@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
 import { getContent, updateContent } from "../lib/api";
 import ItemList from "../components/ItemList";
 
@@ -40,7 +39,6 @@ function SectionCard({ title, description, children, onSave, saving, saved, erro
 }
 
 export default function ContentEditor() {
-  const { token } = useAuth();
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState({}); // { [key]: { saving, saved, error } }
@@ -60,7 +58,7 @@ export default function ContentEditor() {
   async function save(key) {
     setStatus((s) => ({ ...s, [key]: { saving: true } }));
     try {
-      await updateContent(token, key, content[key]);
+      await updateContent(key, content[key]);
       setStatus((s) => ({ ...s, [key]: { saved: true } }));
       setTimeout(() => setStatus((s) => ({ ...s, [key]: {} })), 2000);
     } catch (err) {

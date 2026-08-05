@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Trash2, Phone, Mail, Download } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
 import { getQuotes, updateQuoteStatus, deleteQuote } from "../lib/api";
 
 const statusStyles = {
@@ -30,7 +29,6 @@ function exportCsv(rows) {
 }
 
 export default function QuoteRequests() {
-  const { token } = useAuth();
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -38,13 +36,13 @@ export default function QuoteRequests() {
 
   function load() {
     setLoading(true);
-    getQuotes(token)
+    getQuotes()
       .then(setQuotes)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }
 
-  useEffect(load, [token]);
+  useEffect(load, []);
 
   const counts = {
     all: quotes.length,
@@ -55,13 +53,13 @@ export default function QuoteRequests() {
   const visible = filter === "all" ? quotes : quotes.filter((q) => q.status === filter);
 
   async function handleStatusChange(id, status) {
-    const updated = await updateQuoteStatus(token, id, status);
+    const updated = await updateQuoteStatus(id, status);
     setQuotes((qs) => qs.map((q) => (q.id === id ? updated : q)));
   }
 
   async function handleDelete(id) {
     if (!confirm("Delete this quote request? This can't be undone.")) return;
-    await deleteQuote(token, id);
+    await deleteQuote(id);
     setQuotes((qs) => qs.filter((q) => q.id !== id));
   }
 

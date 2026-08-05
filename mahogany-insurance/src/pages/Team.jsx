@@ -53,65 +53,7 @@ export default function Team() {
           </div>
         </div>
       </section>
-
-      {/* How we're organised */}
-      <section className="py-20 md:py-24 bg-cream-dark/60">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 items-center">
-          <SectionHeading
-            eyebrow="How We Work"
-            title="One team,"
-            accent="one point of contact."
-            description="Every client is looked after by a dedicated broker, backed by the whole firm. When you need something, you know exactly who to call — and they know your file."
-          />
-          <div className="space-y-5">
-            {[
-              { title: "A dedicated broker for every client", body: "From the first quote to every renewal, your broker knows your cover and your story." },
-              { title: "The whole firm behind them", body: "Specialists in commercial lines, employee benefits and claims step in whenever needed." },
-              { title: "A team that answers", body: "When you call, you reach someone who can act — not a switchboard and not a voicemail." },
-            ].map((it, idx) => (
-              <Reveal key={it.title} delay={idx * 90} className="flex gap-5">
-                <span className="w-12 h-12 rounded-xl bg-emerald text-white flex items-center justify-center shrink-0">
-                  <Users size={20} />
-                </span>
-                <div className="border-b border-navy/10 pb-5 flex-1">
-                  <h3 className="font-display text-lg text-navy mb-1">{it.title}</h3>
-                  <p className="text-sm text-charcoal/60 leading-relaxed">{it.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-navy-deep text-white py-20 md:py-24 grain relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-        <div className="max-w-3xl mx-auto px-5 md:px-8 text-center">
-          <SectionHeading
-            align="center"
-            tone="dark"
-            eyebrow="Let's Get Started"
-            title="Ready to work with"
-            accent="a team that answers?"
-            description="Tell us what you're protecting and we'll introduce you to the broker who'll look after it."
-            className="mb-9"
-          />
-          <div className="flex flex-wrap justify-center gap-4">
-            <NavLink
-              to="/quote"
-              className="inline-flex items-center gap-2 bg-emerald text-white font-semibold px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-            >
-              Request a Free Quote <ArrowRight size={17} />
-            </NavLink>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
-            >
-              <PhoneCall size={17} /> Call {site.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }

@@ -18,11 +18,29 @@ router.post("/login", async (req, res) => {
   const valid = await bcrypt.compare(password, admin.password_hash);
   if (!valid) return res.status(401).json({ error: "Invalid username or password" });
 
-  const token = jwt.sign({ id: admin.id, username: admin.username }, process.env.JWT_SECRET, {
-    expiresIn: "12h",
-  });
+  const payload = { id: admin.id, username: admin.username };
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+  const refreshToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "30d" });
 
-  res.json({ token, username: admin.username });
+  res.json({ token, refreshToken, username: admin.username });
+});
+
+router.post("/refresh", async (req, res) => {
+  const { refreshToken } = req.body || {};
+  if (!refreshToken) return res.status(401).json({ error: "Missing refresh token" });
+
+  try {
+    const payload = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: payload.id, username: payload.username }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    const nextRefreshToken = jwt.sign({ id: payload.id, username: payload.username }, process.env.JWT_SECRET, {
+      expiresIn: "30d",
+    });
+    res.json({ token, refreshToken: nextRefreshToken });
+  } catch {
+    return res.status(401).json({ error: "Invalid or expired token" });
+  }
 });
 
 export default router;
