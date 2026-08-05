@@ -25,8 +25,8 @@ export default {
           soft: "#F7EFD8",
         },
         cream: {
-          DEFAULT: "#FAF8F3",
-          dark: "#F2EDE1",
+          DEFAULT: "#F8F9FA",
+          dark: "#EEF1F5",
         },
         charcoal: "#171B26",
         green: {

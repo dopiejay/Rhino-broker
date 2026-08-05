@@ -56,8 +56,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(11,31,58,0.08),0_12px_32px_-16px_rgba(11,31,58,0.25)]"
-          : "bg-cream/90 backdrop-blur-sm border-b border-navy/5"
+          ? "bg-white shadow-[0_1px_0_rgba(11,31,58,0.08),0_12px_32px_-16px_rgba(11,31,58,0.25)]"
+          : "bg-white border-b border-navy/5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-[76px]">
@@ -157,7 +157,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-navy/10 bg-cream px-5 pb-8 pt-2 flex flex-col gap-1">
+        <nav className="lg:hidden border-t border-navy/10 bg-white px-5 pb-8 pt-2 flex flex-col gap-1">
           {NAV_LINKS.map((l) =>
             l.children ? (
               <div key={l.to} className="border-b border-navy/5">
