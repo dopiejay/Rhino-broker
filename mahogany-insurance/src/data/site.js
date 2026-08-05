@@ -24,6 +24,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import teamPlaceholder from "../assets/img-placeholder.jpg";
+
 export const SITE = {
   name: "Mahogany Insurance Brokers",
   shortName: "Mahogany",
@@ -452,43 +454,37 @@ export const TEAM = [
     name: "F. Thenda",
     role: "Managing Director & Principal Broker",
     bio: "Leads the firm with over a decade of broking experience, and oversees our public-sector and institutional client relationships.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
   {
     name: "A. Banda",
     role: "Senior Broker — Commercial Lines",
     bio: "Specialises in fire, marine, engineering and liability programmes for businesses, contractors and logistics operators.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
   {
     name: "C. Phiri",
     role: "Broker — Personal & Motor",
     bio: "Arranges motor, home and travel cover, making sure individuals and families understand exactly what their policy covers.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
   {
     name: "M. Mwale",
     role: "Claims & Client Services",
     bio: "The first person clients speak to when it matters most. Handles claim lodgement, document collection and insurer follow-ups.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
   {
     name: "T. Nkhoma",
     role: "Employee Benefits Specialist",
     bio: "Compares group medical and group life schemes for employers, schools and NGOs, and keeps schemes running smoothly year-round.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
   {
     name: "L. Chikopa",
     role: "Client Accounts & Renewals",
     bio: "Keeps every renewal, invoice and policy document organised, so nothing lapses and nothing slips through the cracks.",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+    image: teamPlaceholder,
   },
 ];
 

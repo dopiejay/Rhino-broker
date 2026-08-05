@@ -158,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Claims band */}
+      {/* Claims band 
       <section className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-2 gap-14 items-center">
         <div>
           <SectionHeading
@@ -208,6 +208,7 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+      */}
 
       {/* Process */}
       <section className="bg-gradient-to-br from-emerald via-emerald-dark to-emerald-deep text-white py-20 md:py-28 grain relative overflow-hidden">
@@ -243,7 +244,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats + Testimonials */}
+      {/* Stats + Testimonials 
       <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -271,6 +272,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* News */}
       <section className="py-20 md:py-28 bg-cream-dark/60">
