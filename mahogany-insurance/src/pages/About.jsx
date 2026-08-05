@@ -139,9 +139,7 @@ export default function About() {
       <section className="py-20 md:py-28 bg-cream-dark/60">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16">
           <div className="flex flex-col">
-            <SectionHeading
-              
-            />
+            
             <Reveal className="relative mt-10 flex-1 rounded-2xl overflow-hidden shadow-lift">
               <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full min-h-[420px] object-cover" loading="lazy" />
             </Reveal>
