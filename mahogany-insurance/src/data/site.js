@@ -58,58 +58,59 @@ export const NAV_LINKS = [
 export const HERO_SLIDES = [
   {
     eyebrow: "Licensed Insurance Broker · Blantyre, Malawi",
-    title: ["Protect what", "matters most."],
-    accent: "matters most.",
-    body: "Professional insurance brokerage that compares across Malawi's trusted insurers to find the cover that genuinely fits your life and business.",
-    cta: { to: "/quote", label: "Request a Free Quote" },
-    cta2: { to: "/services", label: "Explore Cover" },
-    image:
-      "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=80",
-    alt: "A family walking together in warm light",
+    title: ["Protecting What", "Matters Most"],
+    accent: "Matters Most",
+    subtitle:
+      "Trusted insurance brokerage solutions for individuals, families, and businesses across Malawi.",
+    body: "Whether you're protecting your family, your vehicle, or your business, Mahogany Insurance Brokers connects you with reliable insurance solutions tailored to your needs.",
+    cta: { to: "/quote", label: "Request a Quote" },
+    cta2: { to: "/services", label: "Explore Our Services" },
+    image: "", // TODO: Add slide 1 background image (e.g. a professional Malawian family smiling outdoors)
+    alt: "A professional Malawian family smiling outdoors",
   },
   {
     eyebrow: "Business Insurance",
-    title: ["Business cover that", "keeps pace with you."],
-    accent: "keeps pace with you.",
-    body: "Fire, liability, engineering and marine cover, arranged around the way your business actually operates — not off the shelf.",
+    title: ["Protect Your Business", "with Confidence"],
+    accent: "with Confidence",
+    subtitle: "Helping businesses manage risk with comprehensive insurance solutions.",
+    body: "From property and engineering insurance to public liability and goods in transit, we help businesses stay protected and prepared.",
     cta: { to: "/services", label: "Business Solutions" },
-    cta2: { to: "/about", label: "Who We Are" },
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80",
-    alt: "A bright modern corporate office interior",
+    cta2: { to: "/contact", label: "Contact Our Team" },
+    image: "", // TODO: Add slide 2 background image (e.g. modern office buildings or a boardroom)
+    alt: "Modern office buildings and professionals in a boardroom",
   },
   {
     eyebrow: "Motor Insurance",
-    title: ["Drive with the", "right cover behind you."],
-    accent: "right cover behind you.",
-    body: "Private and commercial vehicle cover, compared across insurers so you get the right protection at the right premium.",
+    title: ["Drive with", "Peace of Mind"],
+    accent: "Peace of Mind",
+    subtitle: "Reliable motor insurance for private and commercial vehicles.",
+    body: "We help you find the right motor insurance cover so you can stay focused on the road while we help manage the risks.",
     cta: { to: "/quote", label: "Get a Motor Quote" },
-    cta2: { to: "/services", label: "See Motor Options" },
-    image:
-      "https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=2000&q=80",
-    alt: "A modern car on an open road at dusk",
+    cta2: { to: "/services", label: "Learn More" },
+    image: "", // TODO: Add slide 3 background image (e.g. a modern vehicle on a highway)
+    alt: "A modern vehicle on a highway",
   },
   {
-    eyebrow: "Claims Support",
-    title: ["We're with you", "when it matters most."],
-    accent: "when it matters most.",
-    body: "When it's time to claim, we handle the paperwork and follow up with the insurer on your behalf — until you're settled.",
-    cta: { to: "/claims", label: "See How Claims Work" },
-    cta2: { to: "/quote", label: "Talk to Us" },
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=2000&q=80",
-    alt: "An advisor meeting a client in an office",
+    eyebrow: "Claims Assistance",
+    title: ["Here When You", "Need Us Most"],
+    accent: "Need Us Most",
+    subtitle: "Supporting you through every step of the claims process.",
+    body: "When the unexpected happens, our team is committed to helping you navigate the claims process efficiently and with confidence.",
+    cta: { to: "/claims", label: "Claims Assistance" },
+    cta2: { to: "/contact", label: "Contact Us" },
+    image: "", // TODO: Add slide 4 background image (e.g. an advisor assisting a client with claim documents)
+    alt: "An insurance advisor assisting a client with claim documents",
   },
   {
     eyebrow: "Get Started",
-    title: ["The right cover,", "at the right price."],
-    accent: "the right price.",
-    body: "Tell us a little about what you're protecting and we'll come back with options from across the market — no obligation.",
-    cta: { to: "/quote", label: "Request Your Free Quote" },
-    cta2: { to: "/contact", label: "Contact Us" },
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2000&q=80",
-    alt: "A confident business handshake",
+    title: ["Let's Find the Right", "Cover for You"],
+    accent: "Cover for You",
+    subtitle: "Professional advice. Trusted insurance partners. Personalized solutions.",
+    body: "Speak with our experienced team today and receive guidance on choosing insurance that matches your needs and budget.",
+    cta: { to: "/quote", label: "Request a Free Quote" },
+    cta2: { to: SITE.phoneHref, label: "Call Us Today" },
+    image: "", // TODO: Add slide 5 background image (e.g. a consultant meeting a client in a modern office)
+    alt: "A friendly consultant meeting with a client in a modern office",
   },
 ];
 

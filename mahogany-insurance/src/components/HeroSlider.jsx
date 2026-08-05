@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ImageIcon, ShieldCheck } from "lucide-react";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function HeroSlider() {
@@ -17,6 +17,32 @@ export default function HeroSlider() {
   const idx = active % heroSlides.length;
   const slide = heroSlides[idx];
 
+  const isExternal = (to) => /^(tel:|mailto:|https?:)/.test(to);
+
+  const renderCta = (c, primary) => {
+    const cls = primary
+      ? "group inline-flex items-center gap-2.5 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+      : "inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring";
+    const inner = isExternal(c.to) ? (
+      c.label
+    ) : (
+      <>
+        {c.label}
+        {primary && (
+          <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+        )}
+      </>
+    );
+    if (isExternal(c.to)) {
+      return (
+        <a href={c.to} className={cls}>
+          {inner}
+        </a>
+      );
+    }
+    return <NavLink to={c.to} className={cls}>{inner}</NavLink>;
+  };
+
   return (
     <section
       className="relative h-[92vh] min-h-[600px] max-h-[860px] overflow-hidden bg-navy-deep text-white"
@@ -32,12 +58,24 @@ export default function HeroSlider() {
           }`}
           aria-hidden={i !== idx}
         >
-          <img
-            src={s.image}
-            alt={s.alt}
-            className={`w-full h-full object-cover ${i === idx ? "animate-kenburns" : ""}`}
-            loading={i === 0 ? "eager" : "lazy"}
-          />
+          {s.image ? (
+            <img
+              src={s.image}
+              alt={s.alt}
+              className={`w-full h-full object-cover ${i === idx ? "animate-kenburns" : ""}`}
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-navy-deep">
+              <div className="flex flex-col items-center gap-3 px-6 py-10 border border-dashed border-white/25 rounded-sm text-center">
+                <ImageIcon size={30} strokeWidth={1.5} className="text-white/40" />
+                <p className="text-xs font-medium leading-snug text-white/50 max-w-xs">
+                  Slide {i + 1} background image goes here — drop an image into src/assets and set
+                  it in HERO_SLIDES in src/data/site.js
+                </p>
+              </div>
+            </div>
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/35" />
         </div>
       ))}
@@ -55,24 +93,17 @@ export default function HeroSlider() {
             <em className="text-gold italic font-light">{slide.title[1]}</em>
           </h1>
 
-          <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-xl mt-6 animate-fadeup">
+          <p className="text-white text-xl md:text-2xl font-medium leading-snug max-w-xl mt-6 animate-fadeup">
+            {slide.subtitle}
+          </p>
+
+          <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-xl mt-4 animate-fadeup">
             {slide.body}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-9 animate-fadeup">
-            <NavLink
-              to={slide.cta.to}
-              className="group inline-flex items-center gap-2.5 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-            >
-              {slide.cta.label}
-              <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
-            </NavLink>
-            <NavLink
-              to={slide.cta2.to}
-              className="inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
-            >
-              {slide.cta2.label}
-            </NavLink>
+            {renderCta(slide.cta, true)}
+            {renderCta(slide.cta2, false)}
           </div>
         </div>
       </div>

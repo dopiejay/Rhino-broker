@@ -86,6 +86,7 @@ function mergeHeroSlides(live, fallback) {
       eyebrow: s.eyebrow || fb?.eyebrow || "",
       title,
       accent: title[1] || fb?.accent || "",
+      subtitle: s.subtitle || fb?.subtitle || "",
       body: s.body || fb?.body || "",
       cta: {
         to: s.ctaTo || fb?.cta?.to || "/quote",
