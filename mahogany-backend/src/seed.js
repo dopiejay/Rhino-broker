@@ -106,11 +106,22 @@ const defaultContent = {
     ],
   },
   contact_info: {
-    address: "Umoyo House, 2nd Floor, North Wing, Blantyre",
+    address: "Umoyo House, 2nd Floor, North Wing",
+    city: "Blantyre, Malawi",
     phone: "+265 888 590 727",
     email: "fthenda@milbrol.com",
     hours: "Monday – Friday, 8:00 – 17:00",
     whatsapp: "265888590727",
+  },
+  team: {
+    items: [
+      { name: "F. Thenda", role: "Managing Director & Principal Broker", bio: "Leads the firm with over a decade of broking experience, and oversees our public-sector and institutional client relationships." },
+      { name: "A. Banda", role: "Senior Broker — Commercial Lines", bio: "Specialises in fire, marine, engineering and liability programmes for businesses, contractors and logistics operators." },
+      { name: "C. Phiri", role: "Broker — Personal & Motor", bio: "Arranges motor, home and travel cover, making sure individuals and families understand exactly what their policy covers." },
+      { name: "M. Mwale", role: "Claims & Client Services", bio: "The first person clients speak to when it matters most. Handles claim lodgement, document collection and insurer follow-ups." },
+      { name: "T. Nkhoma", role: "Employee Benefits Specialist", bio: "Compares group medical and group life schemes for employers, schools and NGOs, and keeps schemes running smoothly year-round." },
+      { name: "L. Chikopa", role: "Client Accounts & Renewals", bio: "Keeps every renewal, invoice and policy document organised, so nothing lapses and nothing slips through the cracks." },
+    ],
   },
   faqs: {
     items: [

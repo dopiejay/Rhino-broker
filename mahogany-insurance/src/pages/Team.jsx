@@ -3,11 +3,10 @@ import { ArrowRight, Users, PhoneCall } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { TEAM } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function Team() {
-  const { site } = useSiteContent();
+  const { site, team } = useSiteContent();
   return (
     <div>
       <PageHero
@@ -28,7 +27,7 @@ export default function Team() {
             className="mb-14"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TEAM.map((member, idx) => (
+            {team.map((member, idx) => (
               <Reveal key={member.name} delay={(idx % 3) * 90} className="group relative rounded-2xl overflow-hidden bg-navy-deep hover:shadow-lift transition-shadow">
                 <div className="relative aspect-[4/4.6] overflow-hidden">
                   <img

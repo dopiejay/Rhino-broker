@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   ShieldCheck,
 } from "lucide-react";
-import { getContent } from "../lib/api";
+import { getContent, resolveImage } from "../lib/api";
 import { SiteContentContext } from "./SiteContentContext";
 import {
   SITE,
@@ -28,6 +28,7 @@ import {
   FAQS,
   NEWS,
   TIPS,
+  TEAM,
 } from "../data/site";
 
 const ICON_MAP = {
@@ -72,6 +73,7 @@ function buildSite(contactInfo) {
     phoneHref: `tel:${phone.replace(/[^\d+]/g, "")}`,
     email: contactInfo.email || SITE.email,
     address: contactInfo.address || SITE.address,
+    city: contactInfo.city || SITE.city,
     hours: contactInfo.hours || SITE.hours,
     whatsapp,
   };
@@ -92,8 +94,21 @@ function mergeHeroSlides(live, fallback) {
         label: s.ctaLabel || fb?.cta?.label || "Request a Free Quote",
       },
       cta2: fb?.cta2 || { to: "/services", label: "Explore Cover" },
-      image: fb?.image,
-      alt: fb?.alt || "",
+      image: resolveImage(s.image) || fb?.image,
+      alt: s.alt || fb?.alt || "",
+    };
+  });
+}
+
+function mergeTeam(live, fallback) {
+  if (!Array.isArray(live) || live.length === 0) return fallback;
+  return live.map((t, i) => {
+    const fb = fallback[i];
+    return {
+      name: t.name || fb?.name || "",
+      role: t.role || fb?.role || "",
+      bio: t.bio || fb?.bio || "",
+      image: resolveImage(t.image) || fb?.image,
     };
   });
 }
@@ -208,6 +223,7 @@ export function SiteContentProvider({ children }) {
       faqs: mergeFaqs(blocks.faqs?.items, FAQS),
       news: mergeNews(blocks.news?.items, NEWS),
       tips: mergeTips(blocks.tips?.items, TIPS),
+      team: mergeTeam(blocks.team?.items, TEAM),
     };
   }, [content]);
 

@@ -1,5 +1,14 @@
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "");
 
+// Uploaded images are stored on the backend under /uploads/. Turn that
+// relative path into an absolute one; pass everything else through.
+export function resolveImage(src) {
+  if (typeof src === "string" && src.startsWith("/uploads/")) {
+    return API_URL + src;
+  }
+  return src;
+}
+
 async function handle(res) {
   if (!res.ok) {
     let message = `Request failed (${res.status})`;

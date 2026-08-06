@@ -1,5 +1,59 @@
 import { useState } from "react";
-import { ChevronDown, Plus, Trash2 } from "lucide-react";
+import { ChevronDown, Plus, Trash2, Upload, X } from "lucide-react";
+import { uploadImage, resolveImage } from "../lib/api";
+
+function ImageUpload({ value, onChange }) {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setError("");
+    try {
+      const { url } = await uploadImage(file);
+      onChange(url);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  }
+
+  return (
+    <div>
+      <div className="flex items-center gap-3">
+        <label className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy border border-navy/20 rounded-sm px-4 py-2 cursor-pointer hover:bg-navy/5 transition-colors disabled:opacity-60">
+          <Upload size={15} />
+          {uploading ? "Uploading..." : value ? "Replace image" : "Upload image"}
+          <input type="file" accept="image/*" onChange={handleFile} disabled={uploading} className="hidden" />
+        </label>
+        {value && (
+          <button
+            type="button"
+            onClick={() => onChange("")}
+            className="inline-flex items-center gap-1 text-sm font-semibold text-red-700 hover:underline"
+          >
+            <X size={14} /> Remove
+          </button>
+        )}
+      </div>
+      {error && <p className="text-xs text-red-700 mt-1.5">{error}</p>}
+      {uploading && <p className="text-xs text-ink/50 mt-1.5">Uploading, please wait...</p>}
+      {value && (
+        <div className="mt-3">
+          <img
+            src={resolveImage(value)}
+            alt="Uploaded preview"
+            className="h-24 w-full max-w-xs object-cover rounded-sm border border-navy/10 bg-cream"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Field({ field, value, onChange }) {
   if (field.type === "textarea") {
@@ -24,6 +78,9 @@ function Field({ field, value, onChange }) {
         ))}
       </select>
     );
+  }
+  if (field.type === "image") {
+    return <ImageUpload value={value || ""} onChange={onChange} />;
   }
   return (
     <input

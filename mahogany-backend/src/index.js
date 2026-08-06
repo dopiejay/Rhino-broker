@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.js";
 import contentRoutes from "./routes/content.js";
 import quoteRoutes from "./routes/quotes.js";
 import adminRoutes from "./routes/admins.js";
+import uploadRoutes, { UPLOAD_DIR } from "./routes/uploads.js";
 
 dotenv.config();
 
@@ -30,6 +31,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/quotes", quoteRoutes);
 app.use("/api/admins", adminRoutes);
+app.use("/api/uploads", uploadRoutes);
+
+// Serve uploaded images so content blocks can reference them directly
+app.use("/uploads", express.static(UPLOAD_DIR));
 
 // Fallback error handler so unexpected errors return JSON, not an HTML stack trace
 app.use((err, req, res, next) => {

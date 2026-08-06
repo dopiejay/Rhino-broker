@@ -4,7 +4,9 @@ import { getContent, updateContent } from "../lib/api";
 import ItemList from "../components/ItemList";
 
 const TABS = [
+  { id: "home_hero", label: "Home Hero" },
   { id: "contact_info", label: "Contact Details" },
+  { id: "team", label: "Team Members" },
   { id: "faqs", label: "FAQs" },
   { id: "news", label: "News & Updates" },
   { id: "tips", label: "Insurance Tips" },
@@ -42,7 +44,7 @@ export default function ContentEditor() {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState({}); // { [key]: { saving, saved, error } }
-  const [tab, setTab] = useState("contact_info");
+  const [tab, setTab] = useState("home_hero");
 
   useEffect(() => {
     getContent().then((c) => {
@@ -96,6 +98,34 @@ export default function ContentEditor() {
         ))}
       </div>
 
+      {tab === "home_hero" && (
+        <SectionCard
+          title="Home Hero Slides"
+          description="The rotating banners at the top of the home page. Add or edit the text and background image for each slide. Leave the image empty to keep the current one."
+          onSave={() => save("home_hero")}
+          {...st("home_hero")}
+        >
+          <ItemList
+            items={(block.slides || []).map((s) => ({
+              ...s,
+              title: Array.isArray(s.title) ? s.title.join(" ") : s.title,
+            }))}
+            onChange={(slides) => setBlock("home_hero", { slides })}
+            itemLabel="Slide"
+            emptyItem={{ eyebrow: "", title: "", subtitle: "", ctaLabel: "", ctaTo: "/quote", image: "" }}
+            summary={(item) => item.title || "New slide"}
+            fields={[
+              { key: "eyebrow", label: "Small label above title", type: "text", wide: true },
+              { key: "title", label: "Headline", type: "text", wide: true },
+              { key: "subtitle", label: "Supporting text", type: "textarea", wide: true },
+              { key: "ctaLabel", label: "Button text", type: "text" },
+              { key: "ctaTo", label: "Button link (page path)", type: "text" },
+              { key: "image", label: "Background image", type: "image", wide: true },
+            ]}
+          />
+        </SectionCard>
+      )}
+
       {tab === "contact_info" && (
         <SectionCard
           title="Contact Details"
@@ -106,6 +136,7 @@ export default function ContentEditor() {
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               { key: "address", label: "Office Address" },
+              { key: "city", label: "City" },
               { key: "phone", label: "Phone" },
               { key: "email", label: "Email" },
               { key: "hours", label: "Office Hours" },
@@ -122,6 +153,29 @@ export default function ContentEditor() {
               </div>
             ))}
           </div>
+        </SectionCard>
+      )}
+
+      {tab === "team" && (
+        <SectionCard
+          title="Team Members"
+          description="Shown on the Management page. Add or edit names, roles, bios and photos. Leave the photo empty to keep the current one."
+          onSave={() => save("team")}
+          {...st("team")}
+        >
+          <ItemList
+            items={block.items || []}
+            onChange={(items) => setBlock("team", { items })}
+            itemLabel="Team Member"
+            emptyItem={{ name: "", role: "", bio: "", image: "" }}
+            summary={(item) => item.name || "New member"}
+            fields={[
+              { key: "name", label: "Name", type: "text", wide: true },
+              { key: "role", label: "Role / Title", type: "text", wide: true },
+              { key: "bio", label: "Bio", type: "textarea", wide: true },
+              { key: "image", label: "Photo", type: "image", wide: true },
+            ]}
+          />
         </SectionCard>
       )}
 

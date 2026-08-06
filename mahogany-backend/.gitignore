@@ -1,6 +1,9 @@
 node_modules
 *.log
 
+# Uploaded images (regenerated on the server)
+uploads
+
 # Environment variables (never commit real secrets)
 .env
 .env.local

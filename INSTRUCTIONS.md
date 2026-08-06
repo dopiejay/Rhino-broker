@@ -78,11 +78,13 @@ set in the backend's `.env`.
   mark it new / contacted / closed, or delete it. Includes a per-status
   filter, a stats summary, and an **Export CSV** button
 - **Site Content** (`/admin/content`) — edit the content the business needs
-  to keep up to date: **contact details** (address, phone, email, hours,
-  WhatsApp), **FAQs**, **News & Updates**, and **Insurance Tips**. Changes
-  go live on the public site immediately after saving. Everything else on
-  the site is managed in code (see `mahogany-insurance/src/data/site.js`)
-  and is not editable from the admin
+  to keep up to date: the **home page hero slides** (headlines, buttons and
+  background images), **contact details** (address, city, phone, email,
+  hours, WhatsApp), **team members** (names, roles, bios and photos),
+  **FAQs**, **News & Updates**, and **Insurance Tips**. Changes go live on
+  the public site immediately after saving. Everything else on the site is
+  managed in code (see `mahogany-insurance/src/data/site.js`) and is not
+  editable from the admin
 - **Admin Users** (`/admin/users`) — create and delete admin logins
   (you can't delete your own account)
 
@@ -128,7 +130,10 @@ variable:
 - Run `npm run seed` once against the deployed database (or after first deploy).
 
 > Render free-tier note: the service sleeps after 15 min idle and takes ~30s
-> to wake on the first request.
+> to wake on the first request. Images uploaded from the admin are stored on
+> the backend's disk under `uploads/` — that disk is wiped on redeploy, so
+> treat uploads as convenient in production but not permanent. For a truly
+> durable setup, store uploaded images in object storage instead.
 
 ## Still worth doing before this goes live
 

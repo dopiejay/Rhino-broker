@@ -33,7 +33,7 @@ async function handle(res) {
 
 function rawFetch(path, options, auth) {
   const headers = {
-    ...(options.body ? { "Content-Type": "application/json" } : {}),
+    ...(options.body && !(options.body instanceof FormData) ? { "Content-Type": "application/json" } : {}),
     ...options.headers,
   };
   if (auth) {
@@ -91,6 +91,26 @@ export async function login(username, password) {
 export async function getContent() {
   const res = await rawFetch("/api/content", {}, false);
   return handle(res);
+}
+
+export async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append("image", file);
+  return request("/api/uploads", {
+    method: "POST",
+    body: formData,
+    headers: {},
+  });
+}
+
+// Uploaded images are stored on the backend under /uploads/. Turn that
+// relative path into an absolute one for previews; pass everything else
+// through (e.g. bundled assets or external URLs).
+export function resolveImage(src) {
+  if (typeof src === "string" && src.startsWith("/uploads/")) {
+    return API_URL + src;
+  }
+  return src;
 }
 
 export async function updateContent(key, data) {

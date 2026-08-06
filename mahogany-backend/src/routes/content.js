@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 // Only these blocks are editable from the admin dashboard.
 // Everything else on the site is managed in code (src/data/site.js).
-const EDITABLE_KEYS = new Set(["contact_info", "faqs", "news", "tips"]);
+const EDITABLE_KEYS = new Set(["contact_info", "faqs", "news", "tips", "home_hero", "team"]);
 
 // Admin: update a single content block
 router.put("/:key", requireAuth, async (req, res) => {
