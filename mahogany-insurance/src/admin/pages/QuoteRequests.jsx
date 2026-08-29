@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Trash2, Phone, Mail, Download } from "lucide-react";
 import { getQuotes, updateQuoteStatus, deleteQuote } from "../lib/api";
 
@@ -32,7 +33,13 @@ export default function QuoteRequests() {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState("all");
+  const [busyStatusId, setBusyStatusId] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
+  const [confirmingDelete, setConfirmingDelete] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requested = searchParams.get("status");
+
+  const filter = FILTERS.includes(requested) ? requested : "all";
 
   function load() {
     setLoading(true);
@@ -53,14 +60,40 @@ export default function QuoteRequests() {
   const visible = filter === "all" ? quotes : quotes.filter((q) => q.status === filter);
 
   async function handleStatusChange(id, status) {
-    const updated = await updateQuoteStatus(id, status);
-    setQuotes((qs) => qs.map((q) => (q.id === id ? updated : q)));
+    if (busyStatusId) return;
+    setBusyStatusId(id);
+    setError("");
+    try {
+      const updated = await updateQuoteStatus(id, status);
+      setQuotes((qs) => qs.map((q) => (q.id === id ? updated : q)));
+    } catch (err) {
+      setError(err.message || "Failed to update status");
+    } finally {
+      setBusyStatusId(null);
+    }
   }
 
   async function handleDelete(id) {
-    if (!confirm("Delete this quote request? This can't be undone.")) return;
-    await deleteQuote(id);
-    setQuotes((qs) => qs.filter((q) => q.id !== id));
+    if (deletingId) return;
+    setDeletingId(id);
+    setError("");
+    try {
+      await deleteQuote(id);
+      setQuotes((qs) => qs.filter((q) => q.id !== id));
+    } catch (err) {
+      setError(err.message || "Failed to delete");
+    } finally {
+      setDeletingId(null);
+      setConfirmingDelete(null);
+    }
+  }
+
+  function setFilter(f) {
+    if (f === "all") {
+      setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ status: f }, { replace: true });
+    }
   }
 
   return (
@@ -141,21 +174,44 @@ export default function QuoteRequests() {
                   <button
                     key={s}
                     onClick={() => handleStatusChange(q.id, s)}
-                    className={`text-xs font-semibold px-3 py-1.5 rounded-sm border capitalize transition-colors focus-ring ${
+                    disabled={busyStatusId === q.id}
+                    aria-busy={busyStatusId === q.id}
+                    className={`text-xs font-semibold px-3 py-1.5 rounded-sm border capitalize transition-colors focus-ring disabled:opacity-50 disabled:cursor-not-allowed ${
                       q.status === s ? "bg-navy text-white border-navy" : "border-navy/15 text-ink/60 hover:border-navy/40"
                     }`}
                   >
-                    {s}
+                    {busyStatusId === q.id && q.status === s ? "Saving…" : s}
                   </button>
                 ))}
               </div>
-              <button
-                onClick={() => handleDelete(q.id)}
-                className="text-ink/40 hover:text-red-600 transition-colors focus-ring"
-                aria-label="Delete quote request"
-              >
-                <Trash2 size={16} />
-              </button>
+
+              {confirmingDelete === q.id ? (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handleDelete(q.id)}
+                    disabled={deletingId === q.id}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-sm bg-red-600 text-white hover:bg-red-700 transition-colors focus-ring disabled:opacity-50"
+                  >
+                    {deletingId === q.id ? "Deleting…" : "Delete"}
+                  </button>
+                  <button
+                    onClick={() => setConfirmingDelete(null)}
+                    disabled={deletingId === q.id}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-sm border border-navy/15 text-ink/60 hover:border-navy/40 transition-colors focus-ring disabled:opacity-50"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setConfirmingDelete(q.id)}
+                  className="text-ink/40 hover:text-red-600 transition-colors focus-ring"
+                  aria-label="Delete quote request"
+                  title="Delete quote request"
+                >
+                  <Trash2 size={16} />
+                </button>
+              )}
             </div>
           </div>
         ))}

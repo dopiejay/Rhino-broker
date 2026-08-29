@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight, ChevronDown, Check } from "lucide-react";
 import { NAV_LINKS, SITE } from "../data/site";
@@ -15,15 +15,15 @@ function Logo({ onClick }) {
           </linearGradient>
         </defs>
         <rect width="64" height="64" rx="14" fill="url(#mib-mark)" />
-        <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#C9A227" strokeOpacity="0.55" strokeWidth="1" />
-        <text x="32" y="42" textAnchor="middle" fontFamily="Fraunces, serif" fontSize="30" fontWeight="600" fill="#FAF8F3">M</text>
-        <circle cx="50" cy="14" r="5" fill="#C9A227" />
+        <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#16A5B1" strokeOpacity="0.55" strokeWidth="1" />
+        <text x="32" y="42" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="30" fontWeight="600" fill="#FAF8F3">M</text>
+        <circle cx="50" cy="14" r="5" fill="#16A5B1" />
       </svg>
       <span className="leading-none">
         <span className="font-display text-xl font-semibold text-navy tracking-tight block">
           Mahogany
         </span>
-        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-emerald block mt-1">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-emerald-ink block mt-1">
           Insurance Brokers
         </span>
       </span>
@@ -35,7 +35,11 @@ export default function Navbar() {
   const { site } = useSiteContent();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false); // desktop dropdown
+  const [aboutOpen, setAboutOpen] = useState(false); // mobile accordion
+  const closeTimer = useRef(null);
+  const dropdownRef = useRef(null);
+  const triggerRef = useRef(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -48,7 +52,45 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
     setAboutOpen(false);
+    setNavOpen(false);
+    return () => clearTimeout(closeTimer.current);
   }, [pathname]);
+
+  // Close the desktop dropdown when clicking outside it.
+  useEffect(() => {
+    if (!navOpen) return;
+    const onDocClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setNavOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [navOpen]);
+
+  const openNav = () => {
+    clearTimeout(closeTimer.current);
+    setNavOpen(true);
+  };
+  const scheduleCloseNav = () => {
+    closeTimer.current = setTimeout(() => setNavOpen(false), 200);
+  };
+  const cancelCloseNav = () => clearTimeout(closeTimer.current);
+
+  // Keyboard navigation inside the dropdown.
+  function onDropdownKeyDown(e, index, items) {
+    if (e.key === "Escape") {
+      setNavOpen(false);
+      triggerRef.current?.focus();
+      return;
+    }
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    e.preventDefault();
+    const delta = e.key === "ArrowDown" ? 1 : -1;
+    const next = (index + delta + items.length) % items.length;
+    const els = dropdownRef.current?.querySelectorAll("[data-dropdown-item]");
+    els?.[next]?.focus();
+  }
 
   const aboutActive = pathname === "/about" || pathname === "/team";
 
@@ -66,9 +108,20 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((l) =>
             l.children ? (
-              <div key={l.to} className="relative group">
+              <div
+                key={l.to}
+                className="relative"
+                ref={dropdownRef}
+                onMouseEnter={openNav}
+                onMouseLeave={scheduleCloseNav}
+              >
                 <NavLink
+                  ref={triggerRef}
                   to={l.to}
+                  aria-haspopup="menu"
+                  aria-expanded={navOpen}
+                  onMouseEnter={cancelCloseNav}
+                  onClick={() => setNavOpen(true)}
                   className={`inline-flex items-center gap-1.5 relative text-sm font-medium tracking-wide transition-colors focus-ring rounded py-2 ${
                     aboutActive ? "text-navy" : "text-charcoal/60 hover:text-navy"
                   }`}
@@ -76,7 +129,7 @@ export default function Navbar() {
                   {l.label}
                   <ChevronDown
                     size={13}
-                    className={`transition-transform duration-200 group-hover:rotate-180 ${aboutActive ? "text-emerald" : "text-charcoal/40"}`}
+                    className={`transition-transform duration-200 ${navOpen ? "rotate-180 text-emerald-ink" : aboutActive ? "text-emerald-ink" : "text-charcoal/40"}`}
                   />
                   <span
                     className={`absolute -bottom-0.5 left-0 h-[2px] bg-emerald transition-all duration-300 ${
@@ -86,26 +139,38 @@ export default function Navbar() {
                   />
                 </NavLink>
 
-                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 transition-all duration-200 z-50">
-                  <div className="bg-white border border-navy/10 rounded-2xl shadow-lift p-2 w-60">
-                    {l.children.map((c) => (
-                      <NavLink
-                        key={c.to}
-                        to={c.to}
-                        className={({ isActive }) =>
-                          `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors focus-ring ${
+                {navOpen && (
+                  <div
+                    role="menu"
+                    aria-label={l.label}
+                    className="absolute left-1/2 -translate-x-1/2 top-full pt-4 z-50"
+                    onMouseEnter={cancelCloseNav}
+                    onMouseLeave={scheduleCloseNav}
+                  >
+                    <div className="bg-white border border-navy/10 rounded-2xl shadow-lift p-2 w-60">
+                      {l.children.map((c, i) => (
+                        <NavLink
+                          key={c.to}
+                          to={c.to}
+                          data-dropdown-item="true"
+                          role="menuitem"
+                          tabIndex={0}
+                          onKeyDown={(e) => onDropdownKeyDown(e, i, l.children)}
+                          className={({ isActive }) =>
+                            `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors focus-ring ${
                             isActive
-                              ? "bg-emerald-soft text-emerald-dark"
+                              ? "bg-emerald-soft text-navy"
                               : "text-charcoal/75 hover:bg-cream-dark hover:text-navy"
-                          }`
-                        }
-                      >
-                        {c.label}
-                        {pathname === c.to && <Check size={15} className="text-emerald" />}
-                      </NavLink>
-                    ))}
+                            }`
+                          }
+                        >
+                          {c.label}
+                          {pathname === c.to && <Check size={15} className="text-emerald-ink" />}
+                        </NavLink>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ) : (
               <NavLink
@@ -134,12 +199,10 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href={site.phoneHref} className="text-sm font-semibold text-navy hover:text-gold-dark transition-colors focus-ring rounded">
-            {site.phone}
-          </a>
+          
           <NavLink
             to="/quote"
-            className="group inline-flex items-center gap-2 bg-emerald text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+            className="group inline-flex items-center gap-2 bg-emerald text-navy text-sm font-semibold px-6 py-3 rounded-full hover:bg-emerald-light transition-colors focus-ring"
           >
             Request a Quote
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -167,7 +230,7 @@ export default function Navbar() {
                   className="w-full py-3.5 text-base font-medium flex items-center justify-between text-charcoal/80 focus-ring"
                 >
                   {l.label}
-                  <ChevronDown size={17} className={`transition-transform ${aboutOpen ? "rotate-180 text-emerald" : "opacity-40"}`} />
+                  <ChevronDown size={17} className={`transition-transform ${aboutOpen ? "rotate-180 text-emerald-ink" : "opacity-40"}`} />
                 </button>
                 {aboutOpen && (
                   <div className="pb-3 space-y-1">
@@ -177,7 +240,7 @@ export default function Navbar() {
                         to={c.to}
                         className={({ isActive }) =>
                           `block pl-5 py-2.5 text-sm font-medium rounded-lg transition-colors focus-ring ${
-                            isActive ? "text-emerald-dark bg-emerald-soft" : "text-charcoal/65 hover:text-navy"
+                            isActive ? "text-navy bg-emerald-soft" : "text-charcoal/65 hover:text-navy"
                           }`
                         }
                       >
@@ -204,7 +267,7 @@ export default function Navbar() {
           )}
           <NavLink
             to="/quote"
-            className="mt-5 bg-emerald text-white text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
+            className="mt-5 bg-emerald text-navy text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
           >
             Request a Quote <ArrowRight size={15} />
           </NavLink>

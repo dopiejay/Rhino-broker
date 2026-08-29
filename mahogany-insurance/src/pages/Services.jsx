@@ -66,7 +66,7 @@ export default function Services() {
                 {activeCat.items.map((s, idx) => (
                   <Reveal key={s.name} delay={idx * 80} className="bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
                     <div className="flex items-start justify-between mb-5">
-                      <span className="w-12 h-12 rounded-xl bg-emerald text-white flex items-center justify-center">
+                      <span className="w-12 h-12 rounded-xl bg-emerald text-navy flex items-center justify-center">
                         <s.icon size={23} strokeWidth={1.6} />
                       </span>
                       <Sparkles size={18} className="text-gold/50" aria-hidden="true" />
@@ -76,7 +76,7 @@ export default function Services() {
                     <ul className="space-y-2.5 mb-5">
                       {s.benefits.map((b) => (
                         <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/75">
-                          <Check size={16} className="text-emerald shrink-0 mt-0.5" />
+                          <Check size={16} className="text-emerald-ink shrink-0 mt-0.5" />
                           {b}
                         </li>
                       ))}

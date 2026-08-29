@@ -74,7 +74,7 @@ export default function Contact() {
           {cards.map((c, idx) => {
             const inner = (
               <>
-                <span className="w-12 h-12 rounded-full bg-navy text-emerald-light flex items-center justify-center mb-5 group-hover:bg-emerald group-hover:text-white transition-colors">
+                <span className="w-12 h-12 rounded-full bg-navy text-emerald-ink flex items-center justify-center mb-5 group-hover:bg-emerald group-hover:text-navy transition-colors">
                   <c.icon size={21} />
                 </span>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/45 mb-1.5">{c.title}</h3>
@@ -138,7 +138,7 @@ export default function Contact() {
           <div className="lg:sticky lg:top-24">
             {sent ? (
               <div className="bg-white border border-navy/8 rounded-3xl p-10 md:p-14 text-center shadow-card animate-fadeup">
-                <span className="w-20 h-20 rounded-full bg-emerald-soft text-emerald flex items-center justify-center mx-auto mb-7">
+                <span className="w-20 h-20 rounded-full bg-emerald-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
                 <h2 className="font-display text-3xl text-navy mb-3">Draft ready.</h2>
@@ -187,7 +187,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-navy font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
                   >
                     Send Message <Send size={16} />
                   </button>

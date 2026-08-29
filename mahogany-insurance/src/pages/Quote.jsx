@@ -77,7 +77,7 @@ export default function Quote() {
               <h3 className="font-display text-xl mb-6">Prefer to talk first?</h3>
               <div className="space-y-5 text-sm">
                 <a href={site.phoneHref} className="flex items-center gap-4 group">
-                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-light shrink-0 group-hover:bg-emerald group-hover:text-white transition-colors">
+                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-ink shrink-0 group-hover:bg-emerald group-hover:text-navy transition-colors">
                     <Phone size={18} />
                   </span>
                   <span>
@@ -86,7 +86,7 @@ export default function Quote() {
                   </span>
                 </a>
                 <a href={`mailto:${site.email}`} className="flex items-center gap-4 group">
-                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-light shrink-0 group-hover:bg-emerald group-hover:text-white transition-colors">
+                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-ink shrink-0 group-hover:bg-emerald group-hover:text-navy transition-colors">
                     <Mail size={18} />
                   </span>
                   <span>
@@ -100,7 +100,7 @@ export default function Quote() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 group"
                 >
-                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-light shrink-0 group-hover:bg-emerald group-hover:text-white transition-colors">
+                  <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-emerald-ink shrink-0 group-hover:bg-emerald group-hover:text-navy transition-colors">
                     <MessageCircle size={18} />
                   </span>
                   <span>
@@ -127,15 +127,15 @@ export default function Quote() {
               </div>
               <ul className="space-y-3 text-sm text-charcoal/70">
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-emerald shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-emerald-ink shrink-0 mt-0.5" />
                   Compared across 20+ insurers, not one shelf
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-emerald shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-emerald-ink shrink-0 mt-0.5" />
                   The premium we quote is the premium you'd pay direct
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={16} className="text-emerald shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-emerald-ink shrink-0 mt-0.5" />
                   No obligation, and no pressure to decide today
                 </li>
               </ul>
@@ -146,7 +146,7 @@ export default function Quote() {
           <div>
             {submitted ? (
               <div className="bg-white border border-navy/8 rounded-3xl p-10 md:p-14 text-center shadow-card animate-fadeup">
-                <span className="w-20 h-20 rounded-full bg-emerald-soft text-emerald flex items-center justify-center mx-auto mb-7">
+                <span className="w-20 h-20 rounded-full bg-emerald-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
                 <h2 className="font-display text-3xl md:text-4xl text-navy mb-3">
@@ -232,10 +232,10 @@ export default function Quote() {
                         fileName ? "border-emerald bg-emerald-soft" : "border-navy/20 bg-cream hover:border-gold"
                       }`}
                     >
-                      <UploadCloud size={22} className={fileName ? "text-emerald" : "text-charcoal/40"} />
+                      <UploadCloud size={22} className={fileName ? "text-navy" : "text-charcoal/40"} />
                       <span className="text-sm text-charcoal/60">
                         {fileName ? (
-                          <span className="font-semibold text-emerald-dark flex items-center gap-2">
+                          <span className="font-semibold text-navy flex items-center gap-2">
                             <FileText size={15} /> {fileName}
                           </span>
                         ) : (
@@ -245,7 +245,7 @@ export default function Quote() {
                     </label>
                     <input id="file" name="file" type="file" className="sr-only" onChange={handleFile} />
                     <p className="text-xs text-charcoal/45 mt-2 flex items-center gap-1.5">
-                      <ShieldCheck size={13} className="text-emerald" />
+                      <ShieldCheck size={13} className="text-emerald-ink" />
                       Attachments stay confidential between you and our team.
                     </p>
                   </div>
@@ -253,7 +253,7 @@ export default function Quote() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-navy font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {submitting ? "Sending..." : "Submit Quote Request"} <Send size={16} />
                   </button>

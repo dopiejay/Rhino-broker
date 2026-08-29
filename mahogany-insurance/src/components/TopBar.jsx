@@ -8,11 +8,11 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 h-10 flex items-center justify-between gap-4">
         <div className="hidden sm:flex items-center gap-6">
           <span className="flex items-center gap-2">
-            <Clock size={13} className="text-emerald-light" />
+            <Clock size={13} className="text-emerald-ink" />
             {site.hours}
           </span>
           <span className="flex items-center gap-2">
-            <Mail size={13} className="text-emerald-light" />
+            <Mail size={13} className="text-emerald-ink" />
             <a href={`mailto:${site.email}`} className="hover:text-white transition-colors">
               {site.email}
             </a>
@@ -25,7 +25,7 @@ export default function TopBar() {
           href={site.phoneHref}
           className="flex items-center gap-2 hover:text-white transition-colors ml-auto sm:ml-0 font-medium"
         >
-          <span className="inline-flex w-5 h-5 items-center justify-center rounded-full bg-emerald/30 text-emerald-light">
+          <span className="inline-flex w-5 h-5 items-center justify-center rounded-full bg-emerald/30 text-emerald-ink">
             <Phone size={11} />
           </span>
           {site.phone}

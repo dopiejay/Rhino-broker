@@ -1,28 +1,72 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import { ArrowRight, ImageIcon, ShieldCheck } from "lucide-react";
 import { useSiteContent } from "../site/SiteContentContext";
+
+const REDUCED_MOTION =
+  typeof window !== "undefined" &&
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
 export default function HeroSlider() {
   const { site, heroSlides } = useSiteContent();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => setActive((a) => (a + 1) % heroSlides.length), 7000);
-    return () => clearInterval(id);
-  }, [paused, heroSlides.length]);
+  const touchStart = useRef(null);
 
   const idx = active % heroSlides.length;
   const slide = heroSlides[idx];
+  const autoRotate = !REDUCED_MOTION && !paused;
+
+  const goTo = useCallback(
+    (next) => setActive(((next % heroSlides.length) + heroSlides.length) % heroSlides.length),
+    [heroSlides.length]
+  );
+
+  useEffect(() => {
+    if (!autoRotate) return;
+    const id = setInterval(() => setActive((a) => (a + 1) % heroSlides.length), 7000);
+    return () => clearInterval(id);
+  }, [autoRotate, heroSlides.length]);
+
+  // Touch / swipe support. Only attach when a touchscreen is present.
+  useEffect(() => {
+    const isTouch = window.matchMedia?.("(pointer: coarse)").matches || "ontouchstart" in window;
+    if (!isTouch) return;
+
+    function onTouchStart(e) {
+      touchStart.current = e.touches[0].clientX;
+      setPaused(true);
+    }
+    function onTouchMove(e) {
+      if (touchStart.current == null) return;
+      const dx = e.touches[0].clientX - touchStart.current;
+      if (Math.abs(dx) > 50) {
+        goTo(dx < 0 ? active + 1 : active - 1);
+        touchStart.current = null;
+      }
+    }
+    function onTouchEnd() {
+      touchStart.current = null;
+      setTimeout(() => setPaused(false), 6000);
+    }
+
+    const el = document.getElementById("hero-slider");
+    el?.addEventListener("touchstart", onTouchStart, { passive: true });
+    el?.addEventListener("touchmove", onTouchMove, { passive: true });
+    el?.addEventListener("touchend", onTouchEnd, { passive: true });
+    return () => {
+      el?.removeEventListener("touchstart", onTouchStart);
+      el?.removeEventListener("touchmove", onTouchMove);
+      el?.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [active, goTo]);
 
   const isExternal = (to) => /^(tel:|mailto:|https?:)/.test(to);
 
   const renderCta = (c, primary) => {
     const cls = primary
-      ? "group inline-flex items-center gap-2.5 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-      : "inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring";
+      ? "group inline-flex items-center gap-2.5 bg-emerald text-navy font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
+      : "inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-white/10 transition-colors focus-ring";
     const inner = isExternal(c.to) ? (
       c.label
     ) : (
@@ -45,9 +89,8 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative h-[92vh] min-h-[600px] max-h-[860px] overflow-hidden bg-navy-deep text-white"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      id="hero-slider"
+      className="relative h-[84vh] min-h-[560px] max-h-[860px] overflow-hidden bg-navy-deep text-white"
     >
       {/* Slides */}
       {heroSlides.map((s, i) => (
@@ -76,28 +119,28 @@ export default function HeroSlider() {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/75 via-navy-deep/55 to-transparent" />
         </div>
       ))}
 
       {/* Content */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-5 md:px-8 flex items-center">
-        <div className="max-w-3xl" key={idx}>
+        <div className="max-w-3xl pb-16 sm:pb-20" key={idx}>
           <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold bg-white/5 backdrop-blur-sm border border-gold/30 rounded-full px-4 py-2 animate-fadeup">
             <ShieldCheck size={13} />
             {slide.eyebrow}
           </span>
 
-          <h1 className="font-display text-5xl md:text-7xl font-light leading-[1.02] tracking-tight mt-7 animate-fadeup">
+          <h1 className="font-hero text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mt-6 sm:mt-7 animate-fadeup">
             {slide.title[0]}{" "}
-            <em className="text-gold italic font-light">{slide.title[1]}</em>
+            <span className="text-gold font-semibold">{slide.title[1]}</span>
           </h1>
 
-          <p className="text-white text-lg md:text-xl leading-snug max-w-xl mt-6 animate-fadeup">
+          <p className="text-white text-base sm:text-lg md:text-xl leading-snug max-w-xl mt-5 sm:mt-6 animate-fadeup">
             {slide.subtitle}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 mt-9 animate-fadeup">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-7 sm:mt-9 animate-fadeup">
             {renderCta(slide.cta, true)}
             {renderCta(slide.cta2, false)}
           </div>
@@ -105,23 +148,21 @@ export default function HeroSlider() {
       </div>
 
       {/* Controls */}
-      <div className="absolute z-10 left-5 md:left-8 bottom-10 flex items-center gap-4">
+      <div className="absolute z-10 left-5 md:left-8 bottom-5 sm:bottom-8 flex items-center gap-2" role="tablist" aria-label="Choose slide">
         {heroSlides.map((s, i) => (
           <button
             key={s.title[0]}
-            onClick={() => setActive(i)}
+            role="tab"
+            tabIndex={paused || i === idx ? 0 : -1}
+            onClick={() => goTo(i)}
             aria-label={`Show slide ${i + 1}: ${s.title[0]} ${s.title[1]}`}
+            aria-selected={i === idx}
+            aria-current={i === idx ? "true" : undefined}
             className={`h-1 rounded-full transition-all duration-500 focus-ring ${
               i === idx ? "w-12 bg-gold" : "w-4 bg-white/30 hover:bg-white/60"
             }`}
           />
         ))}
-      </div>
-
-      <div className="absolute z-10 right-5 md:right-8 bottom-10 font-display text-sm text-white/60 tracking-widest">
-        <span className="text-gold text-lg">{String(idx + 1).padStart(2, "0")}</span>
-        <span className="mx-1.5 opacity-50">/</span>
-        {String(heroSlides.length).padStart(2, "0")}
       </div>
 
       {/* Accessibility note for the phone */}

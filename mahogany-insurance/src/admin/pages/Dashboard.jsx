@@ -27,21 +27,30 @@ export default function Dashboard() {
       {error && <p className="text-sm text-red-700 mb-6">{error}</p>}
 
       <div className="grid sm:grid-cols-3 gap-5 mb-10">
-        <div className="bg-white border border-navy/10 rounded-sm p-6">
+        <Link
+          to="/admin/quotes?status=new"
+          className="group bg-white border border-navy/10 rounded-sm p-6 hover:border-green/50 transition-colors"
+        >
           <MailQuestion className="text-green mb-3" size={22} />
           <p className="text-3xl font-display text-navy">{counts ? counts.new : "—"}</p>
-          <p className="text-sm text-ink/60">New quote requests</p>
-        </div>
-        <div className="bg-white border border-navy/10 rounded-sm p-6">
+          <p className="text-sm text-ink/60 group-hover:text-navy transition-colors">New quote requests</p>
+        </Link>
+        <Link
+          to="/admin/quotes?status=contacted"
+          className="group bg-white border border-navy/10 rounded-sm p-6 hover:border-brass/50 transition-colors"
+        >
           <Clock className="text-brass mb-3" size={22} />
           <p className="text-3xl font-display text-navy">{counts ? counts.contacted : "—"}</p>
-          <p className="text-sm text-ink/60">Contacted, awaiting close</p>
-        </div>
-        <div className="bg-white border border-navy/10 rounded-sm p-6">
+          <p className="text-sm text-ink/60 group-hover:text-navy transition-colors">Contacted, awaiting close</p>
+        </Link>
+        <Link
+          to="/admin/quotes?status=closed"
+          className="group bg-white border border-navy/10 rounded-sm p-6 hover:border-navy/30 transition-colors"
+        >
           <CheckCircle2 className="text-navy mb-3" size={22} />
           <p className="text-3xl font-display text-navy">{counts ? counts.closed : "—"}</p>
-          <p className="text-sm text-ink/60">Closed</p>
-        </div>
+          <p className="text-sm text-ink/60 group-hover:text-navy transition-colors">Closed</p>
+        </Link>
       </div>
 
       <div className="grid sm:grid-cols-3 gap-5">

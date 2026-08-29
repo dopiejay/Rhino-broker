@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { NAV_LINKS } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
@@ -20,9 +20,9 @@ export default function Footer() {
                 </linearGradient>
               </defs>
               <rect width="64" height="64" rx="14" fill="url(#mib-mark-dark)" />
-              <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#C9A227" strokeOpacity="0.6" strokeWidth="1" />
-              <text x="32" y="42" textAnchor="middle" fontFamily="Fraunces, serif" fontSize="30" fontWeight="600" fill="#FAF8F3">M</text>
-              <circle cx="50" cy="14" r="5" fill="#C9A227" />
+              <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#16A5B1" strokeOpacity="0.6" strokeWidth="1" />
+              <text x="32" y="42" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="30" fontWeight="600" fill="#FAF8F3">M</text>
+              <circle cx="50" cy="14" r="5" fill="#16A5B1" />
             </svg>
             <span className="leading-none">
               <span className="font-display text-xl font-semibold text-white block">Mahogany</span>
@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="md:col-span-2">
+        <div className="md:col-span-3">
           <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-gold mb-5">Explore</h3>
           <ul className="space-y-3 text-sm">
             {NAV_LINKS.map((l) => (
@@ -71,19 +71,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-3">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-gold mb-5">Our Cover</h3>
-          <ul className="space-y-3 text-sm text-white/60">
-            <li>Motor &amp; fleet insurance</li>
-            <li>Fire &amp; property</li>
-            <li>Marine &amp; goods in transit</li>
-            <li>Engineering &amp; liability</li>
-            <li>Group medical &amp; life</li>
-            <li>Travel &amp; personal accident</li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-3">
+        <div className="md:col-span-5">
           <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-gold mb-5">Reach Us</h3>
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
@@ -97,20 +85,6 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <Mail size={16} className="shrink-0 text-gold" />
               <a href={`mailto:${site.email}`} className="text-white/60 hover:text-white transition-colors break-all">{site.email}</a>
-            </li>
-            <li className="flex items-center gap-3">
-              <Clock size={16} className="shrink-0 text-gold" />
-              <span className="text-white/60">{site.hours}</span>
-            </li>
-            <li>
-              <a
-                href={site.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-1 bg-emerald text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
-              >
-                <MessageCircle size={16} /> Chat on WhatsApp
-              </a>
             </li>
           </ul>
         </div>

@@ -47,8 +47,8 @@ export default function PageHero({
           <span className="w-8 h-px bg-current opacity-70" aria-hidden="true" />
           {eyebrow}
         </span>
-        <h1 className="font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-3xl">
-          {title} {accent && <em className="text-gold italic">{accent}</em>}
+        <h1 className="font-hero text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] max-w-3xl">
+          {title} {accent && <span className="text-gold font-semibold">{accent}</span>}
         </h1>
         {description && (
           <p className="text-white/70 text-lg leading-relaxed max-w-2xl mt-6">

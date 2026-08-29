@@ -169,7 +169,7 @@ export default function About() {
             <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
               <NavLink
                 to="/team"
-                className="inline-flex items-center gap-2 bg-emerald text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-dark transition-colors focus-ring"
+                className="inline-flex items-center gap-2 bg-emerald text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
               >
                 Meet the Team <ArrowRight size={16} />
               </NavLink>

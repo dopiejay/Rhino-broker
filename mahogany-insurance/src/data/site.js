@@ -10,18 +10,16 @@ import {
   Package,
   Users,
   Briefcase,
-  Building2,
   Landmark,
-  GraduationCap,
-  Stethoscope,
-  Church,
-  Truck,
-  Wheat,
   ShieldCheck,
   PhoneCall,
   FileText,
   Search,
   CheckCircle2,
+  Handshake,
+  BadgeCheck,
+  Coins,
+  LifeBuoy,
 } from "lucide-react";
 
 import teamPlaceholder from "../assets/img-placeholder.jpg";
@@ -124,55 +122,52 @@ export const HERO_SLIDES = [
 export const WHY_US = [
   {
     number: "01",
+    icon: Handshake,
     title: "We work for you",
-    body: "A broker acts on your behalf, not any single insurer's. We compare across the market to find the best fit for your risk and budget.",
+    body: "An independent broker acting on your behalf, never for any single insurer.",
   },
   {
     number: "02",
+    icon: BadgeCheck,
     title: "Licensed & recognised",
-    body: "Registered with the Insurance Institute of Malawi and listed among approved intermediaries by Malawi's leading insurers.",
+    body: "Registered with the Insurance Institute of Malawi and the leading insurers.",
   },
   {
     number: "03",
+    icon: Coins,
     title: "No extra cost to you",
-    body: "Brokers are paid by the insurer, not the client. You get comparison, advice and claims support at no additional premium.",
+    body: "Paid by the insurer, not you — comparison, advice and support included.",
   },
   {
     number: "04",
+    icon: LifeBuoy,
     title: "We stay through claims",
-    body: "Our work doesn't end at the sale. We handle the paperwork and follow up with the insurer until your claim is settled.",
+    body: "We handle the paperwork and follow up until your claim is settled.",
   },
-];
-
-export const INDUSTRIES = [
-  { icon: Briefcase, name: "SMEs & Corporates", desc: "Premises, stock, vehicles and liability cover for growing businesses." },
-  { icon: Landmark, name: "Public Sector & Government", desc: "Brokerage contracts and asset cover for public institutions." },
-  { icon: GraduationCap, name: "Educational Institutions", desc: "Property, liability and student protection for schools and colleges." },
-  { icon: Stethoscope, name: "Healthcare & Clinics", desc: "Medical malpractice, property and staff cover for health facilities." },
-  { icon: Truck, name: "Transport & Logistics", desc: "Fleet, goods in transit and cargo cover for operators and traders." },
-  { icon: Wheat, name: "Agriculture & Cooperatives", desc: "Cover for produce, equipment, storage and agri-business assets." },
-  { icon: Church, name: "Religious & Community Orgs", desc: "Cover designed for churches, NGOs and community institutions." },
-  { icon: Building2, name: "NGOs & Development", desc: "Multi-asset and people cover for projects with donor requirements." },
 ];
 
 export const PROCESS = [
   {
     step: "01",
+    icon: PhoneCall,
     title: "Tell us what you need",
     body: "A quick conversation about what you're protecting — a vehicle, a home, a business, or your team.",
   },
   {
     step: "02",
+    icon: Scale,
     title: "We compare the market",
     body: "We source options from Malawi's leading insurers and explain the cover, limits and exclusions clearly.",
   },
   {
     step: "03",
+    icon: BadgeCheck,
     title: "You choose the right cover",
     body: "You pick the policy that fits. We arrange it, send you the documents and keep a copy on file.",
   },
   {
     step: "04",
+    icon: Handshake,
     title: "We stay by your side",
     body: "We manage renewals, mid-term changes and claims — so you always have someone in your corner.",
   },

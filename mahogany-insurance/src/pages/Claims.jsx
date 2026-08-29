@@ -102,7 +102,7 @@ export default function Claims() {
                         <ul className="space-y-2">
                           {d.docs.map((doc) => (
                             <li key={doc} className="flex items-start gap-2.5 text-sm text-charcoal/70">
-                              <FileText size={15} className="text-emerald shrink-0 mt-0.5" />
+                              <FileText size={15} className="text-emerald-ink shrink-0 mt-0.5" />
                               {doc}
                             </li>
                           ))}

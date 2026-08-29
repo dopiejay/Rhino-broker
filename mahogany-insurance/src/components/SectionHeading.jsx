@@ -8,6 +8,7 @@ export default function SectionHeading({
   align = "left",
   tone = "light",
   className = "",
+  accentClass = "text-gold",
 }) {
   const alignCls = align === "center" ? "text-center mx-auto items-center" : "text-left";
   const eyebrowTone = tone === "dark" ? "text-gold" : "text-gold-dark";
@@ -22,7 +23,7 @@ export default function SectionHeading({
       </span>
       <h2 className={`font-display text-3xl md:text-5xl leading-[1.08] tracking-tight ${titleTone}`}>
         {title}{" "}
-        {accent && <em className="text-gold not-italic font-light italic">{accent}</em>}
+        {accent && <span className={`${accentClass} font-normal`}>{accent}</span>}
       </h2>
       {description && (
         <p className={`mt-5 text-base md:text-lg leading-relaxed ${descTone} max-w-2xl ${align === "center" ? "mx-auto" : ""}`}>
