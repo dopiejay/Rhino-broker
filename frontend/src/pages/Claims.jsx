@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   PhoneCall,
   FileText,
@@ -7,7 +6,6 @@ import {
   ArrowRight,
   Download,
   ChevronDown,
-  AlertTriangle,
 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
@@ -16,9 +14,8 @@ import { CLAIM_DOCS, IMAGES } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function Claims() {
-  const { site, claimSteps, faqs } = useSiteContent();
+  const { site, claimSteps } = useSiteContent();
   const [openDoc, setOpenDoc] = useState(0);
-  const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <div>
@@ -30,12 +27,10 @@ export default function Claims() {
       />
 
       {/* Emergency strip */}
-      <section className="bg-gold text-navy-deep">
+      <section className="bg-emerald text-navy-deep">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <span className="w-11 h-11 rounded-full bg-navy-deep text-gold flex items-center justify-center shrink-0 animate-float">
-              <AlertTriangle size={20} />
-            </span>
+            
             <div>
               <p className="font-display text-lg font-semibold leading-tight">Reporting a claim right now?</p>
               <p className="text-sm text-navy-deep/70">Call us immediately — we'll guide you through what to do next.</p>
@@ -152,42 +147,6 @@ export default function Claims() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 md:py-24">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <SectionHeading
-            align="center"
-            eyebrow="Claims Questions"
-            title="Answers to what"
-            accent="clients usually ask."
-            className="mb-12"
-          />
-          <div className="space-y-3">
-            {faqs.slice(0, 4).map((f, i) => (
-              <Reveal key={f.q} delay={i * 70}>
-                <div className="bg-white border border-navy/8 rounded-2xl overflow-hidden">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
-                    aria-expanded={openFaq === i}
-                    className="w-full flex items-center justify-between gap-4 text-left px-6 py-4 focus-ring"
-                  >
-                    <span className="font-display text-lg text-navy">{f.q}</span>
-                    <ChevronDown size={19} className={`text-gold-dark shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
-                  </button>
-                  {openFaq === i && (
-                    <p className="px-6 pb-5 text-sm text-charcoal/65 leading-relaxed">{f.a}</p>
-                  )}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={150} className="text-center mt-10">
-            <NavLink to="/resources" className="inline-flex items-center gap-2 font-semibold text-navy focus-ring rounded">
-              See more FAQs &amp; resources <ArrowRight size={16} className="text-gold-dark" />
-            </NavLink>
-          </Reveal>
-        </div>
-      </section>
     </div>
   );
 }

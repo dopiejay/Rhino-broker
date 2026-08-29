@@ -21,15 +21,7 @@ export default function TopBar() {
             {site.address}, {site.city}
           </span>
         </div>
-        <a
-          href={site.phoneHref}
-          className="flex items-center gap-2 hover:text-white transition-colors ml-auto sm:ml-0 font-medium"
-        >
-          <span className="inline-flex w-5 h-5 items-center justify-center rounded-full bg-emerald/30 text-emerald-ink">
-            <Phone size={11} />
-          </span>
-          {site.phone}
-        </a>
+        
       </div>
     </div>
   );

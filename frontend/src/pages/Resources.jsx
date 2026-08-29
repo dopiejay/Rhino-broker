@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Search, ChevronDown, ArrowRight, BookOpen, Newspaper, LifeBuoy } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
@@ -29,13 +27,7 @@ const GUIDES = [
 ];
 
 export default function Resources() {
-  const { site, faqs, news, tips } = useSiteContent();
-  const [openFaq, setOpenFaq] = useState(0);
-  const [query, setQuery] = useState("");
-
-  const filteredFaqs = faqs.filter((f) =>
-    (f.q + " " + f.a).toLowerCase().includes(query.toLowerCase())
-  );
+  const { news, tips } = useSiteContent();
 
   return (
     <div>
@@ -129,57 +121,6 @@ export default function Resources() {
           </div>
         </div>
       </section>
-
-      {/* FAQ */}
-      <section className="py-20 md:py-24">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <SectionHeading
-            align="center"
-            eyebrow="Frequently Asked"
-            title="Questions,"
-            accent="answered."
-            className="mb-10"
-          />
-          <div className="relative mb-8">
-            <Search size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-charcoal/40" />
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search questions — e.g. 'broker', 'documents', 'claim'"
-              className="w-full bg-white border border-navy/15 rounded-full pl-13 py-4 pr-5 text-sm focus-ring focus:border-gold focus:shadow-gold transition-shadow"
-              style={{ paddingLeft: "3.25rem" }}
-            />
-          </div>
-          <div className="space-y-3">
-            {filteredFaqs.map((f, i) => (
-              <Reveal key={f.q} delay={i * 60}>
-                <div className="bg-white border border-navy/8 rounded-2xl overflow-hidden">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
-                    aria-expanded={openFaq === i}
-                    className="w-full flex items-center justify-between gap-4 text-left px-6 py-4 focus-ring"
-                  >
-                    <span className="font-display text-lg text-navy">{f.q}</span>
-                    <ChevronDown size={19} className={`text-gold-dark shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
-                  </button>
-                  {openFaq === i && (
-                    <p className="px-6 pb-5 text-sm text-charcoal/65 leading-relaxed">{f.a}</p>
-                  )}
-                </div>
-              </Reveal>
-            ))}
-            {filteredFaqs.length === 0 && (
-              <div className="text-center py-12 text-charcoal/50">
-                <LifeBuoy size={28} className="mx-auto mb-3 text-gold-dark/60" />
-                No matches for “{query}”. Call us on{" "}
-                <a href={site.phoneHref} className="text-navy font-semibold">{site.phone}</a> and we'll answer it for you.
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }

@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Target, Eye, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import StatsBand from "../components/StatsBand";
 import { IMAGES } from "../data/site";import { useSiteContent } from "../site/SiteContentContext";
 
 export default function About() {
-  const { site, values, journey, aboutIntro } = useSiteContent();
+  const { values, journey } = useSiteContent();
   return (
     <div>
       <PageHero
@@ -57,63 +56,16 @@ export default function About() {
           <div className="order-1 lg:order-2">
             <Reveal className="relative">
               <div className="rounded-2xl overflow-hidden shadow-lift">
-                <img src={IMAGES.handshake} alt="Closing a deal with a client" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+                <img src={IMAGES.story} alt="Closing a deal with a client" className="w-full aspect-[4/5] object-cover" loading="lazy" />
               </div>
-              <div className="absolute -bottom-6 -left-4 md:-left-8 bg-navy text-white rounded-2xl p-6 shadow-lift">
-                <div className="flex items-center gap-3">
-                  <MapPin size={18} className="text-gold shrink-0" />
-                  <div>
-                    <p className="font-display text-lg">{site.address}</p>
-                    <p className="text-xs text-white/60 mt-0.5">{site.city}</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission / Vision */}
-      <section className="bg-navy-deep text-white py-20 md:py-28 grain relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <SectionHeading
-            tone="dark"
-            eyebrow="Purpose"
-            title="Why we get up in the morning."
-            className="mb-14"
-          />
-          <div className="grid md:grid-cols-2 gap-6">
-            <Reveal className="bg-white/[0.04] border border-white/10 rounded-2xl p-9 md:p-11">
-              <div className="flex items-center gap-4 mb-5">
-                <span className="w-12 h-12 rounded-full bg-gold/15 text-gold flex items-center justify-center">
-                  <Target size={22} />
-                </span>
-                <h3 className="font-display text-2xl">Our Mission</h3>
-              </div>
-              <p className="text-white/70 leading-relaxed text-lg">
-                {aboutIntro?.mission ||
-                  "To connect individuals, SMEs and institutions across Malawi with the right cover from the right insurer — and to be there through renewals and claims, not just the sale."}
-              </p>
-            </Reveal>
-            <Reveal delay={120} className="bg-white/[0.04] border border-white/10 rounded-2xl p-9 md:p-11">
-              <div className="flex items-center gap-4 mb-5">
-                <span className="w-12 h-12 rounded-full bg-gold/15 text-gold flex items-center justify-center">
-                  <Eye size={22} />
-                </span>
-                <h3 className="font-display text-2xl">Our Vision</h3>
-              </div>
-              <p className="text-white/70 leading-relaxed text-lg">
-                {aboutIntro?.vision ||
-                  "To be the insurance broker Malawians trust first — for clear advice, fair comparison and dependable support when it matters most."}
-              </p>
+              
             </Reveal>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-gray-200">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
             eyebrow="What Guides Us"
@@ -124,8 +76,8 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, idx) => (
               <Reveal key={v.title} delay={idx * 90} className="group relative bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all">
-                <span className="font-display text-5xl font-light text-gold/30 block mb-6 group-hover:text-gold/60 transition-colors">
-                  {String(idx + 1).padStart(2, "0")}
+                <span className="w-12 h-12 rounded-full bg-gold-soft text-gold-dark flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-colors">
+                  <v.icon size={24} strokeWidth={1.75} />
                 </span>
                 <h3 className="font-display text-xl text-navy mb-2">{v.title}</h3>
                 <p className="text-sm text-charcoal/60 leading-relaxed">{v.body}</p>
@@ -135,13 +87,13 @@ export default function About() {
         </div>
       </section>
 
-      {/* Journey */}
+      {/* Journey 
       <section className="py-20 md:py-28 bg-cream-dark/60">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16">
           <div className="flex flex-col">
             
             <Reveal className="relative mt-10 flex-1 rounded-2xl overflow-hidden shadow-lift">
-              <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full min-h-[420px] object-cover" loading="lazy" />
+              <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full object-cover" loading="lazy" />
             </Reveal>
            
           </div>
@@ -182,7 +134,7 @@ export default function About() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </section>*/}
       </div>
   );
 }

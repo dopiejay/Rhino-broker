@@ -20,6 +20,8 @@ import {
   BadgeCheck,
   Coins,
   LifeBuoy,
+  Eye,
+  Heart,
 } from "lucide-react";
 
 import teamPlaceholder from "../assets/img-placeholder.jpg";
@@ -36,6 +38,7 @@ import guideFirstTime from "../assets/firstTime.jpg";
 import guideGroup from "../assets/group.jpg";
 import claimChase from "../assets/chase.jpg";
 import aboutBroker from "../assets/broker.jpg";
+import aboutStory from "../assets/story.jpg";
 
 export const SITE = {
   name: "Mahogany Insurance Brokers",
@@ -387,18 +390,22 @@ export const CLAIM_DOCS = [
 export const VALUES = [
   {
     title: "Client first",
+    icon: Heart,
     body: "We place your interests ahead of any single insurer's, comparing across the market for the best fit.",
   },
   {
     title: "Transparency",
+    icon: Eye,
     body: "Clear terms, clear premiums and no fine print left unexplained.",
   },
   {
     title: "Integrity",
+    icon: ShieldCheck,
     body: "Licensed, accountable and recognised by Malawi's leading insurance companies.",
   },
   {
     title: "Standing by you",
+    icon: LifeBuoy,
     body: "Our work doesn't end at the sale — we support you through renewals and claims.",
   },
 ];
@@ -560,6 +567,7 @@ export const IMAGES = {
   group: guideGroup,
   chase: claimChase,
   broker: aboutBroker,
+  story: aboutStory,
   office:
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
   meeting:

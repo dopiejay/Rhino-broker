@@ -2,10 +2,10 @@
 
 Two parts, meant to run together:
 
-- **mahogany-insurance/** — one React (Vite + Tailwind) app containing BOTH
+- **frontend/** — one React (Vite + Tailwind) app containing BOTH
   the public website and the admin dashboard. The admin lives under the
   `/admin` route of the same app.
-- **mahogany-backend/** — the API (Node/Express + PostgreSQL) that stores
+- **backend/** — the API (Node/Express + PostgreSQL) that stores
   quote requests and the editable site content.
 
 The public site works fine on its own with no backend running — every page
@@ -23,7 +23,7 @@ string it gives you (it'll look like
 ## 2. Set up the backend
 
 ```bash
-cd mahogany-backend
+cd backend
 npm install
 cp .env.example .env
 ```
@@ -53,7 +53,7 @@ to confirm it's up.
 ## 3. Set up the site + admin (one app)
 
 ```bash
-cd mahogany-insurance
+cd frontend
 npm install
 cp .env.example .env
 npm run dev
@@ -83,7 +83,7 @@ set in the backend's `.env`.
   hours, WhatsApp), **team members** (names, roles, bios and photos),
   **FAQs**, **News & Updates**, and **Insurance Tips**. Changes go live on
   the public site immediately after saving. Everything else on the site is
-  managed in code (see `mahogany-insurance/src/data/site.js`) and is not
+  managed in code (see `frontend/src/data/site.js`) and is not
   editable from the admin
 - **Admin Users** (`/admin/users`) — create and delete admin logins
   (you can't delete your own account)
@@ -108,7 +108,7 @@ Frontend and backend are hosted separately.
 
 ### Frontend (site + admin) — e.g. Vercel
 
-Push the repo, import `mahogany-insurance` into Vercel (framework preset:
+Push the repo, import `frontend` into Vercel (framework preset:
 Vite, build command `npm run build`, output `dist`). Set the environment
 variable:
 
@@ -141,7 +141,7 @@ variable:
    to keep, and don't commit `.env` files anywhere.
 2. **Photos** — every page has a clearly labeled placeholder box where a
    real photo should go (office, team, clients, etc.). Swap those in once
-   you have them; see `mahogany-insurance/INSTRUCTIONS.md` for the list.
+   you have them; see `frontend/INSTRUCTIONS.md` for the list.
 3. **Confirm the seeded contact details** (phone/email/address) are
    accurate — they came from public directory listings, not from Mahogany
    directly.

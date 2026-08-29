@@ -118,6 +118,7 @@ function mergeValues(live, fallback) {
   return live.map((v, i) => ({
     title: v.title || fallback[i]?.title || "",
     body: v.desc || fallback[i]?.body || "",
+    icon: fallback[i]?.icon,
   }));
 }
 

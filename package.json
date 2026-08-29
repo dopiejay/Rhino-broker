@@ -4,11 +4,11 @@
   "private": true,
   "description": "Mahogany Insurance — public site + admin dashboard (one Vite app) and the Express API",
   "scripts": {
-    "install:all": "npm install && npm --prefix mahogany-insurance install && npm --prefix mahogany-backend install",
-    "build": "npm --prefix mahogany-insurance run build",
-    "start": "npm --prefix mahogany-backend start",
-    "seed": "npm --prefix mahogany-backend run seed",
-    "dev:site": "npm --prefix mahogany-insurance run dev",
-    "dev:backend": "npm --prefix mahogany-backend run dev"
+    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "seed": "npm --prefix backend run seed",
+    "dev:site": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev"
   }
 }
