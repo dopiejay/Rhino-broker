@@ -33,7 +33,7 @@ export default function Home() {
             <div className="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-8">
               {WHY_US.map((f, idx) => (
                 <Reveal key={f.number} delay={idx * 90} className="group flex gap-4">
-                  <span className="w-10 h-10 flex items-center justify-center shrink-0 text-emerald-ink">
+                  <span className="w-10 h-10 flex items-center justify-center shrink-0 rounded-full bg-emerald/15 text-emerald-ink">
                     <f.icon size={24} strokeWidth={1.75} />
                   </span>
                   <div>
@@ -125,8 +125,7 @@ export default function Home() {
             {PROCESS.map((p, idx) => (
               <Reveal key={p.step} delay={idx * 100} className="relative">
                 <p.icon size={40} strokeWidth={1.5} className="text-navy mb-5" />
-                <div className="w-10 h-px bg-emerald/50 mb-5" aria-hidden="true" />
-                <h3 className="font-display text-xl text-navy mb-2">{p.title}</h3>
+                <h3 className="font-display text-xl text-white mb-2">{p.title}</h3>
                 <p className="text-sm text-navy/70 leading-relaxed">{p.body}</p>
               </Reveal>
             ))}

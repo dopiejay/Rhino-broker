@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="md:col-span-3">
+        <div className="md:col-span-4 md:pl-8">
           <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-gold mb-5">Explore</h3>
           <ul className="space-y-3 text-sm">
             {NAV_LINKS.map((l) => (
@@ -71,7 +71,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:col-span-5">
+        <div className="md:col-span-4">
           <h3 className="text-xs font-semibold uppercase tracking-[0.24em] text-gold mb-5">Reach Us</h3>
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
