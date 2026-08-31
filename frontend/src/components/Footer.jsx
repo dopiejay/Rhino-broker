@@ -12,18 +12,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 pt-14 pb-10 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
           <div className="flex items-center gap-3 mb-5">
-            <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
-              <defs>
-                <linearGradient id="mib-mark-dark" x1="0" y1="0" x2="64" y2="64">
-                  <stop offset="0%" stopColor="#0F6B4F" />
-                  <stop offset="100%" stopColor="#0A4E3A" />
-                </linearGradient>
-              </defs>
-              <rect width="64" height="64" rx="14" fill="url(#mib-mark-dark)" />
-              <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#16A5B1" strokeOpacity="0.6" strokeWidth="1" />
-              <text x="32" y="42" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="30" fontWeight="600" fill="#FAF8F3">M</text>
-              <circle cx="50" cy="14" r="5" fill="#16A5B1" />
-            </svg>
+            
             <span className="leading-none">
               <span className="font-display text-xl font-semibold text-white block">Mahogany</span>
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold block mt-1">
