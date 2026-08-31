@@ -53,12 +53,25 @@ export default function Services() {
 
             {/* Active category */}
             <div key={activeCat.id}>
-              <div className="relative rounded-2xl overflow-hidden mb-8 shadow-lift">
-                <img src={activeCat.image} alt={activeCat.label} className="w-full aspect-[21/9] object-cover" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-navy-deep/10" aria-hidden="true" />
-                <div className="absolute bottom-0 left-0 right-0 p-7 md:p-9">
-                  <h2 className="font-display text-3xl md:text-4xl text-white mb-2 animate-fadeup">{activeCat.label}</h2>
-                  <p className="text-white/75 text-sm md:text-base max-w-xl animate-fadeup">{activeCat.intro}</p>
+              <div className="relative mb-8 rounded-2xl overflow-hidden shadow-lift group">
+                <div className="relative h-44 sm:h-56 md:h-auto">
+                  <img
+                    src={activeCat.image}
+                    alt={activeCat.label}
+                    className="w-full h-full md:aspect-[21/9] object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-navy-deep/10" aria-hidden="true" />
+                  <span className="hidden md:inline-flex absolute top-5 right-5 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white/90 text-[11px] font-semibold uppercase tracking-[0.18em]">
+                    {activeCat.items.length} cover types
+                  </span>
+                </div>
+                <div className="relative bg-navy-deep/95 px-6 py-6 md:px-9 md:py-8 md:bg-navy-deep md:backdrop-blur">
+                  <span className="block md:hidden text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-light mb-2">
+                    {activeCat.items.length} cover types
+                  </span>
+                  <h2 className="font-display text-2xl md:text-4xl text-white mb-2 animate-fadeup">{activeCat.label}</h2>
+                  <p className="text-white/80 text-sm md:text-base max-w-xl animate-fadeup">{activeCat.intro}</p>
                 </div>
               </div>
 
