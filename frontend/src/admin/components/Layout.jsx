@@ -20,13 +20,13 @@ export default function Layout() {
         <div className="px-6 py-6 border-b border-white/10">
           <div className="flex items-center gap-2.5">
             <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
-              <rect width="64" height="64" rx="10" fill="#B8874A" />
-              <circle cx="32" cy="32" r="20" fill="none" stroke="#10233F" strokeWidth="2" />
-              <circle cx="32" cy="32" r="13" fill="none" stroke="#10233F" strokeWidth="1.5" opacity="0.75" />
-              <circle cx="32" cy="32" r="6" fill="#4F8F52" />
+              <rect width="64" height="64" rx="10" fill="#C6923A" />
+              <circle cx="32" cy="32" r="20" fill="none" stroke="#3F0E17" strokeWidth="2" />
+              <circle cx="32" cy="32" r="13" fill="none" stroke="#3F0E17" strokeWidth="1.5" opacity="0.75" />
+              <circle cx="32" cy="32" r="6" fill="#9E3542" />
             </svg>
             <div>
-              <p className="font-display text-sm leading-tight">Mahogany</p>
+              <p className="font-display text-sm leading-tight">Rhino</p>
               <p className="text-[10px] uppercase tracking-widest text-brass">Admin</p>
             </div>
           </div>

@@ -62,7 +62,7 @@ function Field({ field, value, onChange }) {
         rows={2}
         value={value || ""}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-green resize-none"
+        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel resize-none"
       />
     );
   }
@@ -71,7 +71,7 @@ function Field({ field, value, onChange }) {
       <select
         value={value || ""}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-green"
+        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel"
       >
         {field.options.map((o) => (
           <option key={o} value={o}>{o}</option>
@@ -87,7 +87,7 @@ function Field({ field, value, onChange }) {
       type="text"
       value={value || ""}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-green"
+      className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel"
     />
   );
 }

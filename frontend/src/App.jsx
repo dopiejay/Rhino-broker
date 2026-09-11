@@ -11,11 +11,9 @@ import AdminUsers from "./admin/pages/AdminUsers";
 import PublicLayout from "./layouts/PublicLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Team from "./pages/Team";
 import Services from "./pages/Services";
 import Quote from "./pages/Quote";
-import Claims from "./pages/Claims";
-import Resources from "./pages/Resources";
+import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 
 function ScrollToTop() {
@@ -43,11 +41,9 @@ export default function App() {
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/team" element={<Team />} />
               <Route path="/services" element={<Services />} />
               <Route path="/quote" element={<Quote />} />
-              <Route path="/claims" element={<Claims />} />
-              <Route path="/resources" element={<Resources />} />
+              <Route path="/insights" element={<Insights />} />
               <Route path="/contact" element={<Contact />} />
             </Route>
           </Routes>

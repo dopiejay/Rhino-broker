@@ -30,12 +30,12 @@ export default function Login() {
       <div className="w-full max-w-sm">
         <div className="flex items-center gap-2.5 justify-center mb-8">
           <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
-            <rect width="64" height="64" rx="10" fill="#B8874A" />
-            <circle cx="32" cy="32" r="20" fill="none" stroke="#10233F" strokeWidth="2" />
-            <circle cx="32" cy="32" r="13" fill="none" stroke="#10233F" strokeWidth="1.5" opacity="0.75" />
-            <circle cx="32" cy="32" r="6" fill="#4F8F52" />
+              <rect width="64" height="64" rx="10" fill="#C6923A" />
+            <circle cx="32" cy="32" r="20" fill="none" stroke="#3F0E17" strokeWidth="2" />
+            <circle cx="32" cy="32" r="13" fill="none" stroke="#3F0E17" strokeWidth="1.5" opacity="0.75" />
+              <circle cx="32" cy="32" r="6" fill="#9E3542" />
           </svg>
-          <span className="font-display text-xl text-white">Mahogany Admin</span>
+          <span className="font-display text-xl text-white">Rhino Admin</span>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-sm p-8 space-y-5">
@@ -55,7 +55,7 @@ export default function Login() {
             <input
               id="username" type="text" required autoFocus value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-green"
+              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
             />
           </div>
           <div>
@@ -63,13 +63,13 @@ export default function Login() {
             <input
               id="password" type="password" required value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-green"
+              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green text-white font-semibold px-5 py-3 rounded-sm hover:bg-green-dark transition-colors focus-ring disabled:opacity-60"
+            className="w-full bg-steel text-white font-semibold px-5 py-3 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>

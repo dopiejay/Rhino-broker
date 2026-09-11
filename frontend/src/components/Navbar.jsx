@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, ChevronDown, Check } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { NAV_LINKS, SITE } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
@@ -9,9 +9,9 @@ function Logo({ onClick }) {
     <NavLink to="/" onClick={onClick} className="flex items-center gap-3 focus-ring rounded group" aria-label={`${SITE.name} — home`}>
       <span className="leading-none">
         <span className="font-display text-xl font-semibold text-navy tracking-tight block">
-          Mahogany
+          Rhino
         </span>
-        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-emerald-ink block mt-1">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-steel block mt-1">
           Insurance Brokers
         </span>
       </span>
@@ -23,11 +23,6 @@ export default function Navbar() {
   const { site } = useSiteContent();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [navOpen, setNavOpen] = useState(false); // desktop dropdown
-  const [aboutOpen, setAboutOpen] = useState(false); // mobile accordion
-  const closeTimer = useRef(null);
-  const dropdownRef = useRef(null);
-  const triggerRef = useRef(null);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -39,54 +34,13 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
-    setAboutOpen(false);
-    setNavOpen(false);
-    return () => clearTimeout(closeTimer.current);
   }, [pathname]);
-
-  // Close the desktop dropdown when clicking outside it.
-  useEffect(() => {
-    if (!navOpen) return;
-    const onDocClick = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setNavOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
-  }, [navOpen]);
-
-  const openNav = () => {
-    clearTimeout(closeTimer.current);
-    setNavOpen(true);
-  };
-  const scheduleCloseNav = () => {
-    closeTimer.current = setTimeout(() => setNavOpen(false), 200);
-  };
-  const cancelCloseNav = () => clearTimeout(closeTimer.current);
-
-  // Keyboard navigation inside the dropdown.
-  function onDropdownKeyDown(e, index, items) {
-    if (e.key === "Escape") {
-      setNavOpen(false);
-      triggerRef.current?.focus();
-      return;
-    }
-    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
-    e.preventDefault();
-    const delta = e.key === "ArrowDown" ? 1 : -1;
-    const next = (index + delta + items.length) % items.length;
-    const els = dropdownRef.current?.querySelectorAll("[data-dropdown-item]");
-    els?.[next]?.focus();
-  }
-
-  const aboutActive = pathname === "/about" || pathname === "/team";
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "bg-white shadow-[0_1px_0_rgba(11,31,58,0.08),0_12px_32px_-16px_rgba(11,31,58,0.25)]"
+          ? "bg-white shadow-[0_1px_0_rgba(63,14,23,0.08),0_12px_32px_-16px_rgba(63,14,23,0.25)]"
           : "bg-white border-b border-navy/5"
       }`}
     >
@@ -94,103 +48,35 @@ export default function Navbar() {
         <Logo onClick={() => setOpen(false)} />
 
         <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((l) =>
-            l.children ? (
-              <div
-                key={l.to}
-                className="relative"
-                ref={dropdownRef}
-                onMouseEnter={openNav}
-                onMouseLeave={scheduleCloseNav}
-              >
-                <NavLink
-                  ref={triggerRef}
-                  to={l.to}
-                  aria-haspopup="menu"
-                  aria-expanded={navOpen}
-                  onMouseEnter={cancelCloseNav}
-                  onClick={() => setNavOpen(true)}
-                  className={`inline-flex items-center gap-1.5 relative text-sm font-medium tracking-wide transition-colors focus-ring rounded py-2 ${
-                    aboutActive ? "text-navy" : "text-charcoal/60 hover:text-navy"
-                  }`}
-                >
+          {NAV_LINKS.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `group relative text-sm font-medium tracking-wide transition-colors focus-ring rounded py-2 ${
+                  isActive ? "text-navy" : "text-charcoal/60 hover:text-navy"
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
                   {l.label}
-                  <ChevronDown
-                    size={13}
-                    className={`transition-transform duration-200 ${navOpen ? "rotate-180 text-emerald-ink" : aboutActive ? "text-emerald-ink" : "text-charcoal/40"}`}
-                  />
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-[2px] bg-emerald transition-all duration-300 ${
-                      aboutActive ? "w-full" : "w-0 group-hover:w-full"
+                    className={`absolute -bottom-0.5 left-0 h-[2px] bg-steel transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                     aria-hidden="true"
                   />
-                </NavLink>
-
-                {navOpen && (
-                  <div
-                    role="menu"
-                    aria-label={l.label}
-                    className="absolute left-1/2 -translate-x-1/2 top-full pt-4 z-50"
-                    onMouseEnter={cancelCloseNav}
-                    onMouseLeave={scheduleCloseNav}
-                  >
-                    <div className="bg-white border border-navy/10 rounded-2xl shadow-lift p-2 w-60">
-                      {l.children.map((c, i) => (
-                        <NavLink
-                          key={c.to}
-                          to={c.to}
-                          data-dropdown-item="true"
-                          role="menuitem"
-                          tabIndex={0}
-                          onKeyDown={(e) => onDropdownKeyDown(e, i, l.children)}
-                          className={({ isActive }) =>
-                            `flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors focus-ring ${
-                            isActive
-                              ? "bg-emerald-soft text-navy"
-                              : "text-charcoal/75 hover:bg-cream-dark hover:text-navy"
-                            }`
-                          }
-                        >
-                          {c.label}
-                          {pathname === c.to && <Check size={15} className="text-emerald-ink" />}
-                        </NavLink>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                className={({ isActive }) =>
-                  `group relative text-sm font-medium tracking-wide transition-colors focus-ring rounded py-2 ${
-                    isActive ? "text-navy" : "text-charcoal/60 hover:text-navy"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {l.label}
-                    <span
-                      className={`absolute -bottom-0.5 left-0 h-[2px] bg-emerald transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
-              </NavLink>
-            )
-          )}
+                </>
+              )}
+            </NavLink>
+          ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          
           <NavLink
             to="/quote"
-            className="group inline-flex items-center gap-2 bg-emerald text-navy text-sm font-semibold px-6 py-3 rounded-full hover:bg-emerald-light transition-colors focus-ring"
+            className="group inline-flex items-center gap-2 bg-steel text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-steel-dark transition-colors focus-ring"
           >
             Request a Quote
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -209,53 +95,23 @@ export default function Navbar() {
 
       {open && (
         <nav className="lg:hidden border-t border-navy/10 bg-white px-5 pb-8 pt-2 flex flex-col gap-1">
-          {NAV_LINKS.map((l) =>
-            l.children ? (
-              <div key={l.to} className="border-b border-navy/5">
-                <button
-                  onClick={() => setAboutOpen(!aboutOpen)}
-                  aria-expanded={aboutOpen}
-                  className="w-full py-3.5 text-base font-medium flex items-center justify-between text-charcoal/80 focus-ring"
-                >
-                  {l.label}
-                  <ChevronDown size={17} className={`transition-transform ${aboutOpen ? "rotate-180 text-emerald-ink" : "opacity-40"}`} />
-                </button>
-                {aboutOpen && (
-                  <div className="pb-3 space-y-1">
-                    {l.children.map((c) => (
-                      <NavLink
-                        key={c.to}
-                        to={c.to}
-                        className={({ isActive }) =>
-                          `block pl-5 py-2.5 text-sm font-medium rounded-lg transition-colors focus-ring ${
-                            isActive ? "text-navy bg-emerald-soft" : "text-charcoal/65 hover:text-navy"
-                          }`
-                        }
-                      >
-                        {c.label}
-                      </NavLink>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                className={({ isActive }) =>
-                  `py-3.5 text-base font-medium border-b border-navy/5 flex items-center justify-between ${
-                    isActive ? "text-gold-dark" : "text-charcoal/80"
-                  }`
-                }
-              >
-                {l.label}
-                <ArrowRight size={16} className="opacity-40" />
-              </NavLink>
-            )
-          )}
+          {NAV_LINKS.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `py-3.5 text-base font-medium border-b border-navy/5 flex items-center justify-between ${
+                  isActive ? "text-navy" : "text-charcoal/80"
+                }`
+              }
+            >
+              {l.label}
+              <ArrowRight size={16} className="opacity-40" />
+            </NavLink>
+          ))}
           <NavLink
             to="/quote"
-            className="mt-5 bg-emerald text-navy text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
+            className="mt-5 bg-steel text-white text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
           >
             Request a Quote <ArrowRight size={15} />
           </NavLink>

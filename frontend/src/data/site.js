@@ -18,8 +18,6 @@ import {
   CheckCircle2,
   Handshake,
   BadgeCheck,
-  Coins,
-  LifeBuoy,
   Eye,
   Heart,
 } from "lucide-react";
@@ -27,7 +25,6 @@ import {
 import teamPlaceholder from "../assets/img-placeholder.jpg";
 import heroFamily from "../assets/family.jpg";
 import heroBusiness from "../assets/people-meeting.jpg";
-import heroMotor from "../assets/car.jpg";
 import heroClaims from "../assets/advisor.jpg";
 import heroGetStarted from "../assets/handshake.jpg";
 import personStanding from "../assets/person-standing.jpg";
@@ -41,13 +38,13 @@ import aboutBroker from "../assets/broker.jpg";
 import aboutStory from "../assets/story.jpg";
 
 export const SITE = {
-  name: "Mahogany Insurance Brokers",
-  shortName: "Mahogany",
-  tagline: "Insurance, arranged with care",
+  name: "Rhino Insurance Brokers & Consulting",
+  shortName: "Rhino",
+  tagline: "Strong Protection. Smarter Decisions.",
   phone: "+265 888 590 727",
   phoneHref: "tel:+265888590727",
   whatsapp: "https://wa.me/265888590727",
-  email: "fthenda@milbrol.com",
+  email: "rhinoinfo@rhinoinsurancemw.com",
   address: "Umoyo House, 2nd Floor, North Wing",
   city: "Blantyre, Malawi",
   hours: "Mon – Fri, 8:00 – 17:00",
@@ -55,97 +52,52 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
-  {
-    to: "/about",
-    label: "About",
-    children: [
-      { to: "/about", label: "Our Story" },
-      { to: "/team", label: "Management" },
-    ],
-  },
+  { to: "/about", label: "About Rhino" },
   { to: "/services", label: "Insurance Solutions" },
-  { to: "/claims", label: "Claims Help" },
-  { to: "/resources", label: "Resources" },
+  { to: "/insights", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ];
 
 export const HERO_SLIDES = [
   {
-    eyebrow: "Licensed Insurance Broker · Blantyre, Malawi",
-    title: ["Protecting What", "Matters Most"],
-    accent: "Matters Most",
-    subtitle: "Insurance, arranged with care.",
-    cta: { to: "/quote", label: "Request a Quote" },
-    cta2: { to: "/services", label: "Explore Our Services" },
+    eyebrow: "Rhino Insurance Brokers & Consulting",
+    title: ["Strong Protection.", "Smarter Decisions."],
+    accent: "Smarter Decisions.",
+    subtitle: "Helping individuals, businesses and organisations navigate insurance and risk with greater confidence.",
+    cta: { to: "/services", label: "Explore Our Solutions" },
+    cta2: { to: "/contact", label: "Talk to an Advisor" },
     image: heroFamily,
-    alt: "A professional Malawian family smiling outdoors",
+    alt: "A professional African business environment",
   },
   {
     eyebrow: "Business Insurance",
-    title: ["Protect Your Business", "with Confidence"],
-    accent: "with Confidence",
-    subtitle: "Protect your business from the unexpected.",
-    cta: { to: "/services", label: "Business Solutions" },
+    title: ["Protecting What Keeps", "Your Business Moving."],
+    accent: "Your Business Moving.",
+    subtitle: "From everyday risks to more complex exposures, we help businesses explore protection solutions that support continuity and growth.",
+    cta: { to: "/services", label: "Explore Business Solutions" },
     cta2: { to: "/contact", label: "Contact Our Team" },
     image: heroBusiness,
-    alt: "Modern office buildings and professionals in a boardroom",
+    alt: "Malawian professionals in a business meeting",
   },
   {
-    eyebrow: "Motor Insurance",
-    title: ["Drive with", "Peace of Mind"],
-    accent: "Peace of Mind",
-    subtitle: "Private and commercial cover you can rely on.",
-    cta: { to: "/quote", label: "Get a Motor Quote" },
-    cta2: { to: "/services", label: "Learn More" },
-    image: heroMotor,
-    alt: "A modern vehicle on a highway",
-  },
-  {
-    eyebrow: "Claims Assistance",
-    title: ["Here When You", "Need Us Most"],
-    accent: "Need Us Most",
-    subtitle: "We handle the paperwork and follow up on your behalf.",
-    cta: { to: "/claims", label: "Claims Assistance" },
-    cta2: { to: "/contact", label: "Contact Us" },
+    eyebrow: "Expert Guidance",
+    title: ["Guidance That Makes", "Insurance Clearer."],
+    accent: "Insurance Clearer.",
+    subtitle: "Professional advice to help you understand your options and make confident protection decisions.",
+    cta: { to: "/services", label: "Explore Our Solutions" },
+    cta2: { to: "/contact", label: "Talk to an Advisor" },
     image: heroClaims,
-    alt: "An insurance advisor assisting a client with claim documents",
+    alt: "A consultant explaining insurance options to a client",
   },
   {
     eyebrow: "Get Started",
-    title: ["Let's Find the Right", "Cover for You"],
-    accent: "Cover for You",
-    subtitle: "Personalized cover that fits your needs and budget.",
-    cta: { to: "/quote", label: "Request a Free Quote" },
-    cta2: { to: SITE.phoneHref, label: "Call Us Today" },
+    title: ["Let's Talk About", "Your Protection."],
+    accent: "Your Protection.",
+    subtitle: "Tell us what you need, and our team can help you take the next step.",
+    cta: { to: "/quote", label: "Request a Quote" },
+    cta2: { to: "/contact", label: "Contact Us" },
     image: heroGetStarted,
-    alt: "A friendly consultant meeting with a client in a modern office",
-  },
-];
-
-export const WHY_US = [
-  {
-    number: "01",
-    icon: Handshake,
-    title: "We work for you",
-    body: "An independent broker acting on your behalf, never for any single insurer.",
-  },
-  {
-    number: "02",
-    icon: BadgeCheck,
-    title: "Licensed & recognised",
-    body: "Registered with the Insurance Institute of Malawi and the leading insurers.",
-  },
-  {
-    number: "03",
-    icon: Coins,
-    title: "No extra cost to you",
-    body: "Paid by the insurer, not you — comparison, advice and support included.",
-  },
-  {
-    number: "04",
-    icon: LifeBuoy,
-    title: "We stay through claims",
-    body: "We handle the paperwork and follow up until your claim is settled.",
+    alt: "A friendly consultant meeting with a client",
   },
 ];
 
@@ -153,26 +105,26 @@ export const PROCESS = [
   {
     step: "01",
     icon: PhoneCall,
-    title: "Tell us what you need",
-    body: "A quick conversation about what you're protecting — a vehicle, a home, a business, or your team.",
+    title: "Start the Conversation",
+    body: "Tell us about your situation and what you want to protect.",
   },
   {
     step: "02",
-    icon: Scale,
-    title: "We compare the market",
-    body: "We source options from Malawi's leading insurers and explain the cover, limits and exclusions clearly.",
+    icon: Search,
+    title: "Understand Your Needs",
+    body: "We help you identify important protection considerations.",
   },
   {
     step: "03",
-    icon: BadgeCheck,
-    title: "You choose the right cover",
-    body: "You pick the policy that fits. We arrange it, send you the documents and keep a copy on file.",
+    icon: Scale,
+    title: "Explore Your Options",
+    body: "Consider suitable insurance solutions and available options.",
   },
   {
     step: "04",
-    icon: Handshake,
-    title: "We stay by your side",
-    body: "We manage renewals, mid-term changes and claims — so you always have someone in your corner.",
+    icon: BadgeCheck,
+    title: "Move Forward With Confidence",
+    body: "Make a more informed decision about your protection.",
   },
 ];
 
@@ -186,7 +138,7 @@ export const STATS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Mahogany handled our motor and business cover for the electoral process. Their team was professional, responsive and easy to work with throughout.",
+      "Rhino handled our motor and business cover for the electoral process. Their team was professional, responsive and easy to work with throughout.",
     name: "Procurement Manager",
     role: "Public institution, Blantyre",
   },
@@ -204,7 +156,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "As a church we needed cover that suited a community organisation. Mahogany treated us like a real client, not a small account.",
+      "As a church we needed cover that suited a community organisation. Rhino treated us like a real client, not a small account.",
     name: "Church Administrator",
     role: "Religious organisation, Blantyre",
   },
@@ -213,7 +165,7 @@ export const TESTIMONIALS = [
 export const NEWS = [
   {
     category: "Company Update",
-    title: "Mahogany renews public-sector brokerage mandate",
+    title: "Rhino Insurance renews public-sector brokerage mandate",
     date: "Feb 2026",
     body: "We continue to service the motor and business all-risk requirements of the Malawi Electoral Commission as a licensed intermediary.",
   },
@@ -345,26 +297,26 @@ export const CLAIM_STEPS = [
   {
     icon: PhoneCall,
     step: "01",
-    title: "Report it",
-    body: "Call or message us as soon as an incident happens. We'll guide you on immediate next steps and what to record.",
+    title: "Ensure Safety",
+    body: "Make sure everyone involved is safe and take reasonable steps to prevent further loss or damage.",
   },
   {
     icon: FileText,
     step: "02",
-    title: "We notify your insurer",
-    body: "We formally lodge your claim with the insurer and handle the paperwork on your behalf.",
+    title: "Document What Happened",
+    body: "Record relevant information about the incident, including dates, times and any supporting details.",
   },
   {
     icon: Search,
     step: "03",
-    title: "We follow up",
-    body: "We track your claim's progress, chase the insurer and keep you informed — so you don't have to.",
+    title: "Contact Rhino or Your Insurer",
+    body: "Reach out to your Rhino representative or the appropriate insurer to report the incident.",
   },
   {
     icon: CheckCircle2,
     step: "04",
-    title: "You get settled",
-    body: "We stay involved until your claim is settled fairly and on time.",
+    title: "We Guide You Forward",
+    body: "We help you understand next steps and support you through the process where we can.",
   },
 ];
 
@@ -389,106 +341,91 @@ export const CLAIM_DOCS = [
 
 export const VALUES = [
   {
-    title: "Client first",
-    icon: Heart,
-    body: "We place your interests ahead of any single insurer's, comparing across the market for the best fit.",
-  },
-  {
-    title: "Transparency",
-    icon: Eye,
-    body: "Clear terms, clear premiums and no fine print left unexplained.",
-  },
-  {
-    title: "Integrity",
+    title: "Protection",
     icon: ShieldCheck,
-    body: "Licensed, accountable and recognised by Malawi's leading insurance companies.",
+    body: "Good protection starts with understanding what matters.",
   },
   {
-    title: "Standing by you",
-    icon: LifeBuoy,
-    body: "Our work doesn't end at the sale — we support you through renewals and claims.",
+    title: "Clarity",
+    icon: Eye,
+    body: "Insurance decisions should be easier to understand.",
+  },
+  {
+    title: "Confidence",
+    icon: Heart,
+    body: "Clients should feel more confident about important protection decisions.",
+  },
+  {
+    title: "Partnership",
+    icon: Handshake,
+    body: "Long-term relationships matter.",
   },
 ];
 
 export const JOURNEY = [
   {
-    year: "Established",
-    title: "Founded in Blantyre",
-    body: "Mahogany Insurance Brokers Limited is established as an independent insurance intermediary in Blantyre.",
+    year: "Listen",
+    title: "We Listen",
+    body: "Understanding your situation is the first step towards better protection.",
   },
   {
-    year: "Recognised",
-    title: "Approved by leading insurers",
-    body: "Listed among the approved brokers recognised by Malawi's leading insurance companies.",
+    year: "Understand",
+    title: "We Understand",
+    body: "We take the time to identify your specific needs and considerations.",
   },
   {
-    year: "2019",
-    title: "Public-sector mandate",
-    body: "Awarded a brokerage contract by the Malawi Electoral Commission covering motor vehicle and business all-risk insurance.",
+    year: "Advise",
+    title: "We Advise",
+    body: "Professional guidance to help you navigate insurance and risk decisions.",
   },
   {
-    year: "Today",
-    title: "Serving all of Malawi",
-    body: "Supporting individuals, SMEs and institutions across Blantyre, Lilongwe and beyond — with more cover types than ever.",
+    year: "Support",
+    title: "We Support",
+    body: "Ongoing guidance through renewals, claims and important moments.",
   },
 ];
 
 export const CREDENTIALS = [
   {
     icon: ShieldCheck,
-    title: "Licensed intermediary",
-    body: "Registered with the Insurance Institute of Malawi as a recognised insurance broker.",
-  },
-  {
-    icon: Landmark,
-    title: "Approved by major insurers",
-    body: "Listed among approved intermediaries by Malawi's leading insurance companies.",
-  },
-  {
-    icon: Briefcase,
-    title: "Public-sector experience",
-    body: "Awarded a brokerage contract by the Malawi Electoral Commission (2019).",
-  },
-  {
-    icon: Users,
-    title: "Clients across sectors",
-    body: "Trusted by individuals, SMEs, NGOs, churches and public institutions across Malawi.",
+    title: "Professional Information",
+    body: "Relevant regulatory and corporate information will be displayed here. Once verified, this could include licensing and registration details.",
   },
 ];
 
 export const TEAM = [
   {
-    name: "F. Thenda",
+    name: "F. name",
     role: "Managing Director & Principal Broker",
     bio: "Leads the firm with over a decade of broking experience, and oversees our public-sector and institutional client relationships.",
     image: teamPlaceholder,
   },
   {
-    name: "A. Banda",
+    name: "A. name",
     role: "Senior Broker — Commercial Lines",
     bio: "Specialises in fire, marine, engineering and liability programmes for businesses, contractors and logistics operators.",
     image: teamPlaceholder,
   },
   {
-    name: "C. Phiri",
+    name: "C. name",
     role: "Broker — Personal & Motor",
     bio: "Arranges motor, home and travel cover, making sure individuals and families understand exactly what their policy covers.",
     image: teamPlaceholder,
   },
   {
-    name: "M. Mwale",
+    name: "M. name",
     role: "Claims & Client Services",
     bio: "The first person clients speak to when it matters most. Handles claim lodgement, document collection and insurer follow-ups.",
     image: teamPlaceholder,
   },
   {
-    name: "T. Nkhoma",
+    name: "T. name",
     role: "Employee Benefits Specialist",
     bio: "Compares group medical and group life schemes for employers, schools and NGOs, and keeps schemes running smoothly year-round.",
     image: teamPlaceholder,
   },
   {
-    name: "L. Chikopa",
+    name: "L. name",
     role: "Client Accounts & Renewals",
     bio: "Keeps every renewal, invoice and policy document organised, so nothing lapses and nothing slips through the cracks.",
     image: teamPlaceholder,
@@ -497,68 +434,146 @@ export const TEAM = [
 
 export const FAQS = [
   {
-    q: "What does an insurance broker actually do?",
-    a: "A broker acts on your behalf, not the insurer's. We compare policies across multiple insurance companies, help you understand the cover and exclusions, arrange the policy and support you through renewals and claims.",
+    q: "What does an insurance broker do?",
+    a: "A broker acts on your behalf, not the insurer's. We compare policies across multiple insurance companies, help you understand the cover and exclusions, and support you through the process.",
   },
   {
     q: "Is it more expensive to use a broker?",
     a: "No. Brokers are typically paid a commission by the insurer, not by you. You get comparison and advice at no extra cost on the premium itself.",
   },
   {
-    q: "What documents do I need to get a quote?",
-    a: "It depends on the cover. For motor insurance, your vehicle details and registration are usually enough to start. For business cover, a short description of your premises, stock or operations helps us quote accurately.",
-  },
-  {
-    q: "How long does a claim take to settle?",
-    a: "Timelines vary by insurer and claim type, but keeping your documentation complete and responding quickly to requests helps avoid delays. We follow up on your behalf throughout.",
+    q: "What documents do I need to get started?",
+    a: "It depends on the cover. For motor insurance, your vehicle details are usually enough to start. For business cover, a short description of your premises or operations helps us understand your needs.",
   },
   {
     q: "Can I switch brokers if I already have a policy?",
     a: "Yes. You can typically appoint a new broker to service an existing policy, or bring your cover across at your next renewal.",
   },
   {
-    q: "Do you offer cover outside Blantyre?",
-    a: "Yes. We serve clients across Malawi. Most documentation and communication can be handled remotely, and group and corporate schemes are arranged nationwide.",
+    q: "Do you serve clients outside Blantyre?",
+    a: "Yes. We serve clients across Malawi. Most documentation and communication can be handled remotely.",
   },
 ];
 
 export const TIPS = [
   {
-    title: "Review your cover annually",
-    body: "Circumstances change — a new vehicle, an asset, or business growth can mean your existing cover no longer fits. An annual review catches gaps early.",
+    title: "Understanding the Role of an Insurance Broker",
+    body: "A broker works on your behalf to compare options across the market, helping you find cover that fits your needs and budget.",
   },
   {
-    title: "Keep documentation organised",
-    body: "Receipts, valuations and photos of insured items make claims faster to process if you ever need to make one.",
+    title: "Questions to Ask Before Reviewing Your Insurance Cover",
+    body: "Has your situation changed? Are your sums insured up to date? Do you understand your exclusions? These are important questions to consider.",
   },
   {
-    title: "Understand your exclusions",
-    body: "Every policy has exclusions. Knowing what isn't covered is just as important as knowing what is.",
+    title: "Protecting Business Assets: Where to Begin",
+    body: "Start by identifying what you have, what it's worth, and what risks it faces. From there, you can explore appropriate protection.",
   },
   {
-    title: "Disclose honestly",
+    title: "Why Risk Planning Matters for Growing Businesses",
+    body: "As your business grows, your exposure changes. Regular risk reviews help ensure your protection keeps pace.",
+  },
+  {
+    title: "Disclose Honestly",
     body: "Accurate information at inception protects you later. Non-disclosure is one of the most common reasons claims are declined.",
   },
   {
-    title: "Report incidents immediately",
+    title: "Report Incidents Promptly",
     body: "Timely reporting protects your cover and speeds up settlement. Keep your broker's number saved for when you need it.",
-  },
-  {
-    title: "Insure for replacement, not market value",
-    body: "For buildings and stock, under-insurance can mean you're paid only a fraction of your loss. We help you get sums insured right.",
   },
 ];
 
 export const QUOTE_TYPES = [
   "Motor Insurance",
+  "Home & Property",
+  "Personal Accident",
+  "Travel Insurance",
   "Fire & Property",
   "Marine & Goods in Transit",
   "Engineering",
   "Public / Employer Liability",
   "Group Medical & Life",
   "Business Insurance",
-  "Travel / Personal Accident",
+  "Risk Advisory",
   "Other / Not Sure",
+];
+
+export const CLIENT_TYPES = ["Individual", "Business", "Organisation"];
+
+export const HOME_SERVICES = [
+  {
+    icon: Car,
+    title: "Motor Insurance",
+    body: "Third-party and comprehensive cover for private and commercial vehicles.",
+    to: "/services",
+  },
+  {
+    icon: HomeIcon,
+    title: "Home & Property",
+    body: "Protection for your home, contents and the things that matter most.",
+    to: "/services",
+  },
+  {
+    icon: Briefcase,
+    title: "Business Insurance",
+    body: "Cover for fire, liability, marine, engineering and other business risks.",
+    to: "/services",
+  },
+  {
+    icon: HeartPulse,
+    title: "Employee Benefits",
+    body: "Group medical and group life schemes that help you look after your team.",
+    to: "/services",
+  },
+];
+
+export const WHO_WE_SERVE = [
+  {
+    icon: Users,
+    title: "Individuals",
+    body: "Helping people explore protection for the things that matter.",
+  },
+  {
+    icon: Briefcase,
+    title: "Businesses",
+    body: "Supporting businesses as they manage everyday and evolving risks.",
+  },
+  {
+    icon: Landmark,
+    title: "Organisations",
+    body: "Helping institutions consider protection within their wider risk environment.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Specialised Needs",
+    body: "Supporting more complex protection requirements through professional guidance.",
+  },
+];
+
+export const INSIGHTS_ARTICLES = [
+  {
+    category: "Insurance Basics",
+    title: "Understanding the Role of an Insurance Broker",
+    date: "Aug 2026",
+    body: "A broker works on your behalf to compare options across the market, helping you find cover that fits your needs and budget.",
+  },
+  {
+    category: "Protection Tips",
+    title: "Questions to Ask Before Reviewing Your Insurance Cover",
+    date: "Jul 2026",
+    body: "Has your situation changed? Are your sums insured up to date? Do you understand your exclusions?",
+  },
+  {
+    category: "Business Risk",
+    title: "Protecting Business Assets: Where to Begin",
+    date: "Jul 2026",
+    body: "Start by identifying what you have, what it's worth, and what risks it faces. From there, you can explore appropriate protection.",
+  },
+  {
+    category: "Business Risk",
+    title: "Why Risk Planning Matters for Growing Businesses",
+    date: "Jun 2026",
+    body: "As your business grows, your exposure changes. Regular risk reviews help ensure your protection keeps pace.",
+  },
 ];
 
 export const IMAGES = {

@@ -25,7 +25,7 @@ function SectionCard({ title, description, children, onSave, saving, saved, erro
         <button
           onClick={onSave}
           disabled={saving}
-          className="shrink-0 inline-flex items-center gap-1.5 bg-green text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-green-dark transition-colors focus-ring disabled:opacity-60"
+          className="shrink-0 inline-flex items-center gap-1.5 bg-steel text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60"
         >
           {saving ? "Saving..." : saved ? <><CheckCircle2 size={15} /> Saved</> : "Save Changes"}
         </button>
@@ -89,8 +89,8 @@ export default function ContentEditor() {
             onClick={() => setTab(t.id)}
             className={`text-sm font-semibold px-4 py-2 rounded-sm transition-colors focus-ring ${
               tab === t.id
-                ? "bg-green text-white"
-                : "bg-white text-navy border border-navy/15 hover:border-green"
+                ? "bg-steel text-white"
+                : "bg-white text-navy border border-navy/15 hover:border-steel"
             }`}
           >
             {t.label}
@@ -148,7 +148,7 @@ export default function ContentEditor() {
                   type="text"
                   value={block[f.key] || ""}
                   onChange={(e) => setBlock("contact_info", { ...block, [f.key]: e.target.value })}
-                  className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-green"
+                  className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
                 />
               </div>
             ))}
@@ -182,7 +182,7 @@ export default function ContentEditor() {
       {tab === "faqs" && (
         <SectionCard
           title="FAQ Questions"
-          description="Shown on the Resources page. Expand an entry to edit it, or delete it with the trash button."
+          description="Shown on the Insights page. Expand an entry to edit it, or delete it with the trash button."
           onSave={() => save("faqs")}
           {...st("faqs")}
         >
@@ -203,7 +203,7 @@ export default function ContentEditor() {
       {tab === "news" && (
         <SectionCard
           title="News & Updates"
-          description="Featured on the home page and Resources page. Expand an entry to edit it, or delete it with the trash button."
+          description="Featured on the Insights page. Expand an entry to edit it, or delete it with the trash button."
           onSave={() => save("news")}
           {...st("news")}
         >
@@ -231,7 +231,7 @@ export default function ContentEditor() {
       {tab === "tips" && (
         <SectionCard
           title="Insurance Tips"
-          description="Shown on the Resources page as numbered cards. Expand an entry to edit it, or delete it with the trash button."
+          description="Shown on the Insights page as numbered cards. Expand an entry to edit it, or delete it with the trash button."
           onSave={() => save("tips")}
           {...st("tips")}
         >

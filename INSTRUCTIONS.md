@@ -1,4 +1,4 @@
-# Mahogany Insurance Brokers — Project
+# Rhino Insurance Brokers & Consulting — Project
 
 Two parts, meant to run together:
 

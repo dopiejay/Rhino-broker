@@ -60,7 +60,7 @@ export default function AdminUsers() {
 
       <section className="bg-white border border-navy/10 rounded-sm p-6 mb-8">
         <div className="flex items-center gap-2 mb-5">
-          <ShieldCheck size={18} className="text-green" />
+          <ShieldCheck size={18} className="text-steel" />
           <h2 className="font-display text-xl text-navy">Add a new admin</h2>
         </div>
         <form onSubmit={handleCreate} className="grid sm:grid-cols-[1fr_1fr_auto] gap-3 items-start">
@@ -69,7 +69,7 @@ export default function AdminUsers() {
             <input
               type="text" required minLength={3} value={form.username}
               onChange={(e) => setForm({ ...form, username: e.target.value })}
-              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-green"
+              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
             />
           </div>
           <div>
@@ -77,13 +77,13 @@ export default function AdminUsers() {
             <input
               type="password" required minLength={8} value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-green"
+              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
             />
           </div>
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-1.5 bg-green text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-green-dark transition-colors focus-ring disabled:opacity-60 mt-4 sm:mt-0"
+            className="inline-flex items-center gap-1.5 bg-steel text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60 mt-4 sm:mt-0"
           >
             <UserPlus size={15} /> {saving ? "Adding..." : "Add Admin"}
           </button>

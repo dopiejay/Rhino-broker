@@ -1,0 +1,729 @@
+RHINO — Proposed Rebrand Direction
+Brand Positioning
+
+I would position Rhino as:
+
+A strong, modern insurance brokerage and risk advisory brand focused on helping individuals and organisations make confident protection decisions.
+
+Brand personality
+
+Rhino should feel:
+
+Strong
+Reliable
+Intelligent
+Professional
+Modern
+Approachable
+Calm under pressure
+
+The key difference from Mahogany:
+
+Mahogany felt corporate and established. Rhino should feel strong, strategic and protective.
+
+1. Proposed Brand Concept
+
+The rhinoceros gives us an excellent metaphor, but we should use it subtly.
+
+Not:
+
+🦏 Safari
+🦏 Wildlife
+🦏 African tourism
+
+Instead, the visual idea is:
+
+Strength + Protection + Confidence
+
+Proposed brand statement
+Strong Protection. Smarter Decisions.
+
+This is currently my favourite direction.
+
+It works for both sides of the business:
+
+Insurance Broking
+→ Protection
+
+Consulting / Advisory
+→ Smarter decisions
+
+Other options:
+
+Protection You Can Move Forward With.
+Strength Behind Your Protection.
+Protection Built Around What Matters.
+Confidence Through Better Protection.
+
+My recommendation:
+
+Primary tagline
+
+Strong Protection. Smarter Decisions.
+
+2. Proposed Colour System 🎨
+
+Since we haven't confirmed Rhino's existing colours, I would create a provisional rebrand palette.
+
+Primary — Rhino Blue
+
+#123B63
+
+Use for:
+
+Navigation
+Primary headings
+Footer
+Primary buttons
+Major brand areas
+
+It feels professional and trustworthy without looking like every generic bank.
+
+Deep Rhino Navy
+
+#071D33
+
+Use for:
+
+Dark hero overlays
+Footer backgrounds
+High-impact sections
+Dark cards
+
+This gives Rhino authority.
+
+Steel Blue
+
+#2E6F9E
+
+Use for:
+
+Hover states
+Secondary buttons
+Icons
+Links
+Small highlights
+Rhino Gray
+
+#59636E
+
+Use for:
+
+Secondary text
+Borders
+Supporting UI
+Light Background
+
+#F5F7FA
+
+Use for:
+
+Alternating sections
+Cards
+Page backgrounds
+Pure White
+
+#FFFFFF
+
+Main clean background.
+
+Accent — Strategic Gold
+
+#C6923A
+
+Use sparingly.
+
+For:
+
+Small highlights
+Numbers
+Important icons
+Small dividers
+Badges
+
+Do not turn Rhino into a blue-and-gold bank.
+
+Full palette
+Role	Colour
+Primary	#123B63
+Deep	#071D33
+Secondary Blue	#2E6F9E
+Accent	#C6923A
+Body Text	#263238
+Secondary Text	#59636E
+Light Background	#F5F7FA
+White	#FFFFFF
+
+Why this works: competitors in Malawi already lean heavily into conventional financial-services styling. We can make Rhino feel modern without becoming another generic insurance site. The existing Kingfisher site, for example, uses a highly corporate positioning around regulation, risk assessment and programme design; Rhino should differentiate through clarity, strength and simplicity.
+
+3. Typography
+
+I recommend:
+
+Headings: Manrope
+
+Why?
+
+Modern
+Strong
+Professional
+Excellent for large hero headings
+Body: Inter
+
+Why?
+
+Highly readable
+Clean
+Great for dashboards and forms
+Works perfectly for corporate websites
+Typography personality
+
+Manrope Bold
+
+Strong Protection.
+Smarter Decisions.
+
+Inter Regular
+
+We help individuals and organisations navigate insurance decisions with clarity and confidence.
+
+This combination would feel noticeably different from your Mahogany project.
+
+4. Website Sitemap
+
+I recommend 7 core pages.
+
+Home
+│
+├── About Rhino
+│
+├── Insurance Solutions
+│
+├── Risk & Advisory
+│
+├── Claims Support
+│
+├── Insights
+│
+└── Contact
+
+[ Request a Quote ]
+
+The Request a Quote page can be a dedicated conversion page rather than just a popup.
+
+PAGE 1 — HOME
+
+This is the most important page.
+
+Section 1 — Hero Slider
+
+I recommend 4 slides, not 5.
+
+Four is enough and keeps it focused.
+
+Slide 1 — Core Brand
+
+Eyebrow
+
+RHINO INSURANCE BROKERS & CONSULTING
+
+Heading
+Strong Protection.
+Smarter Decisions.
+Supporting text
+
+Helping individuals, businesses and organisations navigate insurance and risk with greater confidence.
+
+Buttons:
+
+Explore Our Solutions
+
+Talk to an Advisor
+
+Image direction:
+
+Professional African/Malawian business environment.
+
+Not generic skyscrapers.
+
+Slide 2 — Business
+Heading
+Protecting What Keeps Your Business Moving.
+
+Text:
+
+From everyday risks to more complex exposures, we help businesses explore protection solutions that support continuity and growth.
+
+Button:
+
+Explore Business Solutions
+
+Image:
+
+Malawian professionals, office operations, logistics, manufacturing or SME environments.
+
+Slide 3 — Advisory
+Heading
+Better Risk Decisions Start With Better Advice.
+
+Text:
+
+Understand your risks, review your protection needs and make more informed decisions with professional guidance.
+
+Button:
+
+Explore Risk Advisory
+
+Image:
+
+Business meeting, consultant discussion or risk-planning environment.
+
+Slide 4 — CTA
+Heading
+Let's Talk About Your Protection.
+
+Text:
+
+Tell us what you need, and our team can help you take the next step.
+
+Buttons:
+
+Request a Quote
+
+Contact Us
+
+Section 2 — Introduction
+Eyebrow
+
+ABOUT RHINO
+
+Protection Shouldn't Be a Guess.
+
+Proposed text:
+
+Insurance decisions can be complex. Rhino is positioned to help clients better understand their protection needs and explore solutions that fit their personal, business or organisational circumstances.
+
+Through insurance broking and advisory services, our focus is on helping clients move from uncertainty to clarity.
+
+Button:
+
+Learn About Rhino
+
+⚠️ We will later replace or refine this once we know their real company story.
+
+Section 3 — What We Help With
+Heading
+Insurance and Risk, Made Clearer.
+
+Three major cards.
+
+🛡 Insurance Solutions
+
+Explore protection options designed around personal and organisational needs.
+
+📊 Risk & Advisory
+
+Understand potential exposures and make more informed protection decisions.
+
+🤝 Ongoing Support
+
+Get guidance when reviewing your cover or navigating important insurance matters.
+
+This structure is deliberately broad until we confirm Rhino's exact services.
+
+Section 4 — Who We Serve
+Heading
+Protection for Every Stage of Life and Business.
+
+Four cards:
+
+Individuals
+
+Helping people explore protection for the things that matter.
+
+Businesses
+
+Supporting businesses as they manage everyday and evolving risks.
+
+Organisations
+
+Helping institutions consider protection within their wider risk environment.
+
+Specialised Needs
+
+Supporting more complex protection requirements through professional guidance.
+
+Section 5 — How It Works
+
+This should become one of Rhino's strongest visual sections.
+
+A Clearer Path to Protection.
+01 — Start the Conversation
+
+Tell us about your situation and what you want to protect.
+
+02 — Understand Your Needs
+
+We help you identify important protection considerations.
+
+03 — Explore Your Options
+
+Consider suitable insurance solutions and available options.
+
+04 — Move Forward With Confidence
+
+Make a more informed decision about your protection.
+
+⚠️ The exact broker process can be refined after Rhino confirms its workflow.
+
+Section 6 — Why Rhino
+Built Around Confidence.
+
+Four reasons:
+
+Independent Perspective
+
+Professional guidance focused on understanding client needs.
+
+Strength in Experience
+
+An approach grounded in the realities of insurance and risk.
+
+Personal Attention
+
+Every individual and organisation faces different risks.
+
+Support Beyond the Policy
+
+Guidance when questions and important situations arise.
+
+Section 7 — CTA
+
+Dark background.
+
+Not Sure Where to Start?
+
+Start with a conversation.
+
+Button:
+
+Speak With Our Team
+
+PAGE 2 — ABOUT RHINO
+Hero
+Heading
+Strength Behind Every Decision.
+
+Text:
+
+Learn more about Rhino Insurance Brokers and Consulting Company Limited and our approach to insurance and risk.
+
+Section — Who We Are
+
+For now:
+
+Rhino Insurance Brokers and Consulting Company Limited is an insurance brokerage and consulting business operating in Malawi.
+
+We should not invent their founding year or history.
+
+Public insurer directories confirm Rhino's presence as an insurance broker in Blantyre, but detailed company-history information should wait until your field research.
+
+Section — What We Believe
+Protection
+
+Good protection starts with understanding what matters.
+
+Clarity
+
+Insurance decisions should be easier to understand.
+
+Confidence
+
+Clients should feel more confident about important protection decisions.
+
+Partnership
+
+Long-term relationships matter.
+
+Section — Our Approach
+Listen. Understand. Advise. Support.
+
+Use this as a visual timeline.
+
+Section — Regulatory / Professional Information
+
+Do not write detailed claims yet.
+
+Instead create a reserved design area:
+
+Professional Information
+
+Relevant regulatory and corporate information will be displayed here.
+
+Once verified, this could include licensing and registration details.
+
+PAGE 3 — INSURANCE SOLUTIONS
+
+This page should be broad initially.
+
+Hero
+Heading
+Protection Built Around Real Life and Business.
+
+Text:
+
+Explore insurance solutions designed around different personal and organisational needs.
+
+Personal Protection
+
+Possible cards:
+
+Motor
+Home & Property
+Personal Accident
+Travel
+
+⚠️ These should remain provisional until Rhino confirms them.
+
+Business Protection
+
+Possible categories:
+
+Property & Assets
+Motor & Fleet
+Liability
+Goods & Cargo
+Specialist Protection
+
+Placeholder structure:
+
+More complex risks often require a more tailored approach.
+
+Button:
+
+Talk to an Advisor
+
+CTA
+Not sure which solution is right for you?
+
+Talk to Rhino
+
+PAGE 4 — RISK & ADVISORY
+
+This is what can make Rhino different.
+
+Hero
+Heading
+Look Beyond the Policy.
+
+Text:
+
+Better protection begins with a better understanding of risk.
+
+Section
+Understand Your Exposure
+
+Identify areas that may require greater attention.
+
+Review Your Protection
+
+Consider whether your existing arrangements still reflect your current needs.
+
+Make Informed Decisions
+
+Use professional guidance to navigate complex insurance considerations.
+
+Build for Resilience
+
+Think beyond immediate risks and towards long-term preparedness.
+
+Again, we avoid promising services we haven't confirmed.
+
+PAGE 5 — CLAIMS SUPPORT
+Hero
+Heading
+When Something Happens, Knowing What to Do Matters.
+
+Text:
+
+Clear guidance can make difficult moments easier to navigate.
+
+What To Do
+01
+
+Ensure everyone is safe.
+
+02
+
+Take reasonable steps to prevent further loss or damage.
+
+03
+
+Document relevant information.
+
+04
+
+Contact the appropriate insurer or Rhino representative.
+
+⚠️ We should clearly state later that actual claims procedures depend on the relevant insurer and policy.
+
+CTA
+Need Assistance?
+
+Contact Rhino
+
+PAGE 6 — INSIGHTS
+
+This can start small.
+
+Categories
+Insurance Basics
+Business Risk
+Protection Tips
+Company Updates
+Example article titles
+
+Understanding the Role of an Insurance Broker
+
+Questions to Ask Before Reviewing Your Insurance Cover
+
+Protecting Business Assets: Where to Begin
+
+Why Risk Planning Matters for Growing Businesses
+
+This page will also give them SEO potential.
+
+PAGE 7 — CONTACT
+Heading
+Let's Start With a Conversation.
+
+Text:
+
+Whether you're exploring insurance options or want to discuss your organisation's protection needs, we'd be happy to hear from you.
+
+Contact cards
+Call Us
+
+Use verified numbers after final verification.
+
+Email Us
+
+rhinoinfo@rhinoinsurancemw.com
+
+Visit Us
+
+Use the confirmed office location after your research.
+
+The email and Blantyre postal listing are supported by insurer directories, but the exact physical address should still be confirmed during your visit.
+
+REQUEST A QUOTE PAGE
+
+I would improve on Mahogany here.
+
+Don't make this an extremely long form.
+
+Step 1 — Who are you?
+Individual
+Business
+Organisation
+Step 2 — What do you need help with?
+
+Dropdown.
+
+Step 3 — Contact details
+Full name
+Organisation
+Phone
+Email
+Step 4 — Tell us briefly
+
+Large text field.
+
+Submit
+
+Request Assistance
+
+This is better than immediately asking for sensitive policy or identity documents in a first-contact form. Existing insurer portals show that detailed quotation flows can become very information-heavy, so Rhino's first version should prioritise lead generation and a human follow-up.
+
+Footer
+Proposed footer structure
+Rhino
+
+Short brand statement:
+
+Strong protection. Smarter decisions.
+
+Explore
+About
+Insurance Solutions
+Risk & Advisory
+Claims Support
+Insights
+Contact
+Phone
+Email
+Address
+Legal
+Privacy Policy
+Terms of Use
+Bottom
+
+© 2026 Rhino Insurance Brokers and Consulting Company Limited. All rights reserved.
+
+⚠️ Exact legal company naming to be confirmed.
+
+Image Strategy 📸
+
+This project should have a lot of imagery, just like you wanted for Mahogany.
+
+But Rhino's images should feel different.
+
+Image style
+
+Use:
+
+African professionals
+Realistic corporate meetings
+Business owners
+Vehicles and transport
+Warehouses
+Commercial buildings
+Families
+Professionals reviewing documents
+
+Avoid:
+
+❌ Excessive handshakes
+❌ Generic smiling call-centre agents
+❌ Random skyscrapers
+❌ Too many shield icons
+❌ Literal rhino imagery everywhere 😅
+
+Rhino imagery rule
+
+The rhino is a metaphor for the brand, not the content of every section.
+
+My final recommendation
+
+Let's treat this as:
+
+RHINO DIGITAL REBRAND — VERSION 0.1
+
+We can begin designing and coding with this system now.
+
+When you visit Rhino, we only need to potentially update:
+
+Logo
+Existing brand colours
+Exact company name
+Actual services
+Leadership
+Office information
+History
+Verified regulatory information
+
+The architecture, UX, visual direction, components and most of the general copy can remain.
+
+That means you can start moving immediately rather than waiting for every detail.
+
+And honestly, Joseph: this could become better than Mahogany because you're no longer starting from zero. You now have a reusable insurance-industry architecture

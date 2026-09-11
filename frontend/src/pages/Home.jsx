@@ -3,183 +3,143 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import HeroSlider from "../components/HeroSlider";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { WHY_US, PROCESS, IMAGES } from "../data/site";
-import { useSiteContent } from "../site/SiteContentContext";
+import { HOME_SERVICES, WHO_WE_SERVE, PROCESS } from "../data/site";
+import meetingImg from "../assets/people-meeting.jpg";
 
 export default function Home() {
-  const { serviceCategories, news } = useSiteContent();
   return (
     <div>
       <HeroSlider />
 
-      {/* About Us */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-stretch">
-          <div className="relative">
-            <Reveal className="relative z-10 h-full rounded-2xl overflow-hidden shadow-lift">
-              <img src={IMAGES.personStanding} alt="A Mahogany Insurance professional" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent" aria-hidden="true" />
-            </Reveal>
-           
-          </div>
-
-          <div className="flex flex-col justify-center">
+      {/* About Rhino */}
+      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div className="flex flex-col">
             <SectionHeading
-              eyebrow="About Us"
-              title="An independent broker,"
-              accent="on your side."
-              description="Mahogany Insurance Brokers is a licensed, independent brokerage in Blantyre — we compare across Malawi's insurers and stand with you long after the policy is signed."
+              title="Protection Shouldn't Be a Guess."
+              description="Insurance decisions can be complex. Rhino is positioned to help clients better understand their protection needs and explore solutions that fit their personal, business or organisational circumstances. Through insurance broking and advisory services, our focus is on helping clients move from uncertainty to clarity."
             />
-            <div className="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-8">
-              {WHY_US.map((f, idx) => (
-                <Reveal key={f.number} delay={idx * 90} className="group flex gap-4">
-                  <span className="w-10 h-10 flex items-center justify-center shrink-0 rounded-full bg-emerald/15 text-emerald-ink">
-                    <f.icon size={24} strokeWidth={1.75} />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl text-navy mb-1.5">{f.title}</h3>
-                    <p className="text-charcoal/60 text-[15px] leading-relaxed">{f.body}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal delay={300}>
+            <Reveal delay={200}>
               <NavLink
                 to="/about"
-                className="group mt-10 inline-flex items-center gap-2.5 bg-emerald text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
+                className="group mt-10 inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
               >
-                More about Mahogany
+                Learn About Rhino
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </NavLink>
             </Reveal>
           </div>
-        </div>
-      </section>
 
-      {/* Insurance Solutions */}
-      <section className="bg-gray-200 py-20 md:py-28 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
-            <SectionHeading
-              eyebrow="Insurance Solutions"
-              title="One broker,"
-              accent="every type of cover."
-              description="From a single vehicle to a company-wide employee benefits scheme — we place cover for every stage of life and business."
+          <Reveal className="relative z-10 rounded-2xl overflow-hidden shadow-lift">
+            <img
+              src={meetingImg}
+              alt="A Rhino advisor meeting with a client"
+              className="w-full aspect-[4/3] object-cover"
+              loading="lazy"
             />
-            <Reveal delay={150}>
-              <NavLink
-                to="/services"
-                className="inline-flex items-center gap-2 bg-emerald text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring whitespace-nowrap"
-              >
-                View All Solutions <ArrowRight size={16} />
-              </NavLink>
-            </Reveal>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {serviceCategories.map((cat, idx) => (
-              <Reveal
-                key={cat.id}
-                delay={idx * 120}
-                className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-lift transition-shadow flex flex-col"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={cat.image}
-                    alt={cat.label}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-6 md:p-7 flex flex-col flex-1">
-                  <h3 className="font-display text-2xl text-navy mb-2.5">{cat.label}</h3>
-                  <p className="text-charcoal/65 text-sm leading-relaxed mb-6 flex-1">
-                    {cat.tagline} Choose from {cat.items.length} cover types.
-                  </p>
-                  <NavLink
-                    to="/services"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy group-hover:gap-2.5 transition-all"
-                  >
-                    Explore <ArrowUpRight size={15} />
-                  </NavLink>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="bg-emerald-soft py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald to-transparent" aria-hidden="true" />
-        <div className="absolute -right-32 -bottom-32 w-[28rem] h-[28rem] rounded-full border border-emerald/40" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8 relative">
-          <SectionHeading
-            eyebrow="How It Works"
-            title="From first call to"
-            accent="lasting cover."
-            accentClass="text-white"
-            className="mb-14"
-          />
-          <div className="grid md:grid-cols-4 gap-10 md:gap-6">
-            {PROCESS.map((p, idx) => (
-              <Reveal key={p.step} delay={idx * 100} className="relative">
-                <p.icon size={40} strokeWidth={1.5} className="text-navy mb-5" />
-                <h3 className="font-display text-xl text-white mb-2">{p.title}</h3>
-                <p className="text-sm text-navy/70 leading-relaxed">{p.body}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={200} className="mt-14 flex flex-wrap items-center gap-4">
-            <NavLink
-              to="/quote"
-              className="inline-flex items-center gap-2 bg-emerald text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
-            >
-              Start With a Free Quote <ArrowRight size={16} />
-            </NavLink>
-            <p className="text-navy/70 text-sm">No obligation · Compared across 20+ insurers</p>
           </Reveal>
         </div>
       </section>
 
-      {/* News */}
-      <section className="py-20 md:py-28 bg-cream-dark/60">
+      {/* What We Help With */}
+      <section className="bg-mist py-20 md:py-28 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
-            <SectionHeading
-              eyebrow="Latest Updates"
-              title="News, tips and"
-              accent="company updates."
-            />
-            <Reveal delay={150}>
-              <NavLink
-                to="/resources"
-                className="inline-flex items-center gap-2 font-semibold text-navy focus-ring rounded"
+          <SectionHeading
+            eyebrow="WHAT WE HELP WITH"
+            title="Insurance and Risk,"
+            accent="Made Clearer."
+            className="mb-14"
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {HOME_SERVICES.map((card, idx) => (
+              <Reveal
+                key={card.title}
+                delay={idx * 100}
+                className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-lift transition-shadow p-7 flex flex-col"
               >
-                All Resources <ArrowRight size={17} className="text-gold-dark" />
-              </NavLink>
-            </Reveal>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {news.map((n, idx) => (
-              <Reveal key={n.title} delay={idx * 100} className="group bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-dark bg-gold-soft rounded-full px-3 py-1.5">
-                    {n.category}
-                  </span>
-                  <span className="text-xs text-charcoal/45">{n.date}</span>
-                </div>
-                <h3 className="font-display text-xl text-navy leading-snug mb-3">{n.title}</h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed mb-6 flex-1">{n.body}</p>
-                <NavLink to="/resources" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy group-hover:gap-2.5 transition-all">
-                  Read more <ArrowRight size={15} />
+                <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-6">
+                  <card.icon size={24} strokeWidth={1.75} />
+                </span>
+                <h3 className="font-display text-lg text-navy mb-3">{card.title}</h3>
+                <p className="text-charcoal/65 text-sm leading-relaxed mb-6 flex-1">{card.body}</p>
+                <NavLink
+                  to={card.to}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-steel group-hover:gap-2.5 transition-all"
+                >
+                  Learn more <ArrowUpRight size={15} />
                 </NavLink>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200} className="mt-12 text-center">
+            <NavLink
+              to="/services"
+              className="group inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
+            >
+              View All Insurance Solutions
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </NavLink>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="bg-white py-20 md:py-28 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <SectionHeading
+            eyebrow="WHO WE SERVE"
+            title="Protection for Every Stage of"
+            accent="Life and Business."
+            className="mb-14"
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {WHO_WE_SERVE.map((item, idx) => (
+              <Reveal
+                key={item.title}
+                delay={idx * 100}
+                className="group bg-mist rounded-2xl p-7 hover:shadow-card transition-shadow flex flex-col"
+              >
+                <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-5">
+                  <item.icon size={24} strokeWidth={1.75} />
+                </span>
+                <h3 className="font-display text-lg text-navy mb-2">{item.title}</h3>
+                <p className="text-charcoal/60 text-sm leading-relaxed">{item.body}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
-      
+
+      {/* How It Works */}
+      <section className="bg-mist py-20 md:py-28 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <SectionHeading
+            eyebrow="HOW IT WORKS"
+            title="A Clearer Path"
+            accent="to Protection."
+            className="mb-14"
+          />
+          <div className="grid md:grid-cols-4 gap-6 relative">
+            {PROCESS.map((p, idx) => (
+              <Reveal key={p.step} delay={idx * 100} className="relative">
+                {idx < PROCESS.length - 1 && (
+                  <span className="hidden md:block absolute top-12 -right-3 w-6 h-px bg-gold/50" aria-hidden="true" />
+                )}
+                <div className="group bg-white border border-navy/8 rounded-2xl p-7 h-full hover:shadow-card hover:border-gold/40 transition-all">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="w-12 h-12 rounded-full bg-steel text-white flex items-center justify-center group-hover:bg-navy transition-colors">
+                      <p.icon size={22} strokeWidth={1.75} />
+                    </span>
+                    <span className="font-display text-2xl font-light text-gold/70">{p.step}</span>
+                  </div>
+                  <h3 className="font-display text-xl text-navy font-bold mb-2">{p.title}</h3>
+                  <p className="text-sm text-charcoal/60 leading-relaxed">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

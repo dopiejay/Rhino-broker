@@ -1,16 +1,9 @@
 import { useState } from "react";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageCircle,
-  Send,
-  CheckCircle2,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
+import { IMAGES } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 const inputCls =
@@ -19,7 +12,13 @@ const inputCls =
 export default function Contact() {
   const { site } = useSiteContent();
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,45 +35,39 @@ export default function Contact() {
   const cards = [
     {
       icon: Phone,
-      title: "Phone",
+      title: "Call Us",
       value: site.phone,
       href: site.phoneHref,
     },
     {
       icon: Mail,
-      title: "Email",
+      title: "Email Us",
       value: site.email,
       href: `mailto:${site.email}`,
     },
     {
-      icon: MessageCircle,
-      title: "WhatsApp",
-      value: "Chat instantly",
-      href: site.whatsapp,
-    },
-    {
-      icon: Clock,
-      title: "Office Hours",
-      value: site.hours,
+      icon: MapPin,
+      title: "Visit Us",
+      value: `${site.address}, ${site.city}`,
+      href: null,
     },
   ];
 
   return (
     <div>
       <PageHero
-        eyebrow="Get In Touch"
-        title="We'd love to"
-        accent="hear from you."
-        description="Whether it's a quote, a claim, or a question about an existing policy — a real person will answer, usually the same day."
+        title="Let's Start With a Conversation."
+        description="Whether you're exploring insurance options or want to discuss your organisation's protection needs, we'd be happy to hear from you."
+        image={IMAGES.office}
       />
 
-      {/* Method cards */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* Contact cards */}
+      <section className="py-16 md:py-20 bg-mist">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cards.map((c, idx) => {
             const inner = (
               <>
-                <span className="w-12 h-12 rounded-full bg-navy text-emerald-ink flex items-center justify-center mb-5 group-hover:bg-emerald group-hover:text-navy transition-colors">
+                <span className="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center mb-5 group-hover:bg-steel transition-colors">
                   <c.icon size={21} />
                 </span>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/45 mb-1.5">{c.title}</h3>
@@ -104,19 +97,19 @@ export default function Contact() {
       </section>
 
       {/* Map + form */}
-      <section className="pb-20 md:pb-28">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div>
             <SectionHeading
-              eyebrow="Visit or Write"
-              title="Find us in"
+              eyebrow="Find Us"
+              title="Our Office in"
               accent="Blantyre."
-              description="Our office is at Umoyo House — but for anything that can be handled remotely, we're only a call or message away."
+              description="Our office is at Umoyo House — but for anything that can be handled remotely, we're only a call or email away."
               className="mb-8"
             />
             <Reveal className="rounded-2xl overflow-hidden border border-navy/8 shadow-card mb-8">
               <iframe
-                title="Mahogany Insurance Brokers — Umoyo House, Blantyre"
+                title="Rhino Insurance Brokers & Consulting — Umoyo House, Blantyre"
                 src="https://www.google.com/maps?q=Umoyo+House+Blantyre+Malawi&output=embed"
                 width="100%"
                 height="360"
@@ -126,7 +119,7 @@ export default function Contact() {
                 className="grayscale-[0.15]"
               />
             </Reveal>
-            <Reveal delay={120} className="flex items-start gap-4 bg-white border border-navy/8 rounded-2xl p-6">
+            <Reveal delay={120} className="flex items-start gap-4 bg-mist border border-navy/8 rounded-2xl p-6">
               <MapPin size={22} className="text-gold-dark shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-display text-lg text-navy mb-1">Office Address</h3>
@@ -138,7 +131,7 @@ export default function Contact() {
           <div className="lg:sticky lg:top-24">
             {sent ? (
               <div className="bg-white border border-navy/8 rounded-3xl p-10 md:p-14 text-center shadow-card animate-fadeup">
-                <span className="w-20 h-20 rounded-full bg-emerald-soft text-navy flex items-center justify-center mx-auto mb-7">
+                <span className="w-20 h-20 rounded-full bg-steel-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
                 <h2 className="font-display text-3xl text-navy mb-3">Draft ready.</h2>
@@ -187,7 +180,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-emerald text-navy font-semibold text-sm px-8 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-steel text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
                   >
                     Send Message <Send size={16} />
                   </button>

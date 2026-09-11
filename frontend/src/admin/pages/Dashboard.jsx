@@ -29,9 +29,9 @@ export default function Dashboard() {
       <div className="grid sm:grid-cols-3 gap-5 mb-10">
         <Link
           to="/admin/quotes?status=new"
-          className="group bg-white border border-navy/10 rounded-sm p-6 hover:border-green/50 transition-colors"
+          className="group bg-white border border-navy/10 rounded-sm p-6 hover:border-steel/50 transition-colors"
         >
-          <MailQuestion className="text-green mb-3" size={22} />
+          <MailQuestion className="text-steel mb-3" size={22} />
           <p className="text-3xl font-display text-navy">{counts ? counts.new : "—"}</p>
           <p className="text-sm text-ink/60 group-hover:text-navy transition-colors">New quote requests</p>
         </Link>
@@ -66,7 +66,7 @@ export default function Dashboard() {
         </Link>
         <Link
           to="/admin/content"
-          className="flex items-center justify-between bg-white border border-navy/10 rounded-sm p-6 hover:border-green/50 transition-colors"
+          className="flex items-center justify-between bg-white border border-navy/10 rounded-sm p-6 hover:border-steel/50 transition-colors"
         >
           <div>
             <p className="font-display text-lg text-navy mb-1 flex items-center gap-2"><FileText size={18} className="text-brass" /> Site Content</p>
@@ -76,7 +76,7 @@ export default function Dashboard() {
         </Link>
         <Link
           to="/admin/users"
-          className="flex items-center justify-between bg-white border border-navy/10 rounded-sm p-6 hover:border-green/50 transition-colors"
+          className="flex items-center justify-between bg-white border border-navy/10 rounded-sm p-6 hover:border-steel/50 transition-colors"
         >
           <div>
             <p className="font-display text-lg text-navy mb-1 flex items-center gap-2"><Users size={18} className="text-brass" /> Admin Users</p>

@@ -65,7 +65,7 @@ export default function HeroSlider() {
 
   const renderCta = (c, primary) => {
     const cls = primary
-      ? "group inline-flex items-center gap-2.5 bg-emerald text-navy font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
+      ? "group inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
       : "inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-white/10 transition-colors focus-ring";
     const inner = isExternal(c.to) ? (
       c.label

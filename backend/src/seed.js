@@ -32,8 +32,8 @@ const defaultContent = {
         eyebrow: "Claims Assistance",
         title: ["Here When You", "Need Us Most"],
         subtitle: "We handle the paperwork and follow up on your behalf.",
-        ctaLabel: "Claims Assistance",
-        ctaTo: "/claims",
+        ctaLabel: "Talk to an Advisor",
+        ctaTo: "/contact",
       },
       {
         eyebrow: "Get Started",

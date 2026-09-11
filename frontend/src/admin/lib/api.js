@@ -1,7 +1,7 @@
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "");
 
-const TOKEN_KEY = "mahogany_admin_token";
-const REFRESH_KEY = "mahogany_admin_refresh_token";
+const TOKEN_KEY = "rhino_admin_token";
+const REFRESH_KEY = "rhino_admin_refresh_token";
 
 let onNewToken = null;
 let onSessionExpired = null;

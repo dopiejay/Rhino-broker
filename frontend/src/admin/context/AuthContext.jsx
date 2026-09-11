@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { login as apiLogin, registerAuthListeners } from "../lib/api";
 
-const TOKEN_KEY = "mahogany_admin_token";
-const REFRESH_KEY = "mahogany_admin_refresh_token";
-const USERNAME_KEY = "mahogany_admin_username";
+const TOKEN_KEY = "rhino_admin_token";
+const REFRESH_KEY = "rhino_admin_refresh_token";
+const USERNAME_KEY = "rhino_admin_username";
 
 const AuthContext = createContext(null);
 

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function FloatingActions() {

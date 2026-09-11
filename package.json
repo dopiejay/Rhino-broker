@@ -1,8 +1,8 @@
 {
-  "name": "mahogany-insurance",
+  "name": "rhino-insurance",
   "version": "1.0.0",
   "private": true,
-  "description": "Mahogany Insurance — public site + admin dashboard (one Vite app) and the Express API",
+  "description": "Rhino Insurance Brokers & Consulting — public site + admin dashboard (one Vite app) and the Express API",
   "scripts": {
     "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
     "build": "npm --prefix frontend run build",

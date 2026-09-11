@@ -1,56 +1,85 @@
 import { NavLink } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Eye, Heart, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { IMAGES } from "../data/site";import { useSiteContent } from "../site/SiteContentContext";
+import { IMAGES } from "../data/site";
+import { useSiteContent } from "../site/SiteContentContext";
+
+const HIGHLIGHTS = [
+  {
+    icon: ShieldCheck,
+    title: "Licensed Brokerage",
+    body: "Registered and authorised to act as an insurance intermediary in Malawi.",
+  },
+  {
+    icon: Eye,
+    title: "Transparent Advice",
+    body: "We explain your options clearly so you can make informed decisions.",
+  },
+  {
+    icon: Heart,
+    title: "Client-First Approach",
+    body: "Every recommendation starts with understanding your specific needs.",
+  },
+];
 
 export default function About() {
-  const { values, journey } = useSiteContent();
+  const { values, team } = useSiteContent();
   return (
     <div>
       <PageHero
-        eyebrow="Who We Are"
-        title="An independent broker, working for"
-        accent="you — not any one insurer."
-        description="Founded in Blantyre, Mahogany Insurance Brokers compares across Malawi's trusted insurers to find the cover that genuinely fits. And we stay with you long after the policy is signed."
+        title="Strength Behind Every Decision."
+        description="Learn more about Rhino Insurance Brokers and Consulting Company Limited and our approach to insurance and risk."
         image={IMAGES.meeting}
       />
 
-      {/* Story */}
-      <section className="py-20 md:py-28">
+      {/* Who We Are */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">
             <SectionHeading
-              eyebrow="Our Story"
-              title="Built on the idea that advice"
-              accent="should be on your side."
-              description="Insurance is bought at the moment you need it least — and trusted most at the moment you need it most. That's why Mahogany exists: to make sure the person you bought from is still standing next to you when something goes wrong."
+              title="Who We Are"
+              description="Rhino Insurance Brokers and Consulting Company Limited is an insurance brokerage and consulting business operating in Malawi."
             />
             <div className="mt-8 space-y-5 text-charcoal/65 leading-relaxed text-[15px]">
               <Reveal>
                 <p>
-                  Mahogany Insurance Brokers Limited was established in Blantyre as an
-                  independent intermediary — meaning we don't sell one insurer's products.
-                  We source, compare and arrange cover from across Malawi's insurance market.
+                  We help individuals, businesses and organisations navigate
+                  insurance and risk with greater confidence. By comparing
+                  options across multiple insurers, we work to find cover that
+                  fits your circumstances and budget.
                 </p>
               </Reveal>
               <Reveal delay={100}>
                 <p>
-                  That independence has earned us mandates you don't get by accident: a
-                  brokerage contract with the Malawi Electoral Commission, recognition
-                  from Malawi's leading insurers, and a client base that stretches
-                  from individual families to public institutions.
+                  Public insurer directories confirm Rhino's presence as an
+                  insurance broker in Blantyre. Our team brings together
+                  experience across personal, commercial and employee benefits
+                  lines of insurance.
                 </p>
               </Reveal>
-              <Reveal delay={200}>
+              <Reveal delay={150}>
                 <div className="bg-gold-soft border-l-4 border-gold rounded-r-xl p-6 text-navy">
                   <p className="font-display text-lg leading-relaxed">
-                    “Our name is a promise. Mahogany is slow-grown, strong and enduring —
-                    the same qualities we bring to every policy we arrange.”
+                    "Rhino is strong and enduring —
+                    the same qualities we bring to every policy we arrange."
                   </p>
                 </div>
               </Reveal>
+            </div>
+            <div className="mt-10 grid sm:grid-cols-3 gap-5">
+              {HIGHLIGHTS.map((h, idx) => (
+                <Reveal key={h.title} delay={idx * 90}>
+                  <div className="flex flex-col gap-3">
+                    <span className="w-10 h-10 rounded-full bg-steel/10 text-steel flex items-center justify-center">
+                      <h.icon size={20} strokeWidth={1.75} />
+                    </span>
+                    <h3 className="font-display text-sm font-semibold text-navy">{h.title}</h3>
+                    <p className="text-xs text-charcoal/55 leading-relaxed">{h.body}</p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
           <div className="order-1 lg:order-2">
@@ -58,17 +87,16 @@ export default function About() {
               <div className="rounded-2xl overflow-hidden shadow-lift">
                 <img src={IMAGES.story} alt="Closing a deal with a client" className="w-full aspect-[4/5] object-cover" loading="lazy" />
               </div>
-              
             </Reveal>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28 bg-gray-200">
+      <section className="py-20 md:py-28 bg-mist">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
-            eyebrow="What Guides Us"
+            eyebrow="What We Believe"
             title="Our core values,"
             accent="practised daily."
             className="mb-14"
@@ -87,54 +115,37 @@ export default function About() {
         </div>
       </section>
 
-      {/* Journey 
-      <section className="py-20 md:py-28 bg-cream-dark/60">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-16">
-          <div className="flex flex-col">
-            
-            <Reveal className="relative mt-10 flex-1 rounded-2xl overflow-hidden shadow-lift">
-              <img src={IMAGES.broker} alt="A Mahogany licensed insurance broker" className="w-full h-full object-cover" loading="lazy" />
-            </Reveal>
-           
-          </div>
-
-          <div>
-            <SectionHeading
-              eyebrow="Our Journey"
-              title="Growing,"
-              accent="ring by ring."
-              description="Like the grain of our namesake timber, every year adds a ring of experience."
-            />
-            <div className="mt-12 relative pl-8 md:pl-10">
-              <div className="absolute left-[5px] md:left-[7px] top-1 bottom-1 w-px bg-gold/40" aria-hidden="true" />
-              <div className="space-y-10">
-                {journey.map((j, idx) => (
-                  <Reveal key={j.year} delay={idx * 90} className="relative">
-                    <span className="absolute -left-8 md:-left-10 top-1.5 w-[11px] h-[11px] rounded-full bg-gold ring-4 ring-gold/20" aria-hidden="true" />
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark mb-1">{j.year}</p>
-                    <h3 className="font-display text-xl text-navy mb-1.5">{j.title}</h3>
-                    <p className="text-charcoal/65 text-[15px] leading-relaxed max-w-xl">{j.body}</p>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-            <Reveal delay={250} className="mt-10 flex flex-wrap items-center gap-4">
-              <NavLink
-                to="/team"
-                className="inline-flex items-center gap-2 bg-emerald text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-emerald-light transition-colors focus-ring"
-              >
-                Meet the Team <ArrowRight size={16} />
-              </NavLink>
-              <NavLink
-                to="/services"
-                className="inline-flex items-center gap-2 border border-navy/25 text-navy font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy/5 transition-colors focus-ring"
-              >
-                Explore What We Cover
-              </NavLink>
-            </Reveal>
+      {/* Our Team */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <SectionHeading
+            eyebrow="Our Team"
+            title="The people behind"
+            accent="Rhino."
+            description="Experienced professionals dedicated to helping you find the right insurance solutions."
+            className="mb-14"
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {team.slice(0, 3).map((t, idx) => (
+              <Reveal key={t.name} delay={idx * 90} className="group bg-mist rounded-2xl overflow-hidden hover:shadow-card transition-shadow">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg text-navy font-bold">{t.name}</h3>
+                  <p className="text-sm font-medium text-gold-dark mt-0.5">{t.role}</p>
+                  <p className="text-sm text-charcoal/60 leading-relaxed mt-3">{t.bio}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
-      </section>*/}
-      </div>
+      </section>
+    </div>
   );
 }

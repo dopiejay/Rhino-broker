@@ -1,115 +1,102 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
+import { IMAGES } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
 
 export default function Services() {
-  const { site, serviceCategories } = useSiteContent();
+  const { serviceCategories } = useSiteContent();
   const [activeCat, setActiveCat] = useState(serviceCategories[0]);
 
   useEffect(() => {
     setActiveCat(serviceCategories[0]);
   }, [serviceCategories]);
 
+  const cat = serviceCategories.find((c) => c.id === activeCat?.id) || serviceCategories[0];
+
   return (
     <div>
       <PageHero
-        eyebrow="Insurance Solutions"
         title="Cover, compared and"
         accent="arranged for you."
         description="As brokers we don't sell our own policies. We compare across Malawi's insurers to find the right fit for your risk and your budget — then stand with you through renewals and claims."
+        image={IMAGES.broker}
       />
 
-      {/* Category switcher */}
-      <section className="py-14 md:py-16">
+      {/* Insurance Solutions */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-[260px_1fr] gap-10 md:gap-14 items-start">
-            {/* Sidebar */}
-            <div className="md:sticky md:top-24 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-charcoal/40 mb-4">
-                Choose a category
-              </p>
-              {serviceCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCat(cat)}
-                  aria-pressed={activeCat.id === cat.id}
-                  className={`w-full text-left rounded-2xl px-5 py-4 border transition-all focus-ring ${
-                    activeCat.id === cat.id
-                      ? "bg-navy text-white border-navy shadow-card"
-                      : "bg-white border-navy/8 text-navy hover:border-gold/50 hover:shadow-card"
-                  }`}
-                >
-                  <span className="font-display text-lg block">{cat.label}</span>
-                  <span className={`text-xs mt-0.5 block ${activeCat.id === cat.id ? "text-white/60" : "text-charcoal/50"}`}>
-                    {cat.items.length} cover types
-                  </span>
-                </button>
-              ))}
-            </div>
+          <SectionHeading
+            eyebrow="Insurance Solutions"
+            title="Explore our cover,"
+            accent="by category."
+            description="Choose a category to see the cover types we arrange and who each one is suited for."
+            align="center"
+            className="mb-12"
+          />
 
-            {/* Active category */}
-            <div key={activeCat.id}>
-              <div className="relative mb-8 rounded-2xl overflow-hidden shadow-lift group">
-                <div className="relative h-44 sm:h-56 md:h-auto">
-                  <img
-                    src={activeCat.image}
-                    alt={activeCat.label}
-                    className="w-full h-full md:aspect-[21/9] object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-navy-deep/10" aria-hidden="true" />
-                  <span className="hidden md:inline-flex absolute top-5 right-5 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white/90 text-[11px] font-semibold uppercase tracking-[0.18em]">
-                    {activeCat.items.length} cover types
+          {/* Category pills */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+            {serviceCategories.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setActiveCat(c)}
+                aria-pressed={cat.id === c.id}
+                className={`rounded-full px-6 py-3 text-sm font-semibold transition-all focus-ring ${
+                  cat.id === c.id
+                    ? "bg-navy text-white shadow-card"
+                    : "bg-mist text-navy border border-navy/10 hover:border-gold/50 hover:shadow-card"
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Active category intro */}
+          <Reveal key={`intro-${cat.id}`} className="max-w-3xl mx-auto text-center mb-14 animate-fadeup">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-dark mb-3">
+              {cat.items.length} cover types
+            </p>
+            <h2 className="font-display text-2xl md:text-4xl text-navy mb-3">{cat.label}</h2>
+            <p className="text-charcoal/65 text-base leading-relaxed">{cat.intro}</p>
+          </Reveal>
+
+          {/* Service cards */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {cat.items.map((s, idx) => (
+              <Reveal key={s.name} delay={idx * 80} className="group bg-mist border border-navy/8 rounded-2xl p-7 hover:bg-white hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
+                <div className="flex items-start justify-between mb-5">
+                  <span className="w-12 h-12 rounded-xl bg-steel text-white flex items-center justify-center group-hover:bg-navy transition-colors">
+                    <s.icon size={23} strokeWidth={1.6} />
                   </span>
                 </div>
-                <div className="relative bg-navy-deep/95 px-6 py-6 md:px-9 md:py-8 md:bg-navy-deep md:backdrop-blur">
-                  <span className="block md:hidden text-[11px] font-semibold uppercase tracking-[0.22em] text-gold-light mb-2">
-                    {activeCat.items.length} cover types
-                  </span>
-                  <h2 className="font-display text-2xl md:text-4xl text-white mb-2 animate-fadeup">{activeCat.label}</h2>
-                  <p className="text-white/80 text-sm md:text-base max-w-xl animate-fadeup">{activeCat.intro}</p>
+                <h3 className="font-display text-xl text-navy font-bold mb-2">{s.name}</h3>
+                <p className="text-sm text-charcoal/65 leading-relaxed mb-5">{s.desc}</p>
+                <ul className="space-y-2.5 mb-5">
+                  {s.benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/75">
+                      <Check size={16} className="text-steel-dark shrink-0 mt-0.5" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto border-t border-navy/8 pt-4">
+                  <p className="text-xs text-charcoal/50">
+                    <span className="font-semibold text-charcoal/70 uppercase tracking-wider">Who it's for — </span>
+                    {s.who}
+                  </p>
                 </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-5">
-                {activeCat.items.map((s, idx) => (
-                  <Reveal key={s.name} delay={idx * 80} className="bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
-                    <div className="flex items-start justify-between mb-5">
-                      <span className="w-12 h-12 rounded-xl bg-emerald text-navy flex items-center justify-center">
-                        <s.icon size={23} strokeWidth={1.6} />
-                      </span>
-                      <Sparkles size={18} className="text-gold/50" aria-hidden="true" />
-                    </div>
-                    <h3 className="font-display text-xl text-navy mb-2">{s.name}</h3>
-                    <p className="text-sm text-charcoal/65 leading-relaxed mb-5">{s.desc}</p>
-                    <ul className="space-y-2.5 mb-5">
-                      {s.benefits.map((b) => (
-                        <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/75">
-                          <Check size={16} className="text-emerald-ink shrink-0 mt-0.5" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-auto border-t border-navy/8 pt-4">
-                      <p className="text-xs text-charcoal/50">
-                        <span className="font-semibold text-charcoal/70 uppercase tracking-wider">Who it's for — </span>
-                        {s.who}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Why broker */}
-      <section className="bg-white py-20 md:py-24 border-y border-navy/5">
+      <section className="bg-mist py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <SectionHeading
@@ -123,10 +110,10 @@ export default function Services() {
                 { title: "Advice that costs you nothing", body: "Brokers are paid by the insurer, so the premium you're quoted is the premium you'd pay direct." },
                 { title: "A single point of contact", body: "One number for new cover, renewals, mid-term changes and claims — forever." },
               ].map((it, idx) => (
-                <Reveal key={it.title} delay={idx * 90} className="flex gap-5">
+                <Reveal key={it.title} delay={idx * 90} className="group bg-white border border-navy/8 rounded-2xl p-6 flex gap-5 hover:shadow-card transition-all">
                   <span className="font-display text-3xl font-light text-gold-dark/60 w-10 shrink-0">{String(idx + 1).padStart(2, "0")}</span>
-                  <div className="border-b border-navy/10 pb-5 flex-1">
-                    <h3 className="font-display text-lg text-navy mb-1">{it.title}</h3>
+                  <div className="flex-1">
+                    <h3 className="font-display text-lg text-navy font-bold mb-1">{it.title}</h3>
                     <p className="text-sm text-charcoal/60 leading-relaxed">{it.body}</p>
                   </div>
                 </Reveal>
