@@ -67,7 +67,7 @@ export default function Contact() {
           {cards.map((c, idx) => {
             const inner = (
               <>
-                <span className="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center mb-5 group-hover:bg-steel transition-colors">
+                <span className="w-12 h-12 rounded-full bg-navy/10 text-navy flex items-center justify-center mb-5 group-hover:bg-steel group-hover:text-white transition-colors">
                   <c.icon size={21} />
                 </span>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/45 mb-1.5">{c.title}</h3>
@@ -122,7 +122,7 @@ export default function Contact() {
             <Reveal delay={120} className="flex items-start gap-4 bg-mist border border-navy/8 rounded-2xl p-6">
               <MapPin size={22} className="text-gold-dark shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-display text-lg text-navy mb-1">Office Address</h3>
+                <h3 className="font-display text-lg text-charcoal mb-1">Office Address</h3>
                 <p className="text-charcoal/65 leading-relaxed">{site.address},<br />{site.city}</p>
               </div>
             </Reveal>

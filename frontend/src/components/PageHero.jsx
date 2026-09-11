@@ -49,7 +49,7 @@ export default function PageHero({
             <ArrowLeft size={13} /> Home
           </NavLink>
           {eyebrow && <span className="eyebrow text-gold mb-6">{eyebrow}</span>}
-          <h1 className="font-hero text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] max-w-3xl">
+          <h1 className="font-hero text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] max-w-3xl">
             {title} {accent && <span className="text-gold font-semibold">{accent}</span>}
           </h1>
           {description && (

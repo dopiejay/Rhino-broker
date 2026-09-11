@@ -75,7 +75,7 @@ export default function About() {
                     <span className="w-10 h-10 rounded-full bg-steel/10 text-steel flex items-center justify-center">
                       <h.icon size={20} strokeWidth={1.75} />
                     </span>
-                    <h3 className="font-display text-sm font-semibold text-navy">{h.title}</h3>
+                    <h3 className="font-display text-sm font-semibold text-charcoal">{h.title}</h3>
                     <p className="text-xs text-charcoal/55 leading-relaxed">{h.body}</p>
                   </div>
                 </Reveal>
@@ -93,22 +93,24 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28 bg-mist">
+      <section className="py-20 md:py-28 bg-navy-deep relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
             eyebrow="What We Believe"
             title="Our core values,"
             accent="practised daily."
+            tone="dark"
             className="mb-14"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, idx) => (
-              <Reveal key={v.title} delay={idx * 90} className="group relative bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all">
-                <span className="w-12 h-12 rounded-full bg-gold-soft text-gold-dark flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-colors">
+              <Reveal key={v.title} delay={idx * 90} className="group bg-white/[0.04] border border-white/10 rounded-2xl p-7 hover:bg-white/[0.07] transition-colors">
+                <span className="w-12 h-12 rounded-full bg-gold/15 text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-colors">
                   <v.icon size={24} strokeWidth={1.75} />
                 </span>
-                <h3 className="font-display text-xl text-navy mb-2">{v.title}</h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed">{v.body}</p>
+                <h3 className="font-display text-xl text-white font-bold mb-2">{v.title}</h3>
+                <p className="text-sm text-white/65 leading-relaxed">{v.body}</p>
               </Reveal>
             ))}
           </div>
@@ -137,7 +139,7 @@ export default function About() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-lg text-navy font-bold">{t.name}</h3>
+                  <h3 className="font-display text-lg text-charcoal font-bold">{t.name}</h3>
                   <p className="text-sm font-medium text-gold-dark mt-0.5">{t.role}</p>
                   <p className="text-sm text-charcoal/60 leading-relaxed mt-3">{t.bio}</p>
                 </div>

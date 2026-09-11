@@ -10,17 +10,17 @@ export default function SectionHeading({
   className = "",
 }) {
   const alignCls = align === "center" ? "text-center mx-auto items-center" : "text-left";
-  const eyebrowTone = tone === "dark" ? "text-gold" : "text-gold-dark";
-  const titleTone = tone === "dark" ? "text-white" : "text-navy";
+  const eyebrowTone = tone === "dark" ? "text-gold" : "text-steel";
+  const titleTone = tone === "dark" ? "text-white" : "text-charcoal";
   const descTone = tone === "dark" ? "text-white/70" : "text-charcoal/65";
-  const accentTone = tone === "dark" ? "text-white" : "text-navy";
+  const accentTone = tone === "dark" ? "text-white" : "text-charcoal";
 
   return (
     <Reveal className={`max-w-3xl flex flex-col ${alignCls} ${className}`}>
       {eyebrow && (
         <span className={`eyebrow ${eyebrowTone} mb-5`}>{eyebrow}</span>
       )}
-      <h2 className={`font-display font-medium text-3xl md:text-5xl leading-[1.08] tracking-tight ${titleTone}`}>
+      <h2 className={`font-display font-bold text-3xl md:text-5xl leading-[1.08] tracking-tight ${titleTone}`}>
         {title}{" "}
         {accent && <span className={accentTone}>{accent}</span>}
       </h2>

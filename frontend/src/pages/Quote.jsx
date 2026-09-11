@@ -130,7 +130,7 @@ export default function Quote() {
             <Reveal delay={120} className="bg-gold-soft border border-gold/30 rounded-3xl p-7">
               <div className="flex items-center gap-3 mb-4">
                 <ShieldCheck size={22} className="text-gold-dark shrink-0" />
-                <h3 className="font-display text-lg text-navy">Why a quote from us is different</h3>
+                <h3 className="font-display text-lg text-charcoal">Why a quote from us is different</h3>
               </div>
               <ul className="space-y-3 text-sm text-charcoal/70">
                 <li className="flex items-start gap-2.5">
@@ -156,7 +156,7 @@ export default function Quote() {
                 <span className="w-20 h-20 rounded-full bg-steel-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
-                <h2 className="font-display text-3xl md:text-4xl text-navy mb-3">
+                <h2 className="font-display text-3xl md:text-4xl text-charcoal mb-3">
                   Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}.
                 </h2>
                 <p className="text-charcoal/60 text-lg leading-relaxed max-w-md mx-auto mb-8">
@@ -205,7 +205,7 @@ export default function Quote() {
                   ))}
                 </div>
 
-                <h2 className="font-display text-2xl md:text-3xl text-navy text-center mb-2">
+                <h2 className="font-display text-2xl md:text-3xl text-charcoal text-center mb-2">
                   {STEP_LABELS[step]}
                 </h2>
                 <p className="text-charcoal/55 text-sm text-center mb-9">

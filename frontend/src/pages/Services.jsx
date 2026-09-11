@@ -55,25 +55,16 @@ export default function Services() {
             ))}
           </div>
 
-          {/* Active category intro */}
-          <Reveal key={`intro-${cat.id}`} className="max-w-3xl mx-auto text-center mb-14 animate-fadeup">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-dark mb-3">
-              {cat.items.length} cover types
-            </p>
-            <h2 className="font-display text-2xl md:text-4xl text-navy mb-3">{cat.label}</h2>
-            <p className="text-charcoal/65 text-base leading-relaxed">{cat.intro}</p>
-          </Reveal>
-
           {/* Service cards */}
           <div className="grid sm:grid-cols-2 gap-5">
             {cat.items.map((s, idx) => (
               <Reveal key={s.name} delay={idx * 80} className="group bg-mist border border-navy/8 rounded-2xl p-7 hover:bg-white hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
                 <div className="flex items-start justify-between mb-5">
-                  <span className="w-12 h-12 rounded-xl bg-steel text-white flex items-center justify-center group-hover:bg-navy transition-colors">
+                  <span className="w-12 h-12 rounded-xl bg-steel/10 text-steel flex items-center justify-center group-hover:bg-steel group-hover:text-white transition-colors">
                     <s.icon size={23} strokeWidth={1.6} />
                   </span>
                 </div>
-                <h3 className="font-display text-xl text-navy font-bold mb-2">{s.name}</h3>
+                <h3 className="font-display text-xl text-charcoal font-bold mb-2">{s.name}</h3>
                 <p className="text-sm text-charcoal/65 leading-relaxed mb-5">{s.desc}</p>
                 <ul className="space-y-2.5 mb-5">
                   {s.benefits.map((b) => (
@@ -113,7 +104,7 @@ export default function Services() {
                 <Reveal key={it.title} delay={idx * 90} className="group bg-white border border-navy/8 rounded-2xl p-6 flex gap-5 hover:shadow-card transition-all">
                   <span className="font-display text-3xl font-light text-gold-dark/60 w-10 shrink-0">{String(idx + 1).padStart(2, "0")}</span>
                   <div className="flex-1">
-                    <h3 className="font-display text-lg text-navy font-bold mb-1">{it.title}</h3>
+                    <h3 className="font-display text-lg text-charcoal font-bold mb-1">{it.title}</h3>
                     <p className="text-sm text-charcoal/60 leading-relaxed">{it.body}</p>
                   </div>
                 </Reveal>

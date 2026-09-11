@@ -16,6 +16,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div className="flex flex-col">
             <SectionHeading
+              eyebrow="About Us"
               title="Protection Shouldn't Be a Guess."
               description="Insurance decisions can be complex. Rhino is positioned to help clients better understand their protection needs and explore solutions that fit their personal, business or organisational circumstances. Through insurance broking and advisory services, our focus is on helping clients move from uncertainty to clarity."
             />
@@ -50,24 +51,31 @@ export default function Home() {
             accent="Made Clearer."
             className="mb-14"
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {HOME_SERVICES.map((card, idx) => (
               <Reveal
                 key={card.title}
                 delay={idx * 100}
-                className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-lift transition-shadow p-7 flex flex-col"
+                className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-lift transition-shadow flex flex-col"
               >
-                <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-6">
-                  <card.icon size={24} strokeWidth={1.75} />
-                </span>
-                <h3 className="font-display text-lg text-navy mb-3">{card.title}</h3>
-                <p className="text-charcoal/65 text-sm leading-relaxed mb-6 flex-1">{card.body}</p>
-                <NavLink
-                  to={card.to}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-steel group-hover:gap-2.5 transition-all"
-                >
-                  Learn more <ArrowUpRight size={15} />
-                </NavLink>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-7 flex flex-col flex-1">
+                  <h3 className="font-display text-lg text-charcoal font-bold mb-3">{card.title}</h3>
+                  <p className="text-charcoal/65 text-sm leading-relaxed mb-6 flex-1">{card.body}</p>
+                  <NavLink
+                    to={card.to}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-steel group-hover:gap-2.5 transition-all"
+                  >
+                    Learn more <ArrowUpRight size={15} />
+                  </NavLink>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -85,7 +93,8 @@ export default function Home() {
 
       {/* Who We Serve */}
       <section className="bg-white py-20 md:py-28 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-teal-500 to-steel opacity-10" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
             eyebrow="WHO WE SERVE"
             title="Protection for Every Stage of"
@@ -102,7 +111,7 @@ export default function Home() {
                 <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-5">
                   <item.icon size={24} strokeWidth={1.75} />
                 </span>
-                <h3 className="font-display text-lg text-navy mb-2">{item.title}</h3>
+                <h3 className="font-display text-lg text-charcoal font-bold mb-2">{item.title}</h3>
                 <p className="text-charcoal/60 text-sm leading-relaxed">{item.body}</p>
               </Reveal>
             ))}
@@ -111,12 +120,14 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-mist py-20 md:py-28 relative overflow-hidden">
+      <section className="bg-teal-700 py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
             eyebrow="HOW IT WORKS"
             title="A Clearer Path"
             accent="to Protection."
+            tone="dark"
             className="mb-14"
           />
           <div className="grid md:grid-cols-4 gap-6 relative">
@@ -125,15 +136,15 @@ export default function Home() {
                 {idx < PROCESS.length - 1 && (
                   <span className="hidden md:block absolute top-12 -right-3 w-6 h-px bg-gold/50" aria-hidden="true" />
                 )}
-                <div className="group bg-white border border-navy/8 rounded-2xl p-7 h-full hover:shadow-card hover:border-gold/40 transition-all">
+                <div className="group bg-white/[0.04] border border-white/10 rounded-2xl p-7 h-full hover:bg-white/[0.07] transition-colors">
                   <div className="flex items-center justify-between mb-6">
-                    <span className="w-12 h-12 rounded-full bg-steel text-white flex items-center justify-center group-hover:bg-navy transition-colors">
+                    <span className="w-12 h-12 rounded-full bg-gold/15 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-colors">
                       <p.icon size={22} strokeWidth={1.75} />
                     </span>
-                    <span className="font-display text-2xl font-light text-gold/70">{p.step}</span>
+                    <span className="font-display text-2xl font-bold text-white/70 tabular-nums">{p.step}</span>
                   </div>
-                  <h3 className="font-display text-xl text-navy font-bold mb-2">{p.title}</h3>
-                  <p className="text-sm text-charcoal/60 leading-relaxed">{p.body}</p>
+                  <h3 className="font-display text-xl text-white font-bold mb-2">{p.title}</h3>
+                  <p className="text-sm text-white/65 leading-relaxed">{p.body}</p>
                 </div>
               </Reveal>
             ))}

@@ -43,7 +43,7 @@ export default function Insights() {
                     {article.category}
                   </span>
                 </div>
-                <h3 className="font-display text-xl text-navy leading-snug mb-3">
+                <h3 className="font-display text-xl text-charcoal font-bold leading-snug mb-3">
                   {article.title}
                 </h3>
                 <p className="text-sm text-charcoal/60 leading-relaxed mb-6 flex-1">
@@ -111,7 +111,7 @@ export default function Insights() {
                     className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left focus-ring"
                     aria-expanded={openFaq === idx}
                   >
-                    <h3 className="font-display text-lg text-navy">{faq.q}</h3>
+                    <h3 className="font-display text-lg text-charcoal">{faq.q}</h3>
                     <ChevronDown
                       size={18}
                       className={`shrink-0 text-charcoal/40 transition-transform duration-300 ${

@@ -31,6 +31,7 @@ import personStanding from "../assets/person-standing.jpg";
 import S1House from "../assets/house.jpg";
 import S2Business from "../assets/business.jpg";
 import S3Employees from "../assets/employee.jpg";
+import S4Car from "../assets/car.jpg";
 import guideFirstTime from "../assets/firstTime.jpg";
 import guideGroup from "../assets/group.jpg";
 import claimChase from "../assets/chase.jpg";
@@ -501,25 +502,19 @@ export const CLIENT_TYPES = ["Individual", "Business", "Organisation"];
 
 export const HOME_SERVICES = [
   {
-    icon: Car,
+    image: S4Car,
     title: "Motor Insurance",
     body: "Third-party and comprehensive cover for private and commercial vehicles.",
     to: "/services",
   },
   {
-    icon: HomeIcon,
-    title: "Home & Property",
-    body: "Protection for your home, contents and the things that matter most.",
-    to: "/services",
-  },
-  {
-    icon: Briefcase,
+    image: S2Business,
     title: "Business Insurance",
     body: "Cover for fire, liability, marine, engineering and other business risks.",
     to: "/services",
   },
   {
-    icon: HeartPulse,
+    image: S3Employees,
     title: "Employee Benefits",
     body: "Group medical and group life schemes that help you look after your team.",
     to: "/services",
