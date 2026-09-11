@@ -106,7 +106,7 @@ export default function Home() {
               <Reveal
                 key={item.title}
                 delay={idx * 100}
-                className="group bg-mist rounded-2xl p-7 hover:shadow-card transition-shadow flex flex-col"
+                className="group bg-white rounded-2xl p-7 hover:shadow-card transition-shadow flex flex-col"
               >
                 <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-5">
                   <item.icon size={24} strokeWidth={1.75} />
