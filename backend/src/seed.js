@@ -58,7 +58,7 @@ const defaultContent = {
   },
   about_journey: {
     items: [
-      { year: "Established", text: "Mahogany Insurance Brokers Limited is founded in Blantyre as an independent insurance intermediary." },
+      { year: "Established", text: "Rhino Insurance Brokers and Consulting Company Limited is established in Blantyre as an independent insurance intermediary." },
       { year: "Recognised", text: "Listed among licensed brokers by major Malawian insurers, including NICO General and United General Insurance." },
       { year: "2019", text: "Awarded a public-sector brokerage contract by the Malawi Electoral Commission, covering motor vehicle and business all-risk insurance." },
       { year: "Today", text: "Serving individuals, SMEs and institutions across Blantyre and beyond." },
@@ -109,18 +109,18 @@ const defaultContent = {
     address: "Umoyo House, 2nd Floor, North Wing",
     city: "Blantyre, Malawi",
     phone: "+265 888 590 727",
-    email: "fthenda@milbrol.com",
+    email: "rhinoinfo@rhinoinsurancemw.com",
     hours: "Monday – Friday, 8:00 – 17:00",
     whatsapp: "265888590727",
   },
   team: {
     items: [
-      { name: "F. Thenda", role: "Managing Director & Principal Broker", bio: "Leads the firm with over a decade of broking experience, and oversees our public-sector and institutional client relationships." },
-      { name: "A. Banda", role: "Senior Broker — Commercial Lines", bio: "Specialises in fire, marine, engineering and liability programmes for businesses, contractors and logistics operators." },
-      { name: "C. Phiri", role: "Broker — Personal & Motor", bio: "Arranges motor, home and travel cover, making sure individuals and families understand exactly what their policy covers." },
-      { name: "M. Mwale", role: "Claims & Client Services", bio: "The first person clients speak to when it matters most. Handles claim lodgement, document collection and insurer follow-ups." },
-      { name: "T. Nkhoma", role: "Employee Benefits Specialist", bio: "Compares group medical and group life schemes for employers, schools and NGOs, and keeps schemes running smoothly year-round." },
-      { name: "L. Chikopa", role: "Client Accounts & Renewals", bio: "Keeps every renewal, invoice and policy document organised, so nothing lapses and nothing slips through the cracks." },
+      { name: "F. name", role: "Managing Director & Principal Broker", bio: "Leads the firm with over a decade of broking experience, and oversees our public-sector and institutional client relationships." },
+      { name: "A. name", role: "Senior Broker — Commercial Lines", bio: "Specialises in fire, marine, engineering and liability programmes for businesses, contractors and logistics operators." },
+      { name: "C. name", role: "Broker — Personal & Motor", bio: "Arranges motor, home and travel cover, making sure individuals and families understand exactly what their policy covers." },
+      { name: "M. name", role: "Claims & Client Services", bio: "The first person clients speak to when it matters most. Handles claim lodgement, document collection and insurer follow-ups." },
+      { name: "T. name", role: "Employee Benefits Specialist", bio: "Compares group medical and group life schemes for employers, schools and NGOs, and keeps schemes running smoothly year-round." },
+      { name: "L. name", role: "Client Accounts & Renewals", bio: "Keeps every renewal, invoice and policy document organised, so nothing lapses and nothing slips through the cracks." },
     ],
   },
   faqs: {
@@ -135,7 +135,7 @@ const defaultContent = {
   },
   news: {
     items: [
-      { category: "Company Update", title: "Mahogany renews public-sector brokerage mandate", date: "Feb 2026", body: "We continue to service the motor and business all-risk requirements of the Malawi Electoral Commission as a licensed intermediary." },
+      { category: "Company Update", title: "Rhino Insurance renews public-sector brokerage mandate", date: "Feb 2026", body: "We continue to service the motor and business all-risk requirements of the Malawi Electoral Commission as a licensed intermediary." },
       { category: "Insurance Tip", title: "Five things to check before renewing your motor policy", date: "Jan 2026", body: "Market value vs agreed value, passenger liability limits, excesses, courtesy cover and how long your claim history stays with you." },
       { category: "Company Update", title: "Why group medical cover matters for growing employers", date: "Dec 2025", body: "A healthier workforce is a more productive one. We compare group medical and group life schemes across Malawi's insurers for your team." },
     ],
