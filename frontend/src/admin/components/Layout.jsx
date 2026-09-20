@@ -21,9 +21,9 @@ export default function Layout() {
           <div className="flex items-center gap-2.5">
             <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
               <rect width="64" height="64" rx="10" fill="#C6923A" />
-              <circle cx="32" cy="32" r="20" fill="none" stroke="#3F0E17" strokeWidth="2" />
-              <circle cx="32" cy="32" r="13" fill="none" stroke="#3F0E17" strokeWidth="1.5" opacity="0.75" />
-              <circle cx="32" cy="32" r="6" fill="#9E3542" />
+              <circle cx="32" cy="32" r="20" fill="none" stroke="#003D25" strokeWidth="2" />
+              <circle cx="32" cy="32" r="13" fill="none" stroke="#003D25" strokeWidth="1.5" opacity="0.75" />
+              <circle cx="32" cy="32" r="6" fill="#00652F" />
             </svg>
             <div>
               <p className="font-display text-sm leading-tight">Rhino</p>

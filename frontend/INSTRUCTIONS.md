@@ -21,12 +21,13 @@ Blantyre with no existing website.
   shows a success state
 - **Contact** — office address, phone, email, embedded map
 
-Brand palette: deep burgundy/maroon (#7B1E2B) as the structural color
-(headers, hero, footer, headings), a brighter maroon (#9E3542) for
-primary buttons and highlights, warm cream (#FAF6F0) as the dominant
+Brand palette: Rhino Green (#00652F) as the primary brand color
+(headings, borders, primary elements), Deep Forest (#003D25) for dark
+sections (top bar, footer, dark bands), Fresh Green (#45A36B) for
+highlights and CTAs, Soft Ivory Green (#F3F7F4) as the dominant
 background, and Strategic Gold (#C6923A) used sparingly as the premium
 accent. Signature detail: a thin line divider between sections. Tailwind
-token names still read "navy"/"steel"/"cream" but render the maroon
+token names still read "navy"/"steel"/"cream" but render the green
 values.
 
 **Why there's no photography:** hotlinking or embedding photos pulled

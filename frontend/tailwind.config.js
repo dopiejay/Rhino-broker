@@ -4,18 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Brand scale — "navy"/"steel" tokens render the deep-green
+        // Rhino brand so all existing components pick up the palette.
         navy: {
-          DEFAULT: "#7B1E2B",
-          dark: "#5F1520",
-          deep: "#3F0E17",
-          light: "#9E3542",
-          soft: "#FAF1F2",
+          DEFAULT: "#00652F", // Rhino Green · primary
+          dark: "#004F23", // deep primary (hover)
+          deep: "#003D25", // Deep Forest · dark sections
+          deeper: "#002B1B", // deepest · hover on dark sections
+          light: "#007A38",
+          soft: "#F3F7F4", // Soft Ivory Green · backgrounds
+        },
+        // Deep Forest scale
+        forest: {
+          DEFAULT: "#003D25",
+          light: "#005B36",
+          dark: "#002413",
+          soft: "#E7F1EB",
         },
         steel: {
-          DEFAULT: "#9E3542",
-          dark: "#852A36",
-          light: "#B54955",
-          soft: "#F9ECEE",
+          DEFAULT: "#45A36B", // Fresh Green · highlights / CTAs
+          dark: "#2E8257",
+          light: "#5FB183",
+          soft: "#E7F3EB",
         },
         gold: {
           DEFAULT: "#D19A42",
@@ -24,18 +34,18 @@ export default {
           soft: "#FDF6EB",
         },
         cream: {
-          DEFAULT: "#FAF6F0",
-          dark: "#F1E9E0",
+          DEFAULT: "#F3F7F4", // Soft Ivory Green
+          dark: "#EAF3EE",
         },
         mist: {
-          DEFAULT: "#F4F5F7",
-          dark: "#E9EBEF",
+          DEFAULT: "#F3F7F4",
+          dark: "#EAF2ED",
         },
         charcoal: "#263238",
         green: {
-          DEFAULT: "#9E3542",
-          dark: "#852A36",
-          light: "#B54955",
+          DEFAULT: "#45A36B",
+          dark: "#2E8257",
+          light: "#5FB183",
         },
         brass: {
           DEFAULT: "#D19A42",
@@ -43,8 +53,8 @@ export default {
           dark: "#B8832E",
         },
         parchment: {
-          DEFAULT: "#FAF6F0",
-          dark: "#F1E9E0",
+          DEFAULT: "#F3F7F4",
+          dark: "#EAF3EE",
         },
         ink: "#59636E",
       },
@@ -54,8 +64,8 @@ export default {
         body: ["Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        card: "0 1px 2px rgba(63,14,23,0.06), 0 12px 32px -12px rgba(63,14,23,0.18)",
-        lift: "0 2px 4px rgba(63,14,23,0.08), 0 24px 48px -16px rgba(63,14,23,0.28)",
+        card: "0 1px 2px rgba(0,61,37,0.06), 0 12px 32px -12px rgba(0,61,37,0.18)",
+        lift: "0 2px 4px rgba(0,61,37,0.08), 0 24px 48px -16px rgba(0,61,37,0.28)",
         gold: "0 0 0 1px rgba(209,154,66,0.35), 0 16px 40px -12px rgba(209,154,66,0.4)",
       },
       animation: {
