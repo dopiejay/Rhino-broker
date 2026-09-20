@@ -12,7 +12,7 @@ export default function GrainDivider({ flip = false, className = "" }) {
         <path
           d="M0,20 C150,5 300,35 450,20 C600,5 750,35 900,20 C1000,10 1100,30 1200,20"
           fill="none"
-          stroke="#C6923A"
+          stroke="#F26A21"
           strokeWidth="1"
           opacity="0.5"
         />

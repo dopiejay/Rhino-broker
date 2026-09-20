@@ -141,7 +141,7 @@ export default function Contact() {
                 </p>
                 <a
                   href={site.phoneHref}
-                  className="mt-8 inline-flex items-center gap-2 bg-navy text-white font-semibold px-7 py-3.5 rounded-full hover:bg-navy-light transition-colors focus-ring"
+                  className="mt-8 inline-flex items-center gap-2 bg-navy text-white font-semibold px-7 py-3.5 rounded-full hover:bg-navy-dark transition-colors focus-ring"
                 >
                   <Phone size={16} /> {site.phone}
                 </a>
@@ -180,7 +180,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-steel text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring"
                   >
                     Send Message <Send size={16} />
                   </button>

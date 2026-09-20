@@ -10,7 +10,7 @@ export default function SectionHeading({
   className = "",
 }) {
   const alignCls = align === "center" ? "text-center mx-auto items-center" : "text-left";
-  const eyebrowTone = tone === "dark" ? "text-gold" : "text-steel";
+  const eyebrowTone = "text-gold";
   const titleTone = tone === "dark" ? "text-white" : "text-charcoal";
   const descTone = tone === "dark" ? "text-white/70" : "text-charcoal/65";
   const accentTone = tone === "dark" ? "text-white" : "text-charcoal";

@@ -62,7 +62,7 @@ export default function Insights() {
       </section>
 
       {/* Insurance Tips */}
-      <section className="py-20 md:py-24 bg-navy-deep text-white grain relative overflow-hidden">
+      <section className="py-20 md:py-24 bg-charcoal text-white grain relative overflow-hidden">
         <div
           className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"
           aria-hidden="true"

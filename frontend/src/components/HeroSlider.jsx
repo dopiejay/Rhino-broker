@@ -65,7 +65,7 @@ export default function HeroSlider() {
 
   const renderCta = (c, primary) => {
     const cls = primary
-      ? "group inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
+      ? "group inline-flex items-center gap-2.5 bg-navy text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring"
       : "inline-flex items-center gap-2.5 border border-white/30 text-white font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full hover:bg-white/10 transition-colors focus-ring";
     const inner = isExternal(c.to) ? (
       c.label
@@ -90,7 +90,7 @@ export default function HeroSlider() {
   return (
     <section
       id="hero-slider"
-      className="relative h-[84vh] min-h-[560px] max-h-[860px] overflow-hidden bg-navy-deep text-white"
+      className="relative h-[84vh] min-h-[560px] max-h-[860px] overflow-hidden bg-charcoal text-white"
     >
       {/* Slides */}
       {heroSlides.map((s, i) => (
@@ -109,7 +109,7 @@ export default function HeroSlider() {
               loading={i === 0 ? "eager" : "lazy"}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-navy-deep">
+            <div className="w-full h-full flex items-center justify-center bg-charcoal">
               <div className="flex flex-col items-center gap-3 px-6 py-10 border border-dashed border-white/25 rounded-sm text-center">
                 <ImageIcon size={30} strokeWidth={1.5} className="text-white/40" />
                 <p className="text-xs font-medium leading-snug text-white/50 max-w-xs">
@@ -119,21 +119,21 @@ export default function HeroSlider() {
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/75 via-navy-deep/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-transparent" />
         </div>
       ))}
 
       {/* Content */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-5 md:px-8 flex items-center">
         <div className="max-w-3xl pb-16 sm:pb-20" key={idx}>
-          <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white bg-navy-deep/90 border border-white/35 rounded-full px-4 py-2 animate-fadeup">
+          <span className="inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.22em] text-white bg-black/40 border border-white/25 rounded-full px-4 py-2 animate-fadeup">
             <ShieldCheck size={13} />
             {slide.eyebrow}
           </span>
 
-          <h1 className="font-hero text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mt-6 sm:mt-7 animate-fadeup">
+          <h1 className="font-hero text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mt-6 sm:mt-7 animate-fadeup">
             {slide.title[0]}{" "}
-            <span className="text-gold font-semibold">{slide.title[1]}</span>
+            <span className="text-gold font-extrabold">{slide.title[1]}</span>
           </h1>
 
           <p className="text-white text-base sm:text-lg md:text-xl leading-snug max-w-xl mt-5 sm:mt-6 animate-fadeup">

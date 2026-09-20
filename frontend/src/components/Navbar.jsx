@@ -8,10 +8,10 @@ function Logo({ onClick }) {
   return (
     <NavLink to="/" onClick={onClick} className="flex items-center gap-3 focus-ring rounded group" aria-label={`${SITE.name} — home`}>
       <span className="leading-none">
-        <span className="font-display text-xl font-semibold text-navy tracking-tight block">
+        <span className="font-display text-xl font-extrabold text-navy tracking-tight block">
           Rhino
         </span>
-        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-steel block mt-1">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold block mt-1">
           Insurance Brokers
         </span>
       </span>
@@ -76,7 +76,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <NavLink
             to="/quote"
-            className="group inline-flex items-center gap-2 bg-steel text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-steel-dark transition-colors focus-ring"
+            className="group inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-navy-dark transition-colors focus-ring"
           >
             Request a Quote
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -111,7 +111,7 @@ export default function Navbar() {
           ))}
           <NavLink
             to="/quote"
-            className="mt-5 bg-steel text-white text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
+            className="mt-5 bg-navy text-white text-sm font-semibold px-6 py-3.5 rounded-full text-center flex items-center justify-center gap-2"
           >
             Request a Quote <ArrowRight size={15} />
           </NavLink>

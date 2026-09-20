@@ -55,27 +55,39 @@ export default function Services() {
             ))}
           </div>
 
-          {/* Service cards */}
-          <div className="grid sm:grid-cols-2 gap-5">
+          {/* Service cards — image-led grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cat.items.map((s, idx) => (
-              <Reveal key={s.name} delay={idx * 80} className="group bg-mist border border-navy/8 rounded-2xl p-7 hover:bg-white hover:shadow-card hover:border-gold/40 transition-all flex flex-col">
-                <div className="flex items-start justify-between mb-5">
-                  <span className="w-12 h-12 rounded-xl bg-steel/10 text-steel flex items-center justify-center group-hover:bg-steel group-hover:text-white transition-colors">
-                    <s.icon size={23} strokeWidth={1.6} />
-                  </span>
+              <Reveal
+                key={s.name}
+                delay={idx * 80}
+                className="group bg-white rounded-2xl overflow-hidden border border-navy/8 hover:shadow-lift hover:border-gold/40 transition-all flex flex-col"
+              >
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="font-display text-xl text-charcoal font-bold mb-2">{s.name}</h3>
-                <p className="text-sm text-charcoal/65 leading-relaxed mb-5">{s.desc}</p>
-                <ul className="space-y-2.5 mb-5">
-                  {s.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/75">
-                      <Check size={16} className="text-steel-dark shrink-0 mt-0.5" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto border-t border-navy/8 pt-4">
-                  <p className="text-xs text-charcoal/50">
+                <div className="p-7 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-11 h-11 rounded-xl bg-steel/10 text-steel-dark flex items-center justify-center shrink-0">
+                      <s.icon size={21} strokeWidth={1.75} />
+                    </span>
+                    <h3 className="font-display text-lg text-charcoal font-bold leading-tight">{s.name}</h3>
+                  </div>
+                  <p className="text-sm text-charcoal/65 leading-relaxed mb-4">{s.desc}</p>
+                  <ul className="space-y-2 mb-5">
+                    {s.benefits.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-sm text-charcoal/75">
+                        <Check size={15} className="text-steel-dark shrink-0 mt-0.5" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-auto text-xs text-charcoal/50 pt-4 border-t border-navy/8">
                     <span className="font-semibold text-charcoal/70 uppercase tracking-wider">Who it's for — </span>
                     {s.who}
                   </p>

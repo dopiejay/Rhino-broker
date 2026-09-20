@@ -28,10 +28,10 @@ export default {
           soft: "#E7F3EB",
         },
         gold: {
-          DEFAULT: "#D19A42",
-          light: "#DDB06A",
-          dark: "#B8832E",
-          soft: "#FDF6EB",
+          DEFAULT: "#F26A21", // Rhino Orange · accents / eyebrows
+          light: "#F5833A",
+          dark: "#D2560F",
+          soft: "#FEF2EA",
         },
         cream: {
           DEFAULT: "#F3F7F4", // Soft Ivory Green
@@ -48,9 +48,9 @@ export default {
           light: "#5FB183",
         },
         brass: {
-          DEFAULT: "#D19A42",
-          light: "#DDB06A",
-          dark: "#B8832E",
+          DEFAULT: "#F26A21",
+          light: "#F5833A",
+          dark: "#D2560F",
         },
         parchment: {
           DEFAULT: "#F3F7F4",
@@ -66,7 +66,7 @@ export default {
       boxShadow: {
         card: "0 1px 2px rgba(0,61,37,0.06), 0 12px 32px -12px rgba(0,61,37,0.18)",
         lift: "0 2px 4px rgba(0,61,37,0.08), 0 24px 48px -16px rgba(0,61,37,0.28)",
-        gold: "0 0 0 1px rgba(209,154,66,0.35), 0 16px 40px -12px rgba(209,154,66,0.4)",
+        gold: "0 0 0 1px rgba(242,106,33,0.35), 0 16px 40px -12px rgba(242,106,33,0.4)",
       },
       animation: {
         marquee: "marquee 32s linear infinite",

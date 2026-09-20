@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import HeroSlider from "../components/HeroSlider";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import { HOME_SERVICES, WHO_WE_SERVE, PROCESS } from "../data/site";
+import { HOME_SERVICES, WHO_WE_SERVE } from "../data/site";
 import meetingImg from "../assets/people-meeting.jpg";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
             <Reveal delay={200}>
               <NavLink
                 to="/about"
-                className="group mt-10 inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
+                className="group mt-10 inline-flex items-center gap-2.5 bg-navy text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring"
               >
                 Learn About Rhino
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -71,7 +71,7 @@ export default function Home() {
                   <p className="text-charcoal/65 text-sm leading-relaxed mb-6 flex-1">{card.body}</p>
                   <NavLink
                     to={card.to}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-steel group-hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-steel-dark group-hover:gap-2.5 transition-all"
                   >
                     Learn more <ArrowUpRight size={15} />
                   </NavLink>
@@ -82,7 +82,7 @@ export default function Home() {
           <Reveal delay={200} className="mt-12 text-center">
             <NavLink
               to="/services"
-              className="group inline-flex items-center gap-2.5 bg-steel text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring"
+              className="group inline-flex items-center gap-2.5 bg-navy text-white font-semibold text-sm px-7 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring"
             >
               View All Insurance Solutions
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -92,13 +92,14 @@ export default function Home() {
       </section>
 
       {/* Who We Serve */}
-      <section className="bg-white py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-teal-500 to-steel opacity-10" aria-hidden="true" />
+      <section className="bg-charcoal py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading
             eyebrow="WHO WE SERVE"
             title="Protection for Every Stage of"
             accent="Life and Business."
+            tone="dark"
             className="mb-14"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -106,48 +107,46 @@ export default function Home() {
               <Reveal
                 key={item.title}
                 delay={idx * 100}
-                className="group bg-white rounded-2xl p-7 hover:shadow-card transition-shadow flex flex-col"
+                className="group bg-white/[0.04] border border-white/10 rounded-2xl p-7 hover:bg-white/[0.07] transition-colors flex flex-col"
               >
-                <span className="w-12 h-12 flex items-center justify-center rounded-full bg-steel/10 text-steel mb-5">
+                <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gold/15 text-gold mb-5 group-hover:bg-gold group-hover:text-white transition-colors">
                   <item.icon size={24} strokeWidth={1.75} />
                 </span>
-                <h3 className="font-display text-lg text-charcoal font-bold mb-2">{item.title}</h3>
-                <p className="text-charcoal/60 text-sm leading-relaxed">{item.body}</p>
+                <h3 className="font-display text-lg text-white font-bold mb-2">{item.title}</h3>
+                <p className="text-white/65 text-sm leading-relaxed">{item.body}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="bg-teal-700 py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <SectionHeading
-            eyebrow="HOW IT WORKS"
-            title="A Clearer Path"
-            accent="to Protection."
-            tone="dark"
-            className="mb-14"
-          />
-          <div className="grid md:grid-cols-4 gap-6 relative">
-            {PROCESS.map((p, idx) => (
-              <Reveal key={p.step} delay={idx * 100} className="relative">
-                {idx < PROCESS.length - 1 && (
-                  <span className="hidden md:block absolute top-12 -right-3 w-6 h-px bg-gold/50" aria-hidden="true" />
-                )}
-                <div className="group bg-white/[0.04] border border-white/10 rounded-2xl p-7 h-full hover:bg-white/[0.07] transition-colors">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="w-12 h-12 rounded-full bg-gold/15 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-colors">
-                      <p.icon size={22} strokeWidth={1.75} />
-                    </span>
-                    <span className="font-display text-2xl font-bold text-white/70 tabular-nums">{p.step}</span>
-                  </div>
-                  <h3 className="font-display text-xl text-white font-bold mb-2">{p.title}</h3>
-                  <p className="text-sm text-white/65 leading-relaxed">{p.body}</p>
-                </div>
-              </Reveal>
-            ))}
+      {/* CTA */}
+      <section className="bg-gold py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" aria-hidden="true" />
+        <div className="max-w-7xl mx-auto px-5 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="max-w-2xl text-center lg:text-left">
+            <span className="eyebrow text-white/85 mb-4">READY WHEN YOU ARE</span>
+            <h2 className="font-display text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight text-white">
+              A Clearer Path <span className="text-charcoal">to Protection.</span>
+            </h2>
+            <p className="mt-5 text-base md:text-lg leading-relaxed text-white/85 max-w-xl mx-auto lg:mx-0">
+              Tell us what you need, and our team will help you take the next step with confidence.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 shrink-0">
+            <NavLink
+              to="/quote"
+              className="group inline-flex items-center gap-2 bg-white text-charcoal font-semibold text-sm px-8 py-4 rounded-full hover:bg-cream transition-colors focus-ring shadow-card"
+            >
+              Request a Quote
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="inline-flex items-center gap-2 border border-white/60 text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/10 transition-colors focus-ring"
+            >
+              Talk to an Advisor
+            </NavLink>
           </div>
         </div>
       </section>

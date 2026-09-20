@@ -93,7 +93,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 md:py-28 bg-navy-deep relative overflow-hidden">
+      <section className="py-20 md:py-28 bg-charcoal relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-5 md:px-8">
           <SectionHeading

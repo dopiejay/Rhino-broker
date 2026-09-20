@@ -12,7 +12,7 @@ export default function PageHero({
   const hasText = !!(eyebrow || title || accent || description || children);
   return (
     <section
-      className={`relative overflow-hidden bg-navy-deep text-white ${
+      className={`relative overflow-hidden bg-charcoal text-white ${
         hasText ? "" : "min-h-[300px] md:min-h-[380px]"
       }`}
     >
@@ -25,7 +25,7 @@ export default function PageHero({
             className="absolute inset-0 w-full h-full object-cover opacity-25"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/90 to-navy-deep/60" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/90 to-charcoal/60" aria-hidden="true" />
         </>
       ) : (
         <>

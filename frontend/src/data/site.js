@@ -194,6 +194,7 @@ export const SERVICE_CATEGORIES = [
     image: S1House,
     items: [
       {
+        image: S4Car,
         icon: Car,
         name: "Motor Insurance",
         desc: "Third-party and comprehensive cover for private vehicles.",
@@ -201,6 +202,7 @@ export const SERVICE_CATEGORIES = [
         who: "Private car owners and families.",
       },
       {
+        image: S1House,
         icon: HomeIcon,
         name: "Home Insurance",
         desc: "Protection for your house and its contents.",
@@ -208,6 +210,7 @@ export const SERVICE_CATEGORIES = [
         who: "Homeowners and tenants protecting valuables.",
       },
       {
+        image: heroFamily,
         icon: Plane,
         name: "Travel Insurance",
         desc: "Cover for medical emergencies and disruptions while travelling.",
@@ -215,6 +218,7 @@ export const SERVICE_CATEGORIES = [
         who: "Frequent travellers, students and families.",
       },
       {
+        image: personStanding,
         icon: HeartPulse,
         name: "Personal Accident",
         desc: "Financial protection if you're injured in an accident.",
@@ -232,6 +236,7 @@ export const SERVICE_CATEGORIES = [
     image: S2Business,
     items: [
       {
+        image: S2Business,
         icon: Flame,
         name: "Fire & Property",
         desc: "Protection for premises, stock and equipment against fire and allied perils.",
@@ -239,6 +244,7 @@ export const SERVICE_CATEGORIES = [
         who: "Shops, warehouses, offices and manufacturers.",
       },
       {
+        image: heroClaims,
         icon: HardHat,
         name: "Engineering",
         desc: "Contractors' all risk, erection all risk and machinery breakdown.",
@@ -246,6 +252,7 @@ export const SERVICE_CATEGORIES = [
         who: "Contractors, builders and plant owners.",
       },
       {
+        image: aboutBroker,
         icon: Ship,
         name: "Marine & Goods in Transit",
         desc: "Cover for cargo moving by sea, air or road.",
@@ -253,6 +260,7 @@ export const SERVICE_CATEGORIES = [
         who: "Importers, exporters and traders.",
       },
       {
+        image: heroGetStarted,
         icon: Scale,
         name: "Public & Employer Liability",
         desc: "Protection against claims from your operations, premises or staff.",
@@ -260,6 +268,7 @@ export const SERVICE_CATEGORIES = [
         who: "Any business that welcomes the public or employs staff.",
       },
       {
+        image: claimChase,
         icon: Package,
         name: "Money & Burglary",
         desc: "Cover for cash in transit, cash on premises and theft.",
@@ -277,6 +286,7 @@ export const SERVICE_CATEGORIES = [
     image: S3Employees,
     items: [
       {
+        image: S3Employees,
         icon: Users,
         name: "Group Medical",
         desc: "Health cover schemes for your employees and their families.",
@@ -284,6 +294,7 @@ export const SERVICE_CATEGORIES = [
         who: "SMEs, corporates, NGOs and institutions.",
       },
       {
+        image: guideGroup,
         icon: HeartPulse,
         name: "Group Life",
         desc: "Life assurance schemes for your workforce.",

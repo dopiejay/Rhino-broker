@@ -79,7 +79,7 @@ export default function Quote() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[380px_1fr] gap-14 lg:gap-20 items-start">
           {/* Contact sidebar */}
           <div className="lg:sticky lg:top-24 space-y-5">
-            <Reveal className="bg-navy-deep text-white rounded-3xl p-8 grain relative overflow-hidden">
+            <Reveal className="bg-charcoal text-white rounded-3xl p-8 grain relative overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
               <h3 className="font-display text-xl mb-6">Prefer to talk first?</h3>
               <div className="space-y-5 text-sm">
@@ -167,7 +167,7 @@ export default function Quote() {
                 <div className="flex flex-wrap justify-center gap-4">
                   <a
                     href={site.phoneHref}
-                    className="inline-flex items-center gap-2 bg-navy text-white font-semibold px-7 py-3.5 rounded-full hover:bg-navy-light transition-colors focus-ring"
+                    className="inline-flex items-center gap-2 bg-navy text-white font-semibold px-7 py-3.5 rounded-full hover:bg-navy-dark transition-colors focus-ring"
                   >
                     <Phone size={16} /> {site.phone}
                   </a>
@@ -326,7 +326,7 @@ export default function Quote() {
                       type="button"
                       disabled={!canNext}
                       onClick={() => setStep((s) => s + 1)}
-                      className="inline-flex items-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-navy-light transition-colors focus-ring disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-navy-dark transition-colors focus-ring disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       Next <ArrowRight size={16} />
                     </button>
@@ -334,7 +334,7 @@ export default function Quote() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="inline-flex items-center gap-2 bg-steel text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-steel-light transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {submitting ? "Sending..." : "Request Assistance"}
                     </button>

@@ -12,7 +12,7 @@ const EXPLORE = [
 export default function Footer() {
   const { site } = useSiteContent();
   return (
-    <footer className="bg-navy-deep text-white/80 relative overflow-hidden">
+    <footer className="bg-charcoal text-white/80 relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-5 md:px-8 pt-14 pb-10 grid md:grid-cols-12 gap-12">
