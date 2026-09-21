@@ -69,15 +69,15 @@ export default function Contact() {
 
       {/* Contact cards */}
       <section className="py-16 md:py-20 bg-mist">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {cards.map((c, idx) => {
             const inner = (
               <>
-                <span className="w-12 h-12 rounded-full bg-navy/10 text-navy flex items-center justify-center mb-5 group-hover:bg-steel group-hover:text-white transition-colors">
+                <span className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-navy/10 text-navy flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-steel group-hover:text-white transition-colors">
                   <c.icon size={21} />
                 </span>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/45 mb-1.5">{c.title}</h3>
-                <p className="font-display text-lg text-navy">{c.value}</p>
+                <p className="font-display text-base sm:text-lg text-navy">{c.value}</p>
               </>
             );
             return (
@@ -87,12 +87,12 @@ export default function Contact() {
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group bg-white border border-navy/8 rounded-2xl p-7 hover:shadow-card hover:border-gold/40 transition-all block h-full focus-ring"
+                    className="group bg-white border border-navy/8 rounded-2xl p-5 sm:p-7 hover:shadow-card hover:border-gold/40 transition-all block h-full focus-ring"
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div className="bg-white border border-navy/8 rounded-2xl p-7 h-full">
+                  <div className="bg-white border border-navy/8 rounded-2xl p-5 sm:p-7 h-full">
                     {inner}
                   </div>
                 )}

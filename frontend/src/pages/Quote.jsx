@@ -76,12 +76,12 @@ export default function Quote() {
       />
 
       <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[380px_1fr] gap-14 lg:gap-20 items-start">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[380px_1fr] gap-10 lg:gap-20 items-start">
           {/* Contact sidebar */}
           <div className="lg:sticky lg:top-24 space-y-5">
-            <Reveal className="bg-charcoal text-white rounded-3xl p-8 grain relative overflow-hidden">
+            <Reveal className="bg-charcoal text-white rounded-3xl p-6 sm:p-8 grain relative overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden="true" />
-              <h3 className="font-display text-xl mb-6">Prefer to talk first?</h3>
+              <h3 className="font-display text-xl mb-4 sm:mb-6">Prefer to talk first?</h3>
               <div className="space-y-5 text-sm">
                 <a href={site.phoneHref} className="flex items-center gap-4 group">
                   <span className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0 group-hover:bg-steel group-hover:text-white transition-colors">
@@ -127,7 +127,7 @@ export default function Quote() {
               </div>
             </Reveal>
 
-            <Reveal delay={120} className="bg-gold-soft border border-gold/30 rounded-3xl p-7">
+            <Reveal delay={120} className="bg-gold-soft border border-gold/30 rounded-3xl p-6 sm:p-7">
               <div className="flex items-center gap-3 mb-4">
                 <ShieldCheck size={22} className="text-gold-dark shrink-0" />
                 <h3 className="font-display text-lg text-charcoal">Why a quote from us is different</h3>
@@ -152,7 +152,7 @@ export default function Quote() {
           {/* Form area */}
           <div>
             {submitted ? (
-              <div className="bg-white border border-navy/8 rounded-3xl p-10 md:p-14 text-center shadow-card animate-fadeup">
+              <div className="bg-white border border-navy/8 rounded-3xl p-6 md:p-14 text-center shadow-card animate-fadeup">
                 <span className="w-20 h-20 rounded-full bg-steel-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
@@ -182,7 +182,7 @@ export default function Quote() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white border border-navy/8 rounded-3xl p-8 md:p-12 shadow-card">
+              <form onSubmit={handleSubmit} className="bg-white border border-navy/8 rounded-3xl p-6 md:p-12 shadow-card">
                 {/* Step indicator */}
                 <div className="flex items-center justify-center gap-3 mb-10">
                   {STEP_LABELS.map((label, i) => (
