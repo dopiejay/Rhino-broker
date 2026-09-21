@@ -4,9 +4,9 @@ import { Trash2, Phone, Mail, Download } from "lucide-react";
 import { getQuotes, updateQuoteStatus, deleteQuote } from "../lib/api";
 
 const statusStyles = {
-  new: "bg-green/10 text-green-dark border-green/30",
-  contacted: "bg-brass/10 text-brass-dark border-brass/30",
-  closed: "bg-navy/5 text-navy/60 border-navy/15",
+  new: "bg-gold/10 text-gold-dark border-gold/30",
+  contacted: "bg-steel/10 text-steel-dark border-steel/30",
+  closed: "bg-navy/5 text-navy/50 border-navy/15",
 };
 
 const FILTERS = ["all", "new", "contacted", "closed"];
@@ -100,13 +100,13 @@ export default function QuoteRequests() {
     <div className="p-8">
       <div className="flex items-start justify-between gap-4 mb-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-brass-dark mb-1">Manage</p>
-          <h1 className="font-display text-3xl text-navy">Quote Requests</h1>
+          <p className="text-xs font-semibold uppercase tracking-widest text-gold-dark mb-1">Manage</p>
+          <h1 className="font-display text-3xl text-charcoal">Quote Requests</h1>
         </div>
         <button
           onClick={() => exportCsv(visible)}
           disabled={visible.length === 0}
-          className="inline-flex items-center gap-1.5 border border-navy/20 text-navy text-sm font-semibold px-4 py-2 rounded-sm hover:bg-navy/5 disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-ring"
+          className="shrink-0 inline-flex items-center gap-1.5 border border-navy/20 text-navy text-sm font-semibold px-4 py-2 rounded-lg hover:bg-navy/5 disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-ring"
         >
           <Download size={15} /> Export CSV
         </button>
@@ -119,7 +119,7 @@ export default function QuoteRequests() {
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`text-left bg-white border rounded-sm p-5 transition-colors focus-ring ${
+            className={`text-left bg-white border rounded-2xl p-5 shadow-card transition-all focus-ring ${
               filter === f ? "border-navy" : "border-navy/10 hover:border-navy/30"
             }`}
           >
@@ -141,7 +141,7 @@ export default function QuoteRequests() {
 
       <div className="space-y-4 max-w-4xl">
         {visible.map((q) => (
-          <div key={q.id} className="bg-white border border-navy/10 rounded-sm p-5">
+          <div key={q.id} className="bg-white border border-navy/10 rounded-2xl p-5 shadow-card">
             <div className="flex items-start justify-between gap-4 mb-3">
               <div>
                 <p className="font-display text-lg text-navy">{q.name}</p>
@@ -176,7 +176,7 @@ export default function QuoteRequests() {
                     onClick={() => handleStatusChange(q.id, s)}
                     disabled={busyStatusId === q.id}
                     aria-busy={busyStatusId === q.id}
-                    className={`text-xs font-semibold px-3 py-1.5 rounded-sm border capitalize transition-colors focus-ring disabled:opacity-50 disabled:cursor-not-allowed ${
+                    className={`text-xs font-semibold px-3 py-1.5 rounded-lg border capitalize transition-colors focus-ring disabled:opacity-50 disabled:cursor-not-allowed ${
                       q.status === s ? "bg-navy text-white border-navy" : "border-navy/15 text-ink/60 hover:border-navy/40"
                     }`}
                   >
@@ -190,14 +190,14 @@ export default function QuoteRequests() {
                   <button
                     onClick={() => handleDelete(q.id)}
                     disabled={deletingId === q.id}
-                    className="text-xs font-semibold px-3 py-1.5 rounded-sm bg-red-600 text-white hover:bg-red-700 transition-colors focus-ring disabled:opacity-50"
+                    className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors focus-ring disabled:opacity-50"
                   >
                     {deletingId === q.id ? "Deleting…" : "Delete"}
                   </button>
                   <button
                     onClick={() => setConfirmingDelete(null)}
                     disabled={deletingId === q.id}
-                    className="text-xs font-semibold px-3 py-1.5 rounded-sm border border-navy/15 text-ink/60 hover:border-navy/40 transition-colors focus-ring disabled:opacity-50"
+                    className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-navy/15 text-ink/60 hover:border-navy/40 transition-colors focus-ring disabled:opacity-50"
                   >
                     Cancel
                   </button>

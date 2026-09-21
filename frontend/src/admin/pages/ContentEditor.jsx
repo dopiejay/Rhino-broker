@@ -16,7 +16,7 @@ const NEWS_CATEGORIES = ["Company Update", "Insurance Tip", "News", "Client Stor
 
 function SectionCard({ title, description, children, onSave, saving, saved, error }) {
   return (
-    <section className="bg-white border border-navy/10 rounded-sm p-6">
+    <section className="bg-white border border-navy/10 rounded-2xl p-6 shadow-card">
       <div className="flex items-start justify-between gap-4 mb-5">
         <div>
           <h2 className="font-display text-xl text-navy mb-1">{title}</h2>
@@ -25,13 +25,13 @@ function SectionCard({ title, description, children, onSave, saving, saved, erro
         <button
           onClick={onSave}
           disabled={saving}
-          className="shrink-0 inline-flex items-center gap-1.5 bg-steel text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60"
+          className="shrink-0 inline-flex items-center gap-1.5 bg-navy text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-navy-dark transition-colors focus-ring disabled:opacity-60"
         >
           {saving ? "Saving..." : saved ? <><CheckCircle2 size={15} /> Saved</> : "Save Changes"}
         </button>
       </div>
       {error && (
-        <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-sm px-3 py-2 mb-4">
+        <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mb-4">
           <AlertCircle size={14} /> {error}
         </p>
       )}
@@ -77,8 +77,8 @@ export default function ContentEditor() {
 
   return (
     <div className="p-8 max-w-4xl">
-      <p className="text-xs font-semibold uppercase tracking-widest text-brass-dark mb-1">Manage</p>
-      <h1 className="font-display text-3xl text-navy mb-6">Site Content</h1>
+      <p className="text-xs font-semibold uppercase tracking-widest text-gold-dark mb-1">Manage</p>
+      <h1 className="font-display text-3xl text-charcoal mb-6">Site Content</h1>
 
       <div className="flex flex-wrap gap-2 mb-8" role="tablist" aria-label="Content sections">
         {TABS.map((t) => (
@@ -87,9 +87,9 @@ export default function ContentEditor() {
             role="tab"
             aria-selected={tab === t.id}
             onClick={() => setTab(t.id)}
-            className={`text-sm font-semibold px-4 py-2 rounded-sm transition-colors focus-ring ${
+            className={`text-sm font-semibold px-4 py-2 rounded-full transition-colors focus-ring ${
               tab === t.id
-                ? "bg-steel text-white"
+                ? "bg-navy text-white shadow-card"
                 : "bg-white text-navy border border-navy/15 hover:border-steel"
             }`}
           >
@@ -148,7 +148,7 @@ export default function ContentEditor() {
                   type="text"
                   value={block[f.key] || ""}
                   onChange={(e) => setBlock("contact_info", { ...block, [f.key]: e.target.value })}
-                  className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
+                  className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm focus-ring focus:border-navy"
                 />
               </div>
             ))}

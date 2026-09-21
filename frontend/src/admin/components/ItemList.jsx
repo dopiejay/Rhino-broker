@@ -25,7 +25,7 @@ function ImageUpload({ value, onChange }) {
   return (
     <div>
       <div className="flex items-center gap-3">
-        <label className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy border border-navy/20 rounded-sm px-4 py-2 cursor-pointer hover:bg-navy/5 transition-colors disabled:opacity-60">
+        <label className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy border border-navy/20 rounded-lg px-4 py-2 cursor-pointer hover:bg-navy/5 transition-colors disabled:opacity-60">
           <Upload size={15} />
           {uploading ? "Uploading..." : value ? "Replace image" : "Upload image"}
           <input type="file" accept="image/*" onChange={handleFile} disabled={uploading} className="hidden" />
@@ -47,7 +47,7 @@ function ImageUpload({ value, onChange }) {
           <img
             src={resolveImage(value)}
             alt="Uploaded preview"
-            className="h-24 w-full max-w-xs object-cover rounded-sm border border-navy/10 bg-cream"
+            className="h-24 w-full max-w-xs object-cover rounded-xl border border-navy/10 bg-cream"
           />
         </div>
       )}
@@ -62,7 +62,7 @@ function Field({ field, value, onChange }) {
         rows={2}
         value={value || ""}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel resize-none"
+        className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm bg-white focus-ring focus:border-navy resize-none"
       />
     );
   }
@@ -71,7 +71,7 @@ function Field({ field, value, onChange }) {
       <select
         value={value || ""}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel"
+className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm bg-white focus-ring focus:border-navy"
       >
         {field.options.map((o) => (
           <option key={o} value={o}>{o}</option>
@@ -87,7 +87,7 @@ function Field({ field, value, onChange }) {
       type="text"
       value={value || ""}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm bg-white focus-ring focus:border-steel"
+      className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm bg-white focus-ring focus:border-navy"
     />
   );
 }
@@ -123,7 +123,7 @@ export default function ItemList({ items, fields, onChange, emptyItem, itemLabel
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
-          <div key={i} className="border border-navy/10 rounded-sm bg-white overflow-hidden">
+          <div key={i} className="border border-navy/10 rounded-xl bg-white overflow-hidden shadow-[0_1px_2px_rgba(0,61,37,0.05)]">
             <div className="flex items-center gap-2 px-4 py-3">
               <button
                 type="button"
@@ -161,7 +161,7 @@ export default function ItemList({ items, fields, onChange, emptyItem, itemLabel
       <button
         type="button"
         onClick={addItem}
-        className="flex items-center gap-1.5 text-sm font-semibold text-navy border border-navy/20 rounded-sm px-4 py-2 hover:bg-navy/5 transition-colors focus-ring"
+        className="flex items-center gap-1.5 text-sm font-semibold text-navy border border-navy/20 rounded-lg px-4 py-2 hover:bg-navy/5 transition-colors focus-ring"
       >
         <Plus size={15} /> Add {itemLabel}
       </button>

@@ -16,7 +16,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-60 shrink-0 bg-navy text-white flex flex-col">
+      <aside className="w-60 shrink-0 bg-charcoal text-white flex flex-col">
         <div className="px-6 py-6 border-b border-white/10">
           <div className="flex items-center gap-2.5">
             <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
@@ -27,7 +27,7 @@ export default function Layout() {
             </svg>
             <div>
               <p className="font-display text-sm leading-tight">Rhino</p>
-              <p className="text-[10px] uppercase tracking-widest text-brass">Admin</p>
+              <p className="text-[10px] uppercase tracking-widest text-gold">Admin</p>
             </div>
           </div>
         </div>
@@ -39,8 +39,10 @@ export default function Layout() {
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium transition-colors focus-ring ${
-                  isActive ? "bg-white/10 text-white" : "text-white/65 hover:bg-white/5 hover:text-white"
+                `relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors focus-ring ${
+                  isActive
+                    ? "bg-gold/15 text-gold after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:h-5 after:w-1 after:rounded-r-full after:bg-gold"
+                    : "text-white/60 hover:bg-white/5 hover:text-white"
                 }`
               }
             >
@@ -54,14 +56,14 @@ export default function Layout() {
           <p className="px-3 pb-2 text-xs text-white/40 truncate">Signed in as {username}</p>
           <button
             onClick={logout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium text-white/65 hover:bg-white/5 hover:text-white transition-colors focus-ring"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:bg-white/5 hover:text-white transition-colors focus-ring"
           >
             <LogOut size={17} /> Log out
           </button>
         </div>
       </aside>
 
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto bg-mist">
         <Outlet />
       </main>
     </div>

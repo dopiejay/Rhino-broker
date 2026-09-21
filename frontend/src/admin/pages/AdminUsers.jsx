@@ -49,16 +49,16 @@ export default function AdminUsers() {
 
   return (
     <div className="p-8 max-w-4xl">
-      <p className="text-xs font-semibold uppercase tracking-widest text-brass-dark mb-1">Access</p>
-      <h1 className="font-display text-3xl text-navy mb-8">Admin Users</h1>
+      <p className="text-xs font-semibold uppercase tracking-widest text-gold-dark mb-1">Access</p>
+      <h1 className="font-display text-3xl text-charcoal mb-8">Admin Users</h1>
 
       {error && (
-        <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-sm px-3 py-2 mb-6">
+        <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mb-6">
           <AlertCircle size={14} /> {error}
         </p>
       )}
 
-      <section className="bg-white border border-navy/10 rounded-sm p-6 mb-8">
+      <section className="bg-white border border-navy/10 rounded-2xl p-6 shadow-card mb-8">
         <div className="flex items-center gap-2 mb-5">
           <ShieldCheck size={18} className="text-steel" />
           <h2 className="font-display text-xl text-navy">Add a new admin</h2>
@@ -69,7 +69,7 @@ export default function AdminUsers() {
             <input
               type="text" required minLength={3} value={form.username}
               onChange={(e) => setForm({ ...form, username: e.target.value })}
-              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
+              className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm focus-ring focus:border-navy"
             />
           </div>
           <div>
@@ -77,20 +77,20 @@ export default function AdminUsers() {
             <input
               type="password" required minLength={8} value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className="w-full border border-navy/15 rounded-sm px-3 py-2 text-sm focus-ring focus:border-steel"
+              className="w-full border border-navy/15 rounded-lg px-3 py-2 text-sm focus-ring focus:border-navy"
             />
           </div>
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-1.5 bg-steel text-white text-sm font-semibold px-4 py-2 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60 mt-4 sm:mt-0"
+            className="inline-flex items-center gap-1.5 bg-navy text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-navy-dark transition-colors focus-ring disabled:opacity-60 mt-4 sm:mt-0"
           >
             <UserPlus size={15} /> {saving ? "Adding..." : "Add Admin"}
           </button>
         </form>
       </section>
 
-      <section className="bg-white border border-navy/10 rounded-sm p-6">
+      <section className="bg-white border border-navy/10 rounded-2xl p-6 shadow-card">
         <h2 className="font-display text-xl text-navy mb-5">Current logins</h2>
         {loading && <p className="text-sm text-ink/60">Loading...</p>}
         {!loading && admins.length === 0 && (

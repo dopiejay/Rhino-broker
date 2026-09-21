@@ -26,7 +26,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-navy px-5">
+    <div className="min-h-screen flex items-center justify-center bg-charcoal px-5">
       <div className="w-full max-w-sm">
         <div className="flex items-center gap-2.5 justify-center mb-8">
           <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
@@ -38,14 +38,14 @@ export default function Login() {
           <span className="font-display text-xl text-white">Rhino Admin</span>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-sm p-8 space-y-5">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 space-y-5 shadow-card">
           <div className="flex items-center gap-2 text-navy mb-2">
-            <ShieldCheck size={18} className="text-brass" />
+            <ShieldCheck size={18} className="text-gold" />
             <h1 className="font-display text-lg">Sign in</h1>
           </div>
 
           {error && (
-            <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-sm px-3 py-2.5">
+            <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2.5">
               <AlertCircle size={15} className="shrink-0" /> {error}
             </p>
           )}
@@ -55,7 +55,7 @@ export default function Login() {
             <input
               id="username" type="text" required autoFocus value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
+              className="w-full border border-navy/20 rounded-lg px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
             />
           </div>
           <div>
@@ -63,13 +63,13 @@ export default function Login() {
             <input
               id="password" type="password" required value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-navy/20 rounded-sm px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
+              className="w-full border border-navy/20 rounded-lg px-3.5 py-2.5 text-sm focus-ring focus:border-steel"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-steel text-white font-semibold px-5 py-3 rounded-sm hover:bg-steel-dark transition-colors focus-ring disabled:opacity-60"
+            className="w-full bg-navy text-white font-semibold px-5 py-3 rounded-lg hover:bg-navy-dark transition-colors focus-ring disabled:opacity-60"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
