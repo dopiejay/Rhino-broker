@@ -72,12 +72,7 @@ export default function Services() {
                   />
                 </div>
                 <div className="p-7 flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-11 h-11 rounded-xl bg-steel/10 text-steel-dark flex items-center justify-center shrink-0">
-                      <s.icon size={21} strokeWidth={1.75} />
-                    </span>
-                    <h3 className="font-display text-lg text-charcoal font-bold leading-tight">{s.name}</h3>
-                  </div>
+                  <h3 className="font-display text-lg text-charcoal font-bold leading-tight mb-3">{s.name}</h3>
                   <p className="text-sm text-charcoal/65 leading-relaxed mb-4">{s.desc}</p>
                   <ul className="space-y-2 mb-5">
                     {s.benefits.map((b) => (

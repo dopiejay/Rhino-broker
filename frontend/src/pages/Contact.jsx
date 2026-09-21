@@ -36,7 +36,13 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Call Us",
-      value: site.phone,
+      value: (
+        <span>
+          {site.phone}
+          <br />
+          {site.phone2}
+        </span>
+      ),
       href: site.phoneHref,
     },
     {
@@ -104,13 +110,13 @@ export default function Contact() {
               eyebrow="Find Us"
               title="Our Office in"
               accent="Blantyre."
-              description="Our office is at Umoyo House — but for anything that can be handled remotely, we're only a call or email away."
+              description="Our office is on Chilembwe Rd — but for anything that can be handled remotely, we're only a call or email away."
               className="mb-8"
             />
             <Reveal className="rounded-2xl overflow-hidden border border-navy/8 shadow-card mb-8">
               <iframe
-                title="Rhino Insurance Brokers & Consulting — Umoyo House, Blantyre"
-                src="https://www.google.com/maps?q=Umoyo+House+Blantyre+Malawi&output=embed"
+                title="Rhino Insurance Brokers & Consulting — Chilembwe Rd, Blantyre"
+                src="https://www.google.com/maps?q=Chilembwe+Road+Blantyre+Malawi&output=embed"
                 width="100%"
                 height="360"
                 style={{ border: 0 }}

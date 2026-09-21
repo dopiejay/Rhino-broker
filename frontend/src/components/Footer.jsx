@@ -61,6 +61,10 @@ export default function Footer() {
               <a href={site.phoneHref} className="text-white/60 hover:text-white transition-colors">{site.phone}</a>
             </li>
             <li className="flex items-center gap-3">
+              <Phone size={16} className="shrink-0 text-gold" />
+              <a href={site.phone2Href} className="text-white/60 hover:text-white transition-colors">{site.phone2}</a>
+            </li>
+            <li className="flex items-center gap-3">
               <Mail size={16} className="shrink-0 text-gold" />
               <a href="mailto:rhinoinfo@rhinoinsurancemw.com" className="text-white/60 hover:text-white transition-colors break-all">
                 rhinoinfo@rhinoinsurancemw.com

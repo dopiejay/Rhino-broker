@@ -140,7 +140,7 @@ export default function ContentEditor() {
               { key: "phone", label: "Phone" },
               { key: "email", label: "Email" },
               { key: "hours", label: "Office Hours" },
-              { key: "whatsapp", label: "WhatsApp Number (digits only, e.g. 265888590727)" },
+              { key: "whatsapp", label: "WhatsApp Number (digits only, e.g. 2651824182)" },
             ].map((f) => (
               <div key={f.key}>
                 <label className="block text-xs font-medium text-ink/60 mb-1">{f.label}</label>

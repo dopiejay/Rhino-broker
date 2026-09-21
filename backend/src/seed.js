@@ -106,12 +106,13 @@ const defaultContent = {
     ],
   },
   contact_info: {
-    address: "Umoyo House, 2nd Floor, North Wing",
+    address: "Chilembwe Rd",
     city: "Blantyre, Malawi",
-    phone: "+265 888 590 727",
+    phone: "+265 1 824 182",
+    phone2: "+265 1 833 158",
     email: "rhinoinfo@rhinoinsurancemw.com",
     hours: "Monday – Friday, 8:00 – 17:00",
-    whatsapp: "265888590727",
+    whatsapp: "2651824182",
   },
   team: {
     items: [
