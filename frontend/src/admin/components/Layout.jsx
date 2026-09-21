@@ -1,10 +1,11 @@
 import { NavLink, Navigate, Outlet } from "react-router-dom";
-import { LayoutDashboard, FileText, MailQuestion, Users, LogOut } from "lucide-react";
+import { LayoutDashboard, FileText, MailQuestion, Users, LogOut, UserPlus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 const navItems = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/admin/quotes", label: "Quote Requests", icon: MailQuestion },
+  { to: "/admin/leads", label: "Leads", icon: UserPlus },
   { to: "/admin/content", label: "Site Content", icon: FileText },
   { to: "/admin/users", label: "Admin Users", icon: Users },
 ];

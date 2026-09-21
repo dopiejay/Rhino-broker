@@ -41,3 +41,12 @@ export async function submitQuote(payload) {
   });
   return handle(res);
 }
+
+export async function submitLead(payload) {
+  const res = await fetch(`${API_URL}/api/leads`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return handle(res);
+}

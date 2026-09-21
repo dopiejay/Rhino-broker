@@ -5,6 +5,7 @@ import { initSchema } from "./db.js";
 import authRoutes from "./routes/auth.js";
 import contentRoutes from "./routes/content.js";
 import quoteRoutes from "./routes/quotes.js";
+import leadRoutes from "./routes/leads.js";
 import adminRoutes from "./routes/admins.js";
 import uploadRoutes, { UPLOAD_DIR } from "./routes/uploads.js";
 
@@ -30,6 +31,7 @@ app.get("/api/health", (req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/quotes", quoteRoutes);
+app.use("/api/leads", leadRoutes);
 app.use("/api/admins", adminRoutes);
 app.use("/api/uploads", uploadRoutes);
 

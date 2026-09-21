@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
 import { IMAGES } from "../data/site";
 import { useSiteContent } from "../site/SiteContentContext";
+import { submitLead } from "../lib/api";
 
 const inputCls =
   "w-full bg-white border border-navy/15 rounded-xl px-4 py-3.5 text-sm focus-ring focus:border-gold transition-colors placeholder:text-charcoal/35";
@@ -12,6 +13,8 @@ const inputCls =
 export default function Contact() {
   const { site } = useSiteContent();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -24,12 +27,18 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const subject = `[Website] ${form.subject}`;
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || "—"}\n\n${form.message}`;
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await submitLead(form);
+      setSent(true);
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   const cards = [
@@ -140,10 +149,10 @@ export default function Contact() {
                 <span className="w-20 h-20 rounded-full bg-steel-soft text-navy flex items-center justify-center mx-auto mb-7">
                   <CheckCircle2 size={40} />
                 </span>
-                <h2 className="font-display text-3xl text-navy mb-3">Draft ready.</h2>
+                <h2 className="font-display text-3xl text-navy mb-3">Message sent.</h2>
                 <p className="text-charcoal/60 text-lg leading-relaxed max-w-md mx-auto">
-                  We've opened your email app with the message filled in — just hit send
-                  {form.name ? `, ${form.name.split(" ")[0]}` : ""}. Need us sooner?
+                  Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — your message has been
+                  received and our team will get back to you shortly. Need us sooner?
                 </p>
                 <a
                   href={site.phoneHref}
@@ -184,11 +193,17 @@ export default function Contact() {
                     <label htmlFor="message" className="block text-sm font-semibold text-navy mb-2">Message *</label>
                     <textarea id="message" name="message" rows={5} required value={form.message} onChange={handleChange} className={`${inputCls} resize-none`} placeholder="How can we help?" />
                   </div>
+                  {error && (
+                    <p className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                      <AlertCircle size={15} className="shrink-0" /> {error}
+                    </p>
+                  )}
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring"
+                    disabled={sending}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-navy text-white font-semibold text-sm px-8 py-4 rounded-full hover:bg-navy-dark transition-colors focus-ring disabled:opacity-60"
                   >
-                    Send Message <Send size={16} />
+                    {sending ? "Sending..." : "Send Message"} <Send size={16} />
                   </button>
                 </div>
               </form>

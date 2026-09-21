@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MailQuestion, Clock, CheckCircle2, ArrowRight, FileText, Users } from "lucide-react";
-import { getQuotes } from "../lib/api";
+import { MailQuestion, Clock, CheckCircle2, ArrowRight, FileText, Users, UserPlus } from "lucide-react";
+import { getQuotes, getLeads } from "../lib/api";
 
 export default function Dashboard() {
   const [quotes, setQuotes] = useState(null);
+  const [leads, setLeads] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
     getQuotes().then(setQuotes).catch((err) => setError(err.message));
+    getLeads().then(setLeads).catch(() => {});
   }, []);
 
   const counts = quotes
@@ -26,7 +28,17 @@ export default function Dashboard() {
 
       {error && <p className="text-sm text-red-700 mb-6">{error}</p>}
 
-      <div className="grid sm:grid-cols-3 gap-5 mb-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        <Link
+          to="/admin/leads"
+          className="group bg-white border border-navy/10 rounded-2xl p-6 shadow-card hover:-translate-y-0.5 hover:shadow-lift transition-all"
+        >
+          <span className="w-11 h-11 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4">
+            <UserPlus size={22} />
+          </span>
+          <p className="text-3xl font-display text-navy">{leads ? leads.length : "—"}</p>
+          <p className="text-sm text-ink/60 group-hover:text-navy transition-colors">New leads</p>
+        </Link>
         <Link
           to="/admin/quotes?status=new"
           className="group bg-white border border-navy/10 rounded-2xl p-6 shadow-card hover:-translate-y-0.5 hover:shadow-lift transition-all"

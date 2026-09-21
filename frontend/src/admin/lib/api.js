@@ -135,6 +135,21 @@ export async function deleteQuote(id) {
   return request(`/api/quotes/${id}`, { method: "DELETE" });
 }
 
+export async function getLeads() {
+  return request("/api/leads");
+}
+
+export async function updateLeadStatus(id, status) {
+  return request(`/api/leads/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({ status }),
+  });
+}
+
+export async function deleteLead(id) {
+  return request(`/api/leads/${id}`, { method: "DELETE" });
+}
+
 export async function getAdmins() {
   return request("/api/admins");
 }
